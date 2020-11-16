@@ -144,6 +144,11 @@
   <ItemGroup>
     <None Include="任务&amp;进度\大作业任务&amp;进度.md" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\headers\memory.h" />
+    <ClInclude Include="src\headers\register.h" />
+    <ClInclude Include="src\headers\stack.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

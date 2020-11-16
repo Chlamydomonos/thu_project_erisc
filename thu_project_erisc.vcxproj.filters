@@ -22,4 +22,15 @@
   <ItemGroup>
     <None Include="任务&amp;进度\大作业任务&amp;进度.md" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\headers\memory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\register.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
