@@ -15,22 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\headers\main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="任务&amp;进度\大作业任务&amp;进度.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\headers\memory.h">
+    <ClInclude Include="src\memory.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\headers\stack.h">
+    <ClInclude Include="src\register.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\headers\register.h">
+    <ClInclude Include="src\stack.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
