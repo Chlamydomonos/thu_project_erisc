@@ -19,4 +19,7 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="任务&amp;进度\大作业任务&amp;进度.md" />
+  </ItemGroup>
 </Project>

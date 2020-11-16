@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClCompile Include="src\headers\main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="任务&amp;进度\大作业任务&amp;进度.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
