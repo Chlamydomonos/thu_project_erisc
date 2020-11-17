@@ -18,13 +18,13 @@
     <None Include="任务&amp;进度\大作业任务&amp;进度.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\memory.h">
+    <ClInclude Include="src\ememory.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\register.h">
+    <ClInclude Include="src\eregister.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\stack.h">
+    <ClInclude Include="src\estack.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
