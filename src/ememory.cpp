@@ -1,27 +1,29 @@
 #include "ememory.h"
 
-erisc::Memory::Memory()
+erisc::EMemory::EMemory()
 {
 }
 
-erisc::Memory::~Memory()
+erisc::EMemory::~EMemory()
 {
 }
 
-int erisc::Memory::read(int address)
+int erisc::EMemory::read(int address)
 {
 	return 0;
 }
 
-void erisc::Memory::write(int value, int address)
+void erisc::EMemory::write(int value, int address)
 {
 }
 
-bool erisc::Memory::getAccessed(int zone)
+bool erisc::EMemory::getAccessed(int zone)
 {
 	return false;
 }
 
-void erisc::Memory::clearHistory()
+void erisc::EMemory::clearHistory()
 {
 }
+
+erisc::EMemory* erisc::eMemory = new erisc::EMemory();

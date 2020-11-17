@@ -4,11 +4,11 @@
 #define MAX_MEMORY 1<<22;
 namespace erisc
 {
-	class Memory
+	class EMemory
 	{
 	public:
-		Memory();
-		~Memory();
+		EMemory();
+		~EMemory();
 
 		/**
 		* @brief 读取内存中指定地址
@@ -39,5 +39,7 @@ namespace erisc
 		char* memoryList;
 		bool* hasAccessed;
 	};
+
+	extern EMemory* eMemory;
 }
 #endif // !MEMORY_H

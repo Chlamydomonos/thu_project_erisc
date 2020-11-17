@@ -2,11 +2,11 @@
 #define REGISTER_H
 namespace erisc
 {
-	class Register
+	class ERegister
 	{
 	public:
-		Register();
-		~Register();
+		ERegister();
+		~ERegister();
 
 		/**
 		* @brief 将一个32位整数写入寄存器
@@ -41,5 +41,7 @@ namespace erisc
 		bool hasRead;
 		bool hasWritten;
 	};
+
+	extern ERegister *eRegister;
 }
 #endif // !REGISTER_H

@@ -4,11 +4,11 @@
 #define MAX_STACK 1<<20
 namespace erisc
 {
-	class Stack
+	class EStack
 	{
 	public:
-		Stack();
-		~Stack();
+		EStack();
+		~EStack();
 
 		/**
 		* @brief 把一个32位整数压入栈
@@ -37,5 +37,7 @@ namespace erisc
 		int* stack_top;
 		bool accessed;
 	};
+
+	extern EStack *eStack;
 }
 #endif // !STACK_H

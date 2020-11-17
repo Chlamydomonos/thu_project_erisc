@@ -1,27 +1,29 @@
 #include "estack.h"
 
-erisc::Stack::Stack()
+erisc::EStack::EStack()
 {
 }
 
-erisc::Stack::~Stack()
+erisc::EStack::~EStack()
 {
 }
 
-void erisc::Stack::push(int value)
+void erisc::EStack::push(int value)
 {
 }
 
-int erisc::Stack::pop()
+int erisc::EStack::pop()
 {
 	return 0;
 }
 
-bool* erisc::Stack::getAccessed()
+bool* erisc::EStack::getAccessed()
 {
 	return nullptr;
 }
 
-void erisc::Stack::clearHistory()
+void erisc::EStack::clearHistory()
 {
 }
+
+erisc::EStack *erisc::eStack = new erisc::EStack();

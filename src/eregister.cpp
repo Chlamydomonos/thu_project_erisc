@@ -1,33 +1,35 @@
 #include "eregister.h"
 
-erisc::Register::Register()
+erisc::ERegister::ERegister()
 {
 }
 
-erisc::Register::~Register()
+erisc::ERegister::~ERegister()
 {
 }
 
-void erisc::Register::write(int value)
+void erisc::ERegister::write(int value)
 {
 }
 
-int erisc::Register::read()
+int erisc::ERegister::read()
 {
 	return 0;
 }
 
-bool erisc::Register::getRead()
+bool erisc::ERegister::getRead()
 {
 	return false;
 }
 
-bool erisc::Register::getWritten()
+bool erisc::ERegister::getWritten()
 {
 	return false;
 }
 
-bool erisc::Register::clearHistory()
+bool erisc::ERegister::clearHistory()
 {
 	return false;
 }
+
+erisc::ERegister *erisc::eRegister = new erisc::ERegister[32];
