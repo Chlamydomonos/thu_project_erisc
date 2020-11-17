@@ -30,7 +30,7 @@ namespace erisc
 		* @brief 判断寄存器是否被写过
 		* @return 寄存器是否被写过
 		*/
-		bool getWrote();
+		bool getWritten();
 
 		/**
 		* @brief 清空寄存器读写的历史记录
@@ -38,8 +38,8 @@ namespace erisc
 		bool clearHistory();
 	private:
 		int value;
-		bool read;
-		bool wrote;
+		bool hasRead;
+		bool hasWritten;
 	};
 }
 #endif // !REGISTER_H

@@ -139,6 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ememory.cpp" />
+    <ClCompile Include="src\eregister.cpp" />
+    <ClCompile Include="src\estack.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -37,7 +37,7 @@ namespace erisc
 		void clearHistory();
 	private:
 		char* memoryList;
-		bool* memoryAccessed;
+		bool* hasAccessed;
 	};
 }
 #endif // !MEMORY_H
