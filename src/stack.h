@@ -10,7 +10,7 @@ public:
 
 	/**
 	* @brief 把一个32位整数压入栈
-	* @param value  要压入栈的整数
+	* @param value 要压入栈的整数
 	*/
 	void push(int value);
 
@@ -19,11 +19,13 @@ public:
 	* @return 栈顶的数
 	*/
 	int pop();
+
 	/**
 	* @brief 判断栈是否被读写过
 	* @return 栈是否被读写过
 	*/
 	bool* getAccessed();
+
 	/**
 	* @brief 清空栈读写的历史记录
 	*/
