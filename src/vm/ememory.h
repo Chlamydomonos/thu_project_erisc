@@ -1,7 +1,7 @@
 #ifndef MEMORY_H
 #define MEMORY_H
 
-#define MAX_MEMORY 1<<22;
+#define MAX_MEMORY 1<<22
 namespace vm
 {
 	class EMemory
@@ -36,8 +36,12 @@ namespace vm
 		*/
 		void clearHistory();
 	private:
-		char* memoryList;
+		unsigned char* memoryList;
 		bool* hasAccessed;
+		/*
+		* 判断是否超出内存的边界
+		*/
+		void border_judge(int address);
 	};
 }
 
