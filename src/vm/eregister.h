@@ -35,7 +35,7 @@ namespace vm
 		/**
 		* @brief 清空寄存器读写的历史记录
 		*/
-		bool clearHistory();
+		void clearHistory();
 	private:
 		int value;
 		bool hasRead;

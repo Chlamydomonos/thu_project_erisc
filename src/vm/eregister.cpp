@@ -2,6 +2,9 @@
 
 vm::ERegister::ERegister()
 {
+	value = 0;
+	hasRead = 0;
+	hasWritten = 0;
 }
 
 vm::ERegister::~ERegister()
@@ -10,24 +13,28 @@ vm::ERegister::~ERegister()
 
 void vm::ERegister::write(int value)
 {
+	this->value = value;
+	hasWritten = true;
 }
 
 int vm::ERegister::read()
-{
-	return 0;
+{	
+	hasRead = true;
+	return this->value;
 }
 
 bool vm::ERegister::getRead()
 {
-	return false;
+	return hasRead;
 }
 
 bool vm::ERegister::getWritten()
 {
-	return false;
+	return hasWritten;
 }
 
-bool vm::ERegister::clearHistory()
+void vm::ERegister::clearHistory()
 {
-	return false;
+	hasRead = false;
+	hasWritten = false;
 }
