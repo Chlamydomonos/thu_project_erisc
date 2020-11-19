@@ -38,6 +38,10 @@ namespace vm
 	private:
 		char* memoryList;
 		bool* hasAccessed;
+		/*
+		* 判断是否超出内存的边界
+		*/
+		void border_judge(int address);
 	};
 }
 #endif // !MEMORY_H
