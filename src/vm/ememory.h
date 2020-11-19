@@ -36,7 +36,7 @@ namespace vm
 		*/
 		void clearHistory();
 	private:
-		char* memoryList;
+		unsigned char* memoryList;
 		bool* hasAccessed;
 		/*
 		* 判断是否超出内存的边界

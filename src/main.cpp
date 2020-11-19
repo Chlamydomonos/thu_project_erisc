@@ -9,7 +9,7 @@ int main(int argc, char **argv)
 	EMemory* aaaa = new EMemory();
 	int i;
 	cin >> i;
-	aaaa->write(100000, i);
+	aaaa->write(32897423, i);
 	int b = aaaa->read(i);
 	try
 	{

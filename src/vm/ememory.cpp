@@ -2,7 +2,7 @@
 
 vm::EMemory::EMemory()
 {
-	memoryList = new char[MAX_MEMORY];
+	memoryList = new unsigned char[MAX_MEMORY];
 	hasAccessed = new bool[16];
 	for (int i = 0; i < MAX_MEMORY; i++)
 		memoryList[i] = 0;
@@ -23,20 +23,19 @@ int vm::EMemory::read(int address)
 	for (int i = 0; i < 4; i++) {
 			ret = (ret << 8) | (int)*(memoryList + address + i);
 	}
-	hasAccessed[address << 18] = true;
-	hasAccessed[(address + 3) << 18] = true;
+	hasAccessed[address >> 18] = true;
+	hasAccessed[(address + 3) >> 18] = true;
 	return ret;
 }
 
 void vm::EMemory::write(int value, int address)
 {
 	border_judge(address);
-	hasAccessed[address << 18] = true;
-	hasAccessed[(address + 3) << 18] = true;
-	*(memoryList + address + 3) = value & 255;
-	*(memoryList + address + 2) = (value >> 8) & 255;
-	*(memoryList + address + 1) = (value >> 16) & 255;
-	*(memoryList + address + 0) = (value >> 24) & 255;
+	hasAccessed[address >> 18] = true;
+	hasAccessed[(address + 3) >> 18] = true;
+	for (int i = 0; i < 4; i++) {
+		*(memoryList + address + 3 - i) = (value >> (8 * i)) & 255;
+	}
 }
 
 bool vm::EMemory::getAccessed(int zone)
