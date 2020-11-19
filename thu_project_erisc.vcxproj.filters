@@ -30,10 +30,10 @@
     <ClInclude Include="src\vm\vm.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\vm\command\command.h">
+    <ClInclude Include="src\command\command.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\vm\command\param.h">
+    <ClInclude Include="src\io\inpututil.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,10 +53,10 @@
     <ClCompile Include="src\vm\vm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\vm\command\param.cpp">
+    <ClCompile Include="src\command\command.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\vm\command\command.cpp">
+    <ClCompile Include="src\io\inpututil.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

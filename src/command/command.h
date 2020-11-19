@@ -1,33 +1,23 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-#include "param.h"
+#include "../vm/vm.h"
+
+using vm::VM;
 
 namespace erisc
 {
-	enum CommandType
+	enum ParamType
 	{
-		LOAD,
-		STORE,
-		PUSH,
-		POP,
-		MOV,
-		ADD,
-		SUB,
-		MUL,
-		DIV,
-		REM,
-		AND,
-		OR,
-		JAL,
-		BEQ,
-		BNE,
-		BLE,
-		BGE,
-		CALL,
-		RET,
-		END,
-		DRAW
+		REGISTER,
+		NUMBER
+	};
+
+	struct Param
+	{
+		ParamType type;
+		int value;
+		Param(ParamType type, int value);
 	};
 
 	class Command
@@ -35,7 +25,7 @@ namespace erisc
 	public:
 		Command(int paramAmount, char *paramString);
 		~Command();
-
+		virtual void run(VM vm);
 	protected:
 		int paramAmount;
 		Param* params;
