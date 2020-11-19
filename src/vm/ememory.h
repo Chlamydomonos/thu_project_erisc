@@ -1,7 +1,7 @@
 #ifndef MEMORY_H
 #define MEMORY_H
 
-#define MAX_MEMORY 1<<22;
+#define MAX_MEMORY 1<<22
 namespace vm
 {
 	class EMemory

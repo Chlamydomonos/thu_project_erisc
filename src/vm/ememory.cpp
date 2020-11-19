@@ -18,25 +18,25 @@ vm::EMemory::~EMemory()
 
 int vm::EMemory::read(int address)
 {
-	border_judge(address)
+	border_judge(address);
 	int ret = 0;
 	for (int i = 0; i < 4; i++) {
-			ret = ret * 256 + *(memoryList + address + i);
+			ret = (ret << 8) | (int)*(memoryList + address + i);
 	}
-	hasAccessed[address / (1 << 18)] = true;
-	hasAccessed[(address + 3) / (1 << 18)] = true;
+	hasAccessed[address << 18] = true;
+	hasAccessed[(address + 3) << 18] = true;
 	return ret;
 }
 
 void vm::EMemory::write(int value, int address)
 {
 	border_judge(address);
-	hasAccessed[address / (1 << 18)] = true;
-	hasAccessed[(address + 3) / (1 << 18)] = true;
-	*(memoryList + address + 3) = value % 256;
-	*(memoryList + address + 2) = (value / 256) % 256;
-	*(memoryList + address + 1) = (value / (256 * 256)) % 256;
-	*(memoryList + address + 0) = (value / (256 * 256 * 256)) % 256;
+	hasAccessed[address << 18] = true;
+	hasAccessed[(address + 3) << 18] = true;
+	*(memoryList + address + 3) = value & 255;
+	*(memoryList + address + 2) = (value >> 8) & 255;
+	*(memoryList + address + 1) = (value >> 16) & 255;
+	*(memoryList + address + 0) = (value >> 24) & 255;
 }
 
 bool vm::EMemory::getAccessed(int zone)
