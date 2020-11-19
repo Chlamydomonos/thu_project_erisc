@@ -16,6 +16,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="任务&amp;进度\大作业任务&amp;进度.md" />
+    <None Include="任务&amp;进度\完成大作业过程中出现的bug.md" />
+    <None Include="任务&amp;进度\一些说明.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\vm\ememory.h">
