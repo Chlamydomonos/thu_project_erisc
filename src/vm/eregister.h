@@ -1,6 +1,6 @@
 #ifndef REGISTER_H
 #define REGISTER_H
-namespace erisc
+namespace vm
 {
 	class ERegister
 	{
@@ -41,7 +41,5 @@ namespace erisc
 		bool hasRead;
 		bool hasWritten;
 	};
-
-	extern ERegister *eRegister;
 }
 #endif // !REGISTER_H

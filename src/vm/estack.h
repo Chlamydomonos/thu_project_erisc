@@ -2,7 +2,7 @@
 #define STACK_H
 
 #define MAX_STACK 1<<20
-namespace erisc
+namespace vm
 {
 	class EStack
 	{
@@ -37,7 +37,5 @@ namespace erisc
 		int* stack_top;
 		bool accessed;
 	};
-
-	extern EStack *eStack;
 }
 #endif // !STACK_H

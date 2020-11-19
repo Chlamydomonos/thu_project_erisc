@@ -2,7 +2,7 @@
 #define MEMORY_H
 
 #define MAX_MEMORY 1<<22;
-namespace erisc
+namespace vm
 {
 	class EMemory
 	{
@@ -39,7 +39,5 @@ namespace erisc
 		char* memoryList;
 		bool* hasAccessed;
 	};
-
-	extern EMemory* eMemory;
 }
 #endif // !MEMORY_H
