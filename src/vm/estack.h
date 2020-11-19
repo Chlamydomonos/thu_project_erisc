@@ -38,4 +38,5 @@ namespace vm
 		bool accessed;
 	};
 }
+
 #endif // !STACK_H

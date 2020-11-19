@@ -40,4 +40,5 @@ namespace vm
 		bool* hasAccessed;
 	};
 }
+
 #endif // !MEMORY_H

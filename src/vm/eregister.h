@@ -42,4 +42,5 @@ namespace vm
 		bool hasWritten;
 	};
 }
+
 #endif // !REGISTER_H

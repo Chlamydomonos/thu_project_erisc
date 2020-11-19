@@ -27,6 +27,15 @@
     <ClInclude Include="src\vm\estack.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\vm\vm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vm\command\command.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vm\command\param.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -39,6 +48,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\vm\estack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vm\vm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vm\command\param.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vm\command\command.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

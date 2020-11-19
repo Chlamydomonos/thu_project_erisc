@@ -139,18 +139,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\vm\command\command.cpp" />
+    <ClCompile Include="src\vm\command\param.cpp" />
     <ClCompile Include="src\vm\ememory.cpp" />
     <ClCompile Include="src\vm\eregister.cpp" />
     <ClCompile Include="src\vm\estack.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\vm\vm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="任务&amp;进度\大作业任务&amp;进度.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\vm\command\command.h" />
+    <ClInclude Include="src\vm\command\param.h" />
     <ClInclude Include="src\vm\ememory.h" />
     <ClInclude Include="src\vm\eregister.h" />
     <ClInclude Include="src\vm\estack.h" />
+    <ClInclude Include="src\vm\vm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
