@@ -18,6 +18,7 @@
     <None Include="任务&amp;进度\大作业任务&amp;进度.md" />
     <None Include="任务&amp;进度\完成大作业过程中出现的bug.md" />
     <None Include="任务&amp;进度\一些说明.md" />
+    <None Include="任务&amp;进度\使用git的工作流程.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\vm\ememory.h">
@@ -36,6 +37,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\io\inpututil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\testmain.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -61,5 +65,22 @@
     <ClCompile Include="src\io\inpututil.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\testmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120110234567.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120110637699.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120111326047.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120111430294.png">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>
