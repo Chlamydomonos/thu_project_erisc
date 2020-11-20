@@ -26,16 +26,16 @@ namespace vm
 		* @brief 判断栈是否被读写过
 		* @return 栈是否被读写过
 		*/
-		bool* getAccessed();
+		bool getAccessed();
 
 		/**
 		* @brief 清空栈读写的历史记录
 		*/
 		void clearHistory();
 	private:
-		int* stack_list;
-		int* stack_top;
+		int* stackTop;
 		bool accessed;
+		int* stackBottom;
 	};
 }
 
