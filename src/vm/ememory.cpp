@@ -52,5 +52,5 @@ void vm::EMemory::clearHistory()
 void vm::EMemory::border_judge(int address)
 {
 	if ((address + 3 >= MAX_MEMORY) || (address < 0)) 
-		throw "The address you visited is not in memory";
+		throw Exception("The address you visited is not in memory");
 }
