@@ -48,6 +48,9 @@
     <ClInclude Include="src\command\commands\load.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\exception\exception.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -75,6 +78,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\command\commands\load.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\exception\exception.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
