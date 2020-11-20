@@ -1,8 +1,5 @@
 #include <cstdio>
-#include<iostream>
-#include "vm/ememory.h"
-using namespace std;
-using namespace vm;
+#include "testmain.h"
 
 int main(int argc, char **argv)
 {
