@@ -6,6 +6,23 @@ erisc::Param::Param(ParamType type, int value)
 	this->value = value;
 }
 
+int erisc::Param::getValue(VM* vm)
+{
+	if (type == ParamType::NUMBER)
+		return value;
+	else
+	{
+		try
+		{
+			return vm->getRegister(value)->read();
+		}
+		catch (const char* e)
+		{
+			throw e;
+		}
+	}
+}
+
 erisc::Command::Command()
 {
 	paramAmount = 0;

@@ -18,6 +18,7 @@ namespace erisc
 		ParamType type;
 		int value;
 		Param(ParamType type, int value);
+		int getValue(VM *vm);
 	};
 
 	class Command
