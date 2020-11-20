@@ -1,10 +1,10 @@
 #ifndef EXCEPTION_H
 #define EXCEPTION_H
-
+#include <cstring>
 class Exception
 {
 public:
-	Exception(char* message);
+	Exception(const char* message);
 	char* what();
 	~Exception();
 private:

@@ -1,16 +1,17 @@
 #include "exception.h"
 
-exception::Exception::Exception(char* message)
+Exception::Exception(const char* message)
 {
-	this->message = message;
+	this->message = new char[strlen(message)];
+	strcpy(this->message, message);
 }
 
-char* exception::Exception::what()
+char* Exception::what()
 {
 	return message;
 }
 
-exception::Exception::~Exception()
+Exception::~Exception()
 {
 	delete[]message;
 }
