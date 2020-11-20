@@ -168,6 +168,8 @@
     <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120110637699.png" />
     <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120111326047.png" />
     <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120111430294.png" />
+    <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120111650002.png" />
+    <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120111747882.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
