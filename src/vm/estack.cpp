@@ -19,7 +19,7 @@ vm::EStack::~EStack()
 void vm::EStack::push(int value)
 {
 	if (stackTop == stackBottom - 1)
-		throw "Stack out of range";
+		throw Exception("Stack out of range");
 	*stackTop = value;
 	stackTop++;
 	accessed = true;
@@ -28,7 +28,7 @@ void vm::EStack::push(int value)
 int vm::EStack::pop()
 {
 	if (stackTop == stackBottom - (MAX_STACK))
-		throw "Stack out of range";
+		throw Exception("Stack out of range");
 	stackTop--;
 	return (*stackTop);
 }

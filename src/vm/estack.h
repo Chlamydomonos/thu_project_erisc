@@ -1,5 +1,6 @@
 #ifndef STACK_H
 #define STACK_H
+#include "../exception/exception.h"
 
 #define MAX_STACK 1<<20
 namespace vm
