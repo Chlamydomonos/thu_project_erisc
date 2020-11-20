@@ -1,10 +1,12 @@
 #ifndef INPUTUTIL_H
 #define INPUTUTIL_H
-
 #include "../command/command.h"
 
-using erisc::Param;
+using erisc::Command;
 
-extern Param* getParamsFromString(char* str);
+namespace input
+{
+	extern Command* readCommandsFromFile(char* fileName);
+}
 
 #endif // !INPUTUTIL_H

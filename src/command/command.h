@@ -7,7 +7,7 @@ using vm::VM;
 
 namespace erisc
 {
-	enum ParamType
+	enum class ParamType
 	{
 		REGISTER,
 		NUMBER
@@ -23,12 +23,15 @@ namespace erisc
 	class Command
 	{
 	public:
+		Command();
 		Command(int paramAmount, char *paramString);
 		~Command();
-		virtual void run(VM vm);
+		virtual void run(VM* vm);
 	protected:
 		int paramAmount;
 		Param* params;
+	private:
+		void getParamsFromString(char* str);
 	};
 }
 
