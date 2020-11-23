@@ -46,4 +46,5 @@ void erisc::Command::run(VM* vm)
 
 void erisc::Command::getParamsFromString(char* str)
 {
+
 }
