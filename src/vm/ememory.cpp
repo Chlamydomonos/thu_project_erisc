@@ -1,4 +1,5 @@
 #include "ememory.h"
+#include "../exception/exception.h"
 
 vm::EMemory::EMemory()
 {

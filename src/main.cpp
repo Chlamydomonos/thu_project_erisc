@@ -1,10 +1,14 @@
 #include <cstdio>
 #include "testmain.h"
 
+//#define DEBUG
+
 int main(int argc, char **argv)
 {
-	//testMain();
-	//return 0;
+#ifdef DEBUG
+	testMain();
+	return 0;
+#endif // DEBUG
 	printf("Suondeea");
 	return 0;
 }

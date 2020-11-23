@@ -1,4 +1,5 @@
 #include "command.h"
+#include "../vm/vm.h"
 
 erisc::Param::Param(ParamType type, int value)
 {

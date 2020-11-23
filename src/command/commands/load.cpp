@@ -1,4 +1,5 @@
 #include "load.h"
+#include "../../vm/vm.h"
 
 erisc::Load::Load(char* paramString) : erisc::Command(2, paramString)
 {

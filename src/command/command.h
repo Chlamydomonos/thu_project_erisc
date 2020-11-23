@@ -1,7 +1,10 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-#include "../vm/vm.h"
+namespace vm
+{
+	class VM;
+}
 
 using vm::VM;
 
