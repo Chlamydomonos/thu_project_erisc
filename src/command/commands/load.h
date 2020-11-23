@@ -2,6 +2,7 @@
 #define LOAD_H
 #include "../command.h"
 #include "../../exception/exception.h"
+
 namespace erisc
 {
 	class Load : public Command

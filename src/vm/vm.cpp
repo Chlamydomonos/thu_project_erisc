@@ -1,4 +1,5 @@
 #include "vm.h"
+#include "../command/command.h"
 
 vm::VM::VM(int maxCommands)
 {

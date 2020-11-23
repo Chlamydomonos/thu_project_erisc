@@ -1,12 +1,16 @@
 #ifndef VM_H
-
+#define VM_H
 
 #include "ememory.h"
 #include "eregister.h"
 #include "estack.h"
-#include "../command/command.h"
 
 #define REGISTER_AMOUNT 32
+
+namespace erisc
+{
+	class Command;
+}
 
 using erisc::Command;
 
