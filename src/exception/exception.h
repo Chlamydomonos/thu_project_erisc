@@ -26,7 +26,6 @@ public:
 	~Exception();
 private:
 	char* message;
-	void myStrcpy(char* destination, const char* source);
 };
 
 #endif // !EXCEPTION_H

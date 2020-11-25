@@ -1,5 +1,12 @@
 #include "exception.h"
 
+void myStrcpy(char* destination, const char* source)
+{
+	int len = strlen(source);
+	for (int i = 0; i < len; i++)
+		destination[i] = source[i];
+}
+
 Exception::Exception(const char* message)
 {
 	int len = strlen(message);
@@ -30,11 +37,4 @@ char* Exception::what()
 Exception::~Exception()
 {
 	delete[]message;
-}
-
-void Exception::myStrcpy(char* destination, const char* source)
-{
-	int len = strlen(source);
-	for (int i = 0; i < len; i++)
-		destination[i] = source[i];
 }

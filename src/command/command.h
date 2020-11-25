@@ -36,6 +36,11 @@ namespace erisc
 		*/
 		Param(ParamType type, int value);
 
+		/**
+		* @brief 默认构造函数，将参数初始化为数字0
+		*/
+		Param();
+
 		/*
 		* @brief 获取参数在虚拟机中代表的实际数值
 		* @param vm 虚拟机
