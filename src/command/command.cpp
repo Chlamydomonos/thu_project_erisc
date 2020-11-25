@@ -88,9 +88,7 @@ void erisc::Command::getParamsFromString(char* str)
 		if (*i == 'x')
 		{
 			currentParam.type = ParamType::REGISTER;
-			if(!DIGIT(i[1]) || (!NOCHR(i[2]) && !DIGIT(i[2])) || (DIGIT(i[2]) && !NOCHR(i[3])))
-				throw Exception("Command params format error");
-			if (i[2] > '3')
+			if(!DIGIT(i[1]) || (!NOCHR(i[2]) && !DIGIT(i[2])) || (DIGIT(i[1]) && DIGIT(i[2]) && !NOCHR(i[3])))
 				throw Exception("Command params format error");
 			if (BLANK(i[2]))
 			{
@@ -99,9 +97,11 @@ void erisc::Command::getParamsFromString(char* str)
 			}
 			else
 			{
-				currentParam.value = (i[1] - '0') * 10 + i[2] - 0;
+				currentParam.value = (i[1] - '0') * 10 + i[2] - '0';
 				i += 3;
 			}
+			if (currentParam.value >= 32)
+				throw Exception("Command format error");
 		}
 
 		else if (ALPHA(*i))
@@ -247,6 +247,6 @@ void erisc::Command::getParamsFromString(char* str)
 			throw Exception("Command format error");
 		}
 	}
-	if (!NOCHR(*i))
+	if(!END(*i))
 		throw Exception("Command format error");
 }
