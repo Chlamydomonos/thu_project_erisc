@@ -16,6 +16,9 @@ using erisc::Command;
 
 namespace vm
 {
+	/**
+	* @brief 虚拟机。拥有一个4MB内存，32个寄存器与一个4MB栈
+	*/
 	class VM
 	{
 	public:

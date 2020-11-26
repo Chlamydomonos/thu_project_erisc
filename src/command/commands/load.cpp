@@ -16,6 +16,7 @@ void erisc::Load::run(VM* vm)
 		if (!(params[0].type == ParamType::REGISTER && params[1].type == ParamType::REGISTER))
 			throw Exception("Param type error");
 		int value = params[1].getValue(vm);
+		value = vm->getMemory()->read(value);
 		vm->getRegister(params[0].value)->write(value);
 	}
 	catch (Exception& e)

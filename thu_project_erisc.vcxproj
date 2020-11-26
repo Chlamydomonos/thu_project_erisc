@@ -142,6 +142,7 @@
     <ClCompile Include="src\command\command.cpp" />
     <ClCompile Include="src\command\commands\load.cpp" />
     <ClCompile Include="src\command\commands\store.cpp" />
+    <ClCompile Include="src\command\commands\pop.cpp" />
     <ClCompile Include="src\exception\exception.cpp" />
     <ClCompile Include="src\io\inpututil.cpp" />
     <ClCompile Include="src\testmain.cpp" />
@@ -161,7 +162,6 @@
     <ClInclude Include="src\command\allcommands.h" />
     <ClInclude Include="src\command\command.h" />
     <ClInclude Include="src\command\commands\load.h" />
-    <ClInclude Include="src\command\commands\store.h" />
     <ClInclude Include="src\exception\exception.h" />
     <ClInclude Include="src\io\inpututil.h" />
     <ClInclude Include="src\testmain.h" />

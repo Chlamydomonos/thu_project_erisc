@@ -15,7 +15,7 @@ void erisc::Pop::run(VM* vm)
 	{
 		if (params[0].type != ParamType::REGISTER)
 		{
-			throw Exception("Param Type Error!");
+			throw Exception("Param type error");
 		}
 		int stackTopValue=vm->getStack()->pop();
 		vm->getRegister(params[0].value)->write(stackTopValue);

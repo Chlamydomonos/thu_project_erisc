@@ -6,7 +6,7 @@
 #define HEX(x) (DIGIT(x) || ((x) >= 'A' && (x) <= 'F') || ((x) >= 'a' && (x) <= 'f'))
 #define HEX_TO_NUM(x) ((x) >= 'a' ? x - 'a' + 10 : ((x) > 'A' ? x - 'A' + 10 : x - '0'))
 #define ALPHA(x) ((x) >= 'a' && (x) <= 'z')
-#define BLANK(x) ((x) == ' ' || (x) == '\t')
+#define BLANK(x) ((x) == ' ' || (x) == '\t' || (x) == ',')
 #define END(x) ((x) == '\n' || (x) == 0 || (x) == EOF)
 #define NOCHR(x) (BLANK(x) || END(x))
 
@@ -82,8 +82,22 @@ void erisc::Command::getParamsFromString(char* str)
 		if (!BLANK(*i))
 			throw Exception("Command format error");
 
+		bool hasComma = false;
+		if (paramIndex == 0)
+			hasComma = true;
+
 		while (BLANK(*i))
+		{
+			if (*i == ',')
+			{
+				if (paramIndex == 0)
+					throw Exception("Command format error");
+				hasComma = true;
+			}
 			i++;
+		}
+		if (!hasComma)
+			throw Exception("Command format error");
 
 		if (*i == 'x')
 		{
