@@ -162,6 +162,8 @@
     <ClInclude Include="src\command\allcommands.h" />
     <ClInclude Include="src\command\command.h" />
     <ClInclude Include="src\command\commands\load.h" />
+    <ClInclude Include="src\command\commands\pop.h" />
+    <ClInclude Include="src\command\commands\store.h" />
     <ClInclude Include="src\exception\exception.h" />
     <ClInclude Include="src\io\inpututil.h" />
     <ClInclude Include="src\testmain.h" />

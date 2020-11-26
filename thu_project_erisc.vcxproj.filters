@@ -51,10 +51,10 @@
     <ClInclude Include="src\exception\exception.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\command\commands\store.h">
+    <ClInclude Include="src\command\commands\pop.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\command\commands\pop.h">
+    <ClInclude Include="src\command\commands\store.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
