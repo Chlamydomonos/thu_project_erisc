@@ -1,10 +1,11 @@
 #ifndef EXCEPTION_H
 #define EXCEPTION_H
 #include <cstring>
+#include <exception>
 /**
 * @brief 异常。此程序中抛出的所有异常都应使用此异常类
 */
-class Exception
+class Exception : public std::exception
 {
 public:
 	/**
@@ -22,7 +23,7 @@ public:
 	* @brief 获取异常信息
 	* @return 异常信息
 	*/
-	char* what();
+	const char* what() const throw();
 	~Exception();
 private:
 	char* message;
