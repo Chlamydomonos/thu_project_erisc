@@ -29,12 +29,15 @@ Exception::Exception(const char* message, Exception& e)
 	myStrcpy(this->message + len1 + 2, e.what());
 }
 
-char* Exception::what()
+const char* Exception::what() const throw()
 {
 	return message;
 }
 
 Exception::~Exception()
 {
-	delete[]message;
+	if (*message >= 0)
+	{
+		delete []message;
+	}
 }
