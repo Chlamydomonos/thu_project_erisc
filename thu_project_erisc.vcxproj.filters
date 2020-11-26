@@ -51,6 +51,9 @@
     <ClInclude Include="src\command\commands\load.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\command\commands\pop.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -81,6 +84,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\command\commands\load.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\command\commands\pop.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
