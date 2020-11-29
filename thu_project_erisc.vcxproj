@@ -140,8 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\command\command.cpp" />
+    <ClCompile Include="src\command\commands\add.cpp" />
+    <ClCompile Include="src\command\commands\div.cpp" />
     <ClCompile Include="src\command\commands\load.cpp" />
     <ClCompile Include="src\command\commands\mov.cpp" />
+    <ClCompile Include="src\command\commands\mul.cpp" />
+    <ClCompile Include="src\command\commands\rem.cpp" />
     <ClCompile Include="src\command\commands\store.cpp" />
     <ClCompile Include="src\command\commands\pop.cpp" />
     <ClCompile Include="src\exception\exception.cpp" />
@@ -162,9 +166,13 @@
   <ItemGroup>
     <ClInclude Include="src\command\allcommands.h" />
     <ClInclude Include="src\command\command.h" />
+    <ClInclude Include="src\command\commands\add.h" />
+    <ClInclude Include="src\command\commands\div.h" />
     <ClInclude Include="src\command\commands\load.h" />
     <ClInclude Include="src\command\commands\mov.h" />
+    <ClInclude Include="src\command\commands\mul.h" />
     <ClInclude Include="src\command\commands\pop.h" />
+    <ClInclude Include="src\command\commands\rem.h" />
     <ClInclude Include="src\command\commands\store.h" />
     <ClInclude Include="src\exception\exception.h" />
     <ClInclude Include="src\io\inpututil.h" />
