@@ -150,6 +150,7 @@
     <ClCompile Include="src\command\commands\rem.cpp" />
     <ClCompile Include="src\command\commands\store.cpp" />
     <ClCompile Include="src\command\commands\pop.cpp" />
+    <ClCompile Include="src\command\commands\sub.cpp" />
     <ClCompile Include="src\exception\exception.cpp" />
     <ClCompile Include="src\io\inpututil.cpp" />
     <ClCompile Include="src\testmain.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="src\command\commands\pop.h" />
     <ClInclude Include="src\command\commands\rem.h" />
     <ClInclude Include="src\command\commands\store.h" />
+    <ClInclude Include="src\command\commands\sub.h" />
     <ClInclude Include="src\exception\exception.h" />
     <ClInclude Include="src\io\inpututil.h" />
     <ClInclude Include="src\testmain.h" />

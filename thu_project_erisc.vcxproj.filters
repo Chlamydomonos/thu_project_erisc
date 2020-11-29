@@ -72,10 +72,13 @@
     <ClInclude Include="src\command\commands\rem.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\command\commands\or.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="src\command\commands\and.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\command\commands\or.h">
+    <ClInclude Include="src\command\commands\sub.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -131,10 +134,13 @@
     <ClCompile Include="src\command\commands\rem.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\command\commands\or.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="src\command\commands\and.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\command\commands\or.cpp">
+    <ClCompile Include="src\command\commands\sub.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
