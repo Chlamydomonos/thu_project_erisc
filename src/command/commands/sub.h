@@ -1,0 +1,15 @@
+#ifndef SUB_H
+#define SUB_H
+#include "../command.h"
+#include "../../exception/exception.h"
+
+namespace erisc {
+	class Sub :public Command {
+	public:
+		Sub(char* parastring);
+		~Sub();
+		void run(VM* vm);
+	};
+}
+
+#endif
