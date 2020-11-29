@@ -1,29 +1,27 @@
 #include "testmain.h"
 #include "exception/exception.h"
-#include "command/command.h"
+#include "command/commands/mov.h"
 #include <iostream>
 #include <exception>
 using namespace std;
+using namespace erisc;
 int testMain()
 {
-    int n = 3;
-    const char* x = " zero          ,-100     , 0x1000";
-    char* a = new char[1000];
-    char* m;
-    for (int i = 0; i < 1000; i++)
-        a[i] = 0;
-    for (int i = 0; i <= strlen(x); i++)
-        a[i] = x[i];
-    Command* c;
-        try
-        {
-            c = new Command(n, a);
-            delete c;
-        }
-        catch (Exception e)
-        {
-            cout << e.what() << endl;
-        }
-        cout << "???Suondeea" << endl;
+    try {
+        char* str = new char[1024];
+        *str = ' ';
+        cin >> str + 1;
+        VM* vm = new VM(1024);
+        Command* mov = new Mov(str);
+        mov->run(vm);
+        cout << vm->getRegister(5)->read();
+        delete[] str;
+        delete vm;
+        delete mov;
+    }
+    catch (Exception& e)
+    {
+        cout << e.what();
+    }
     return 0;
 }

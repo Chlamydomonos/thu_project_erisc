@@ -57,16 +57,16 @@
     <ClInclude Include="src\command\commands\store.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\command\commands\mul.h">
+    <ClInclude Include="src\command\commands\mov.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\command\commands\add.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\command\commands\sub.h">
+    <ClInclude Include="src\command\commands\div.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\command\commands\div.h">
+    <ClInclude Include="src\command\commands\mul.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\command\commands\rem.h">
@@ -110,16 +110,16 @@
     <ClCompile Include="src\command\commands\pop.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\command\commands\mul.cpp">
+    <ClCompile Include="src\command\commands\mov.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\command\commands\add.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\command\commands\sub.cpp">
+    <ClCompile Include="src\command\commands\div.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\command\commands\div.cpp">
+    <ClCompile Include="src\command\commands\mul.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\command\commands\rem.cpp">
