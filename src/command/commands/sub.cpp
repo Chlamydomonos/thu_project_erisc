@@ -1,6 +1,8 @@
 #include "sub.h"
 #include "../../vm/vm.h"
 
+using vm::VM;
+
 erisc::Sub::Sub(char* parastring) :erisc::Command(3, parastring) {
 
 }

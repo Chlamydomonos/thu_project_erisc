@@ -1,6 +1,8 @@
 #include "div.h"
 #include "../../vm/vm.h"
 
+using vm::VM;
+
 erisc::Div::Div(char* parastring) :erisc::Command(3, parastring) {
 
 }

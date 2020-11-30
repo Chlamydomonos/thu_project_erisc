@@ -2,6 +2,8 @@
 #include <cstdio>
 #include <cstring>
 
+using vm::VM;
+
 #define DIGIT(x) ((x) >= '0' && (x) <= '9')
 #define HEX(x) (DIGIT(x) || ((x) >= 'A' && (x) <= 'F') || ((x) >= 'a' && (x) <= 'f'))
 #define HEX_TO_NUM(x) ((x) >= 'a' ? x - 'a' + 10 : ((x) > 'A' ? x - 'A' + 10 : x - '0'))

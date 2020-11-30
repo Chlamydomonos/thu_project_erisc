@@ -1,6 +1,8 @@
 #include "rem.h"
 #include "../../vm/vm.h"
 
+using vm::VM;
+
 erisc::Rem::Rem(char* parastring) :erisc::Command(3, parastring) {
 
 }

@@ -1,6 +1,8 @@
 #include "vm.h"
 #include "../command/command.h"
 
+using erisc::Command;
+
 vm::VM::VM(int maxCommands)
 {
 	maxCommandAmount = maxCommands;
@@ -8,6 +10,7 @@ vm::VM::VM(int maxCommands)
 	eRegister = new ERegister[REGISTER_AMOUNT];
 	eStack = new EStack();
 	commands = new Command[maxCommands];
+	currentCommandAmount = 0;
 }
 
 vm::VM::~VM()

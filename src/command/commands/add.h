@@ -8,7 +8,7 @@ namespace erisc {
 	public:
 		Add(char* parastring);
 		~Add();
-		void run(VM* vm);
+		void run(vm::VM* vm);
 	};
 }
 

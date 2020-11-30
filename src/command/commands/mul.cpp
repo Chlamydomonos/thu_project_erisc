@@ -1,6 +1,8 @@
 #include "mul.h"
 #include "../../vm/vm.h"
 
+using vm::VM;
+
 erisc::Mul::Mul(char* parastring) :erisc::Command(3, parastring) {
 
 }

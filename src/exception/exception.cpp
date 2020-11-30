@@ -29,7 +29,7 @@ Exception::Exception(const char* message, Exception& e)
 	myStrcpy(this->message + len1 + 2, e.what());
 }
 
-const char* Exception::what() const throw()
+const char* Exception::what()
 {
 	return message;
 }

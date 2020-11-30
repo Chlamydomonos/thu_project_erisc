@@ -1,6 +1,8 @@
 #include "and.h"
 #include "../../vm/vm.h"
 
+using vm::VM;
+
 erisc::And::And(char* parastring) :erisc::Command(3, parastring) {
 
 }

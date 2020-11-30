@@ -10,7 +10,7 @@ namespace erisc
 	public:
 		Mov(char* paramString);
 		~Mov();
-		void run(VM* vm);
+		void run(vm::VM* vm);
 	};
 }
 #endif // !MOV_H

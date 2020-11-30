@@ -1,6 +1,8 @@
 #include "mov.h"
 #include "../../vm/vm.h"
 
+using vm::VM;
+
 erisc::Mov::Mov(char* paramString):erisc::Command(2,paramString)
 {
 }

@@ -1,6 +1,8 @@
 #include "add.h"
 #include "../../vm/vm.h"
 
+using vm::VM;
+
 erisc::Add::Add(char* parastring) :erisc::Command(3, parastring) {
 
 }

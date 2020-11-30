@@ -10,7 +10,7 @@ namespace erisc
 	public:
 		Pop(char* paramString);
 		~Pop();
-		void run(VM* vm);
+		void run(vm::VM* vm);
 	};	
 }
 #endif // !POP_H

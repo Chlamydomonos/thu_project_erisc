@@ -1,6 +1,8 @@
 #include "store.h"
 #include "../../vm/vm.h"
 
+using vm::VM;
+
 erisc::Store::Store(char* paramstring) :erisc::Command(2, paramstring) {
 
 }

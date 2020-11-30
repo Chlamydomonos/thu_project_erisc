@@ -1,6 +1,8 @@
 #include "pop.h"
 #include "../../vm/vm.h"
 
+using vm::VM;
+
 erisc::Pop::Pop(char* paramString):erisc::Command(1,paramString)
 {
 }

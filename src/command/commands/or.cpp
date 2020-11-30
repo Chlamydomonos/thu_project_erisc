@@ -1,6 +1,8 @@
 #include "or.h"
 #include "../../vm/vm.h"
 
+using vm::VM;
+
 erisc::Or::Or(char* parastring) :erisc::Command(3, parastring) {
 
 }

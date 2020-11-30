@@ -10,7 +10,7 @@ namespace erisc
 	public:
 		Load(char* paramString);
 		~Load();
-		void run(VM* vm);
+		void run(vm::VM* vm);
 	};
 }
 

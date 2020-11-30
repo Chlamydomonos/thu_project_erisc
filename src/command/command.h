@@ -3,8 +3,6 @@
 
 #include "../vm/vm.h"
 
-using vm::VM;
-
 namespace erisc
 {
 	/**
@@ -46,7 +44,7 @@ namespace erisc
 		* @param vm 虚拟机
 		* @return 若参数为立即数则直接返回值，若参数为寄存器则返回寄存器中存储的值
 		*/
-		int getValue(VM *vm);
+		int getValue(vm::VM *vm);
 	};
 
 	/*
@@ -72,7 +70,7 @@ namespace erisc
 		* @brief 命令在虚拟机运行时执行的逻辑
 		* @param vm 虚拟机
 		*/
-		virtual void run(VM* vm);
+		virtual void run(vm::VM* vm);
 	protected:
 
 		/// 参数数量
