@@ -84,6 +84,12 @@
     <ClInclude Include="src\command\commands\push.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\command\lineid.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vm\lineidlist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -147,6 +153,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\command\commands\push.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\command\lineid.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -67,6 +67,9 @@ namespace vm
 		*/
 		void addCommand(erisc::Command command);
 
+		///目前正在运行的指令的行号
+		int currentRunningLine;
+
 	private:
 		///虚拟机的内存
 		EMemory* eMemory;

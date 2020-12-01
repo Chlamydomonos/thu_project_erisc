@@ -38,7 +38,7 @@ namespace vm
 		*/
 		void clearHistory();
 	private:
-		char* memoryList;
+		unsigned char* memoryList;
 		bool* hasAccessed;
 	};
 }

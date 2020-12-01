@@ -11,6 +11,7 @@ vm::VM::VM(int maxCommands)
 	eStack = new EStack();
 	commands = new Command[maxCommands];
 	currentCommandAmount = 0;
+	currentRunningLine = -1;
 }
 
 vm::VM::~VM()
@@ -49,7 +50,7 @@ void vm::VM::initCommands(Command* commands, int commandAmount)
 
 void vm::VM::runCommand(int line)
 {
-	if (line > currentCommandAmount)
+	if (line > currentCommandAmount || line < 0)
 		throw "line number out of range";
 	commands[line - 1].run(this);
 }

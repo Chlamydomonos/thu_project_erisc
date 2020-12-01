@@ -11,7 +11,7 @@ int testMain()
         char* str = new char[1024];
         *str = ' ';
         cin >> str + 1;
-        VM* vm = new VM(1024);
+        vm::VM* vm = new vm::VM(1024);
         Command* mov = new Mov(str);
         mov->run(vm);
         cout << vm->getRegister(5)->read();

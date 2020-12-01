@@ -152,6 +152,7 @@
     <ClCompile Include="src\command\commands\store.cpp" />
     <ClCompile Include="src\command\commands\pop.cpp" />
     <ClCompile Include="src\command\commands\sub.cpp" />
+    <ClCompile Include="src\command\lineid.cpp" />
     <ClCompile Include="src\exception\exception.cpp" />
     <ClCompile Include="src\io\inpututil.cpp" />
     <ClCompile Include="src\testmain.cpp" />
@@ -182,12 +183,14 @@
     <ClInclude Include="src\command\commands\rem.h" />
     <ClInclude Include="src\command\commands\store.h" />
     <ClInclude Include="src\command\commands\sub.h" />
+    <ClInclude Include="src\command\lineid.h" />
     <ClInclude Include="src\exception\exception.h" />
     <ClInclude Include="src\io\inpututil.h" />
     <ClInclude Include="src\testmain.h" />
     <ClInclude Include="src\vm\ememory.h" />
     <ClInclude Include="src\vm\eregister.h" />
     <ClInclude Include="src\vm\estack.h" />
+    <ClInclude Include="src\vm\lineidlist.h" />
     <ClInclude Include="src\vm\vm.h" />
   </ItemGroup>
   <ItemGroup>
