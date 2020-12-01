@@ -1,6 +1,8 @@
 #include "push.h"
 #include "../../vm/vm.h"
 
+using vm::VM;
+
 erisc::Push::Push(char* paramString) :erisc::Command(1, paramString)
 {
 }

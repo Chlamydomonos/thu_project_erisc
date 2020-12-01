@@ -7,7 +7,7 @@ namespace erisc {
 	public:
 		Push(char* parastring);
 		~Push();
-		void run(VM* vm);
+		void run(vm::VM* vm);
 	};
 }
 
