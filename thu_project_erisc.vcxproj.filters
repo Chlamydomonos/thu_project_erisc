@@ -158,6 +158,9 @@
     <ClCompile Include="src\command\lineid.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\vm\lineidlist.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120110234567.png">

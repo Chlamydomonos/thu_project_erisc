@@ -1,6 +1,12 @@
 #include "ememory.h"
 #include "../exception/exception.h"
 
+void border_judge(int address)
+{
+	if ((address + 3 >= MAX_MEMORY) || (address < 0))
+		throw Exception("The address you visited is not in memory");
+}
+
 vm::EMemory::EMemory()
 {
 	memoryList = new unsigned char[MAX_MEMORY];
@@ -48,10 +54,4 @@ void vm::EMemory::clearHistory()
 {
 	for (int i = 0; i < 16; i++)
 		*(hasAccessed + i) = false;
-}
-
-void vm::EMemory::border_judge(int address)
-{
-	if ((address + 3 >= MAX_MEMORY) || (address < 0)) 
-		throw Exception("The address you visited is not in memory");
 }

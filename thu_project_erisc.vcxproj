@@ -160,6 +160,7 @@
     <ClCompile Include="src\vm\eregister.cpp" />
     <ClCompile Include="src\vm\estack.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\vm\lineidlist.cpp" />
     <ClCompile Include="src\vm\vm.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -15,30 +15,6 @@ const char* exceptionHead = "Found conflict line identifier at lines ";
 
 char buffer[BUFFER_LEN] = {0};
 
-bool stringSame(char* a, char* b)
-{
-    if (strlen(a) != strlen(b))
-        return false;
-    for (int i = 0; i < strlen(a); i++)
-        if (a[i] != b[i])
-            return false;
-    return true;
-}
-
-bool strBigger(char* a, char* b)
-{
-    if (*a == *b && *a != 0)
-        return strBigger(a + 1, b + 1);
-    return CHRBGR(*a, *b);
-}
-
-bool strSmaller(char* a, char* b)
-{
-    if (*a == *b && *a != 0)
-        return strSmaller(a + 1, b + 1);
-    return CHRSMR(*a, *b);
-}
-
 char* genExceptionStr(int a, int b)
 {
     if (buffer[0] != 'F')
@@ -92,41 +68,65 @@ int erisc::LineId::getLine()
     return line;
 }
 
-bool erisc::LineId::operator==(const LineId* b)
+bool erisc::LineId::strSame(const char* a, const char* b)
 {
-    if (stringSame(this->name, b->name))
+    if (strlen(a) != strlen(b))
+        return false;
+    for (int i = 0; i < strlen(a); i++)
+        if (a[i] != b[i])
+            return false;
+    return true;
+}
+
+bool erisc::LineId::strBigger(const char* a, const char* b)
+{
+    if (*a == *b && *a != 0)
+        return strBigger(a + 1, b + 1);
+    return CHRBGR(*a, *b);
+}
+
+bool erisc::LineId::strSmaller(const char* a, const char* b)
+{
+    if (*a == *b && *a != 0)
+        return strSmaller(a + 1, b + 1);
+    return CHRSMR(*a, *b);
+}
+
+bool erisc::LineId::operator==(const LineId& b)
+{
+    if (strSame(this->name, b.name))
     {
-        if (this->line != b->line)
-            throw Exception(genExceptionStr(this->line - 1, b->line - 1));
+        if (this->line != b.line)
+            throw Exception(genExceptionStr(this->line - 1, b.line - 1));
         return true;
     }
     return false;
 }
 
-bool erisc::LineId::operator>(const LineId* b)
+bool erisc::LineId::operator>(const LineId& b)
 {
-    if(stringSame(this->name, b->name) && this->line != b->line)
-        throw Exception(genExceptionStr(this->line - 1, b->line - 1));
-    return strBigger(this->name, b->name);
+    if(strSame(this->name, b.name) && this->line != b.line)
+        throw Exception(genExceptionStr(this->line - 1, b.line - 1));
+    return strBigger(this->name, b.name);
 }
 
-bool erisc::LineId::operator<(const LineId* b)
+bool erisc::LineId::operator<(const LineId& b)
 {
-    if (stringSame(this->name, b->name) && this->line != b->line)
-        throw Exception(genExceptionStr(this->line - 1, b->line - 1));
-    return strSmaller(this->name, b->name);
+    if (strSame(this->name, b.name) && this->line != b.line)
+        throw Exception(genExceptionStr(this->line - 1, b.line - 1));
+    return strSmaller(this->name, b.name);
 }
 
-bool erisc::LineId::operator>=(const LineId* b)
+bool erisc::LineId::operator>=(const LineId& b)
 {
-    if (stringSame(this->name, b->name) && this->line != b->line)
-        throw Exception(genExceptionStr(this->line - 1, b->line - 1));
-    return !strSmaller(this->name, b->name);
+    if (strSame(this->name, b.name) && this->line != b.line)
+        throw Exception(genExceptionStr(this->line - 1, b.line - 1));
+    return !strSmaller(this->name, b.name);
 }
 
-bool erisc::LineId::operator<=(const LineId* b)
+bool erisc::LineId::operator<=(const LineId& b)
 {
-    if (stringSame(this->name, b->name) && this->line != b->line)
-        throw Exception(genExceptionStr(this->line - 1, b->line - 1));
-    return !strBigger(this->name, b->name);
+    if (strSame(this->name, b.name) && this->line != b.line)
+        throw Exception(genExceptionStr(this->line - 1, b.line - 1));
+    return !strBigger(this->name, b.name);
 }
