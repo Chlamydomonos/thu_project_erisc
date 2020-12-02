@@ -16,7 +16,7 @@ namespace erisc
 		* @param name 行标识的名称
 		* @param line 行标识下一行的行号（行号从1开始）
 		*/
-		LineId(char* name, int line);
+		LineId(const char* name, int line);
 		~LineId();
 
 		/**

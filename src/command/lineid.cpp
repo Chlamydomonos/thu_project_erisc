@@ -10,46 +10,52 @@
 #define LTRSMR(a, b) (SAME(a, b) ? (a < b) : (GET_CAPITAL(a) < GET_CAPITAL(b)))
 #define CHRBGR(a, b) ((a) == 0 ? false : ((b) == 0 ? true : LTRBGR(a, b)))
 #define CHRSMR(a, b) ((b) == 0 ? false : ((a) == 0 ? true : LTRSMR(a, b)))
-
-const char* exceptionHead = "Found conflict line identifier at lines ";
-
-char buffer[BUFFER_LEN] = {0};
-
-char* genExceptionStr(int a, int b)
+namespace
 {
-    if (buffer[0] != 'F')
-        for (int i = 0; i < HEAD_LEN; i++)
-            buffer[i] = exceptionHead[i];
-    char* i = buffer + HEAD_LEN;
-    while (a > 0)
+    const char* exceptionHead = "Found conflict line identifier at lines ";
+
+    char buffer[BUFFER_LEN] = { 0 };
+
+    char* genExceptionStr(int a, int b)
     {
-        *i = a % 10 + '0';
-        a /= 10;
+        if (buffer[0] != 'F')
+            for (int i = 0; i < HEAD_LEN; i++)
+                buffer[i] = exceptionHead[i];
+        char* i = buffer + HEAD_LEN;
+        while (a > 0)
+        {
+            *i = a % 10 + '0';
+            a /= 10;
+            i++;
+        }
+        *i = ' ';
         i++;
-    }
-    *i = ' ';
-    i++;
-    *i = 'a';
-    i++;
-    *i = 'n';
-    i++;
-    *i = 'd';
-    i++;
-    *i = ' ';
-    i++;
-    while (b > 0)
-    {
-        *i = b % 10 + '0';
-        b /= 10;
+        *i = 'a';
         i++;
+        *i = 'n';
+        i++;
+        *i = 'd';
+        i++;
+        *i = ' ';
+        i++;
+        while (b > 0)
+        {
+            *i = b % 10 + '0';
+            b /= 10;
+            i++;
+        }
+        *i = 0;
+        return buffer;
     }
-    *i = 0;
-    return buffer;
 }
 
-erisc::LineId::LineId(char* name, int line) : Command()
+erisc::LineId::LineId(const char* name, int line) : Command()
 {
-    this->name = name;
+    int len = strlen(name);
+    this->name = new char[len + 1];
+    for (int i = 0; i < len; i++)
+        this->name[i] = name[i];
+    this->name[len] = 0;
     this->line = line;
 }
 

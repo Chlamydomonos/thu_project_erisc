@@ -18,6 +18,13 @@ public:
 	* @param e 原来的异常
 	*/
 	Exception(const char* message, Exception& e);
+
+	/**
+	* @用于异常处理系统复制异常对象的构造函数
+	* @param e 需要复制的原异常
+	*/
+	Exception(const Exception& e);
+
 	/**
 	* @brief 获取异常信息
 	* @return 异常信息

@@ -1,10 +1,13 @@
 #include "exception.h"
 
-void myStrcpy(char* destination, const char* source)
+namespace
 {
-	int len = strlen(source);
-	for (int i = 0; i < len; i++)
-		destination[i] = source[i];
+	void myStrcpy(char* destination, const char* source)
+	{
+		int len = strlen(source);
+		for (int i = 0; i < len; i++)
+			destination[i] = source[i];
+	}
 }
 
 Exception::Exception(const char* message)
@@ -27,6 +30,16 @@ Exception::Exception(const char* message, Exception& e)
 	this->message[len1] = ':';
 	this->message[len1 + 1] = '\n';
 	myStrcpy(this->message + len1 + 2, e.what());
+}
+
+Exception::Exception(const Exception& e)
+{
+	char* _message = e.message;
+	int len = strlen(_message);
+	this->message = new char[len + 1];
+	for (int i = 0; i <= len; i++)
+		this->message[i] = 0;
+	myStrcpy(this->message, _message);
 }
 
 const char* Exception::what()
