@@ -1,6 +1,10 @@
 #ifndef LINEIDLIST_H
 #define LINEIDLIST_H
-#include "../command/lineid.h"
+
+namespace erisc
+{
+	class LineId;
+}
 
 namespace vm
 {
