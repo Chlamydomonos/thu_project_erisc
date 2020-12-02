@@ -4,12 +4,13 @@
 #include "ememory.h"
 #include "eregister.h"
 #include "estack.h"
+#include "lineidlist.h"
 
 #define REGISTER_AMOUNT 32
 
-//为防止头文件互相包含，在此重新声明erisc::Command
 namespace erisc
 {
+	//为防止头文件互相包含，在此重新声明erisc::Command
 	class Command;
 }
 
@@ -53,7 +54,7 @@ namespace vm
 		* @param commands 给定的指令列表
 		* @param commandAmount 该指令列表中指令的数量
 		*/
-		void initCommands(erisc::Command* commands, int commandAmount);
+		void initCommands(erisc::Command** commands, int commandAmount);
 
 		/**
 		* @brief 执行一条指令
@@ -65,7 +66,7 @@ namespace vm
 		* 向指令列表中添加一条指令
 		* @param command 要添加的指令
 		*/
-		void addCommand(erisc::Command command);
+		void addCommand(erisc::Command* command);
 
 		///目前正在运行的指令的行号
 		int currentRunningLine;
@@ -78,7 +79,9 @@ namespace vm
 		///虚拟机的寄存器列表
 		ERegister* eRegister;
 		///虚拟机的指令列表
-		erisc::Command* commands;
+		erisc::Command** commands;
+		///虚拟机的行标识列表
+		LineIdList* lineIds;
 		///虚拟机的最大指令数量
 		int maxCommandAmount;
 		///虚拟机目前的指令数量

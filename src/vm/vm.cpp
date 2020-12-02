@@ -3,13 +3,19 @@
 
 using erisc::Command;
 
+namespace
+{
+	erisc::LineId constLineId("", 0);
+}
+
 vm::VM::VM(int maxCommands)
 {
 	maxCommandAmount = maxCommands;
 	eMemory = new EMemory();
 	eRegister = new ERegister[REGISTER_AMOUNT];
 	eStack = new EStack();
-	commands = new Command[maxCommands];
+	commands = new Command*[maxCommands];
+	lineIds = new LineIdList();
 	currentCommandAmount = 0;
 	currentRunningLine = -1;
 }
@@ -37,7 +43,7 @@ vm::ERegister* vm::VM::getRegister(int index)
 	return eRegister + index;
 }
 
-void vm::VM::initCommands(Command* commands, int commandAmount)
+void vm::VM::initCommands(Command** commands, int commandAmount)
 {
 	if (commandAmount > maxCommandAmount)
 		throw "Command amount out of range";
@@ -52,10 +58,10 @@ void vm::VM::runCommand(int line)
 {
 	if (line > currentCommandAmount || line < 0)
 		throw "line number out of range";
-	commands[line - 1].run(this);
+	commands[line - 1]->run(this);
 }
 
-void vm::VM::addCommand(Command command)
+void vm::VM::addCommand(Command* command)
 {
 	if (currentCommandAmount == maxCommandAmount)
 		throw "Command amount out of range";
