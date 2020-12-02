@@ -242,6 +242,10 @@ void vm::LineIdList::add(erisc::LineId* id)
 		{
 			RBTreeNode* father = findFrom(root, id);
 			RBTreeNode* temp = new RBTreeNode(id, father);
+			while (root->father != nullptr)
+			{
+				root = root->father;
+			}
 		}
 		catch (Exception& e)
 		{

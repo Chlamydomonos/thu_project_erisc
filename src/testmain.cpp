@@ -50,7 +50,7 @@ int testMain()
         testList->add(testid18);
         testList->add(testid19);
         testList->add(testid20);
-        LineId* testidout = (*testList)["a"];
+        LineId* testidout = (*testList)["AE"];
         cout << testidout->getLine();
     }
     catch (Exception& e)
