@@ -3,11 +3,6 @@
 
 using erisc::Command;
 
-namespace
-{
-	erisc::LineId constLineId("", 0);
-}
-
 vm::VM::VM(int maxCommands)
 {
 	maxCommandAmount = maxCommands;

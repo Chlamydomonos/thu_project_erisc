@@ -1,4 +1,5 @@
 #include "lineidlist.h"
+#include "../command/lineid.h"
 
 using erisc::LineId;
 using vm::RBTreeNode;

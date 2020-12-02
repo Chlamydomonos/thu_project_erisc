@@ -1,6 +1,11 @@
 #ifndef LINEIDLIST_H
 #define LINEIDLIST_H
-#include "../command/lineid.h"
+
+namespace erisc
+{
+	//为避免头文件互相引用，重新声明LineId
+	class LineId;
+}
 
 namespace vm
 {
