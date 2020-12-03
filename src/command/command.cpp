@@ -12,7 +12,7 @@ using vm::VM;
 #define END(x) ((x) == '\n' || (x) == 0 || (x) == EOF)
 #define NOCHR(x) (BLANK(x) || END(x))
 
-bool matches(char*& str, const char* format)
+bool matches(const char*& str, const char* format)
 {
 	int len = strlen(format);
 	for (int i = 0; i < len; i++)
@@ -59,7 +59,7 @@ erisc::Command::Command()
 	params = nullptr;
 }
 
-erisc::Command::Command(int paramAmount, char* paramString)
+erisc::Command::Command(int paramAmount, const char* paramString)
 {
 	this->paramAmount = paramAmount;
 	getParamsFromString(paramString);
@@ -74,10 +74,10 @@ void erisc::Command::run(VM* vm)
 {
 }
 
-void erisc::Command::getParamsFromString(char* str)
+void erisc::Command::getParamsFromString(const char* str)
 {
 	params = new Param[paramAmount];
-	char* i = str;
+	const char* i = str;
 	for (int paramIndex = 0; paramIndex < paramAmount; paramIndex++)
 	{
 		Param& currentParam = params[paramIndex];

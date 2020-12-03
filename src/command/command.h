@@ -63,7 +63,7 @@ namespace erisc
 		* @param paramAmount 命令的参数数量
 		* @param paramString 代表参数的字符串
 		*/
-		Command(int paramAmount, char *paramString);
+		Command(int paramAmount, const char *paramString);
 		~Command();
 
 		/**
@@ -78,7 +78,7 @@ namespace erisc
 		/// 参数列表
 		Param* params;
 	private:
-		void getParamsFromString(char* str);
+		void getParamsFromString(const char* str);
 	};
 }
 
