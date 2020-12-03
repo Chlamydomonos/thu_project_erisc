@@ -8,7 +8,7 @@ namespace erisc
 	class Load : public Command
 	{
 	public:
-		Load(char* paramString);
+		Load(const char* paramString);
 		~Load();
 		void run(vm::VM* vm);
 	};

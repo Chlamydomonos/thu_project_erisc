@@ -6,7 +6,7 @@
 namespace erisc {
 	class Store :public Command {
 	public:
-		Store(char* paramstring);
+		Store(const char* paramstring);
 		~Store();
 		void run(vm::VM* vm);
 	};

@@ -3,7 +3,7 @@
 
 using vm::VM;
 
-erisc::Rem::Rem(char* parastring) :erisc::Command(3, parastring) {
+erisc::Rem::Rem(const char* parastring) :erisc::Command(3, parastring) {
 
 }
 

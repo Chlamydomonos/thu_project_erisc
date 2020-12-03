@@ -6,7 +6,7 @@
 namespace erisc {
 	class Or :public Command {
 	public:
-		Or(char* parastring);
+		Or(const char* parastring);
 		~Or();
 		void run(vm::VM* vm);
 	};

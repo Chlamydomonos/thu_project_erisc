@@ -3,7 +3,7 @@
 
 using vm::VM;
 
-erisc::Div::Div(char* parastring) :erisc::Command(3, parastring) {
+erisc::Div::Div(const char* parastring) :erisc::Command(3, parastring) {
 
 }
 

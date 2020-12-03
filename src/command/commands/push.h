@@ -5,7 +5,7 @@
 namespace erisc {
 	class Push :public Command {
 	public:
-		Push(char* parastring);
+		Push(const char* parastring);
 		~Push();
 		void run(vm::VM* vm);
 	};

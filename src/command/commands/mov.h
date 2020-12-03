@@ -8,7 +8,7 @@ namespace erisc
 	class Mov : public Command
 	{
 	public:
-		Mov(char* paramString);
+		Mov(const char* paramString);
 		~Mov();
 		void run(vm::VM* vm);
 	};

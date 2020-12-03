@@ -6,7 +6,7 @@
 namespace erisc{
 	class Rem :public Command {
 	public:
-		Rem(char* parastring);
+		Rem(const char* parastring);
 		~Rem();
 		void run(vm::VM* vm);
 	};

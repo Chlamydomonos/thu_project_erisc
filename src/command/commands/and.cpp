@@ -3,7 +3,7 @@
 
 using vm::VM;
 
-erisc::And::And(char* parastring) :erisc::Command(3, parastring) {
+erisc::And::And(const char* parastring) :erisc::Command(3, parastring) {
 
 }
 

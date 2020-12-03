@@ -6,7 +6,7 @@
 namespace erisc {
 	class Sub :public Command {
 	public:
-		Sub(char* parastring);
+		Sub(const char* parastring);
 		~Sub();
 		void run(vm::VM* vm);
 	};

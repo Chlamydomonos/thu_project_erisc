@@ -3,7 +3,7 @@
 
 using vm::VM;
 
-erisc::Load::Load(char* paramString) : erisc::Command(2, paramString)
+erisc::Load::Load(const char* paramString) : erisc::Command(2, paramString)
 {
 }
 

@@ -3,7 +3,7 @@
 
 using vm::VM;
 
-erisc::Mul::Mul(char* parastring) :erisc::Command(3, parastring) {
+erisc::Mul::Mul(const char* parastring) :erisc::Command(3, parastring) {
 
 }
 

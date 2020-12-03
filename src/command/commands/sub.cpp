@@ -3,7 +3,7 @@
 
 using vm::VM;
 
-erisc::Sub::Sub(char* parastring) :erisc::Command(3, parastring) {
+erisc::Sub::Sub(const char* parastring) :erisc::Command(3, parastring) {
 
 }
 

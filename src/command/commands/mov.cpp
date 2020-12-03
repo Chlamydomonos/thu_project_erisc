@@ -3,7 +3,7 @@
 
 using vm::VM;
 
-erisc::Mov::Mov(char* paramString):erisc::Command(2,paramString)
+erisc::Mov::Mov(const char* paramString):erisc::Command(2,paramString)
 {
 }
 

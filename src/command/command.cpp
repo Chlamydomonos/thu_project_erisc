@@ -77,7 +77,12 @@ void erisc::Command::run(VM* vm)
 void erisc::Command::getParamsFromString(const char* str)
 {
 	params = new Param[paramAmount];
-	const char* i = str;
+	int len = strlen(str);
+	char* tem = new char[len + 1];
+	for (int i = 0; i < len; i++)
+		tem[i] = str[i];
+	tem[len] = 0;
+	const char* i = tem;
 	for (int paramIndex = 0; paramIndex < paramAmount; paramIndex++)
 	{
 		Param& currentParam = params[paramIndex];

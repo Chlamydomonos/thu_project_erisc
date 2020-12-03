@@ -6,7 +6,7 @@
 namespace erisc {
 	class Add :public Command {
 	public:
-		Add(char* parastring);
+		Add(const char* parastring);
 		~Add();
 		void run(vm::VM* vm);
 	};

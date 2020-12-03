@@ -8,7 +8,7 @@ namespace erisc
 	class Pop : public Command
 	{
 	public:
-		Pop(char* paramString);
+		Pop(const char* paramString);
 		~Pop();
 		void run(vm::VM* vm);
 	};	

@@ -3,7 +3,7 @@
 
 using vm::VM;
 
-erisc::Pop::Pop(char* paramString):erisc::Command(1,paramString)
+erisc::Pop::Pop(const char* paramString):erisc::Command(1,paramString)
 {
 }
 

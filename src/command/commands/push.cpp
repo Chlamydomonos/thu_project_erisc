@@ -3,7 +3,7 @@
 
 using vm::VM;
 
-erisc::Push::Push(char* paramString) :erisc::Command(1, paramString)
+erisc::Push::Push(const char* paramString) :erisc::Command(1, paramString)
 {
 }
 

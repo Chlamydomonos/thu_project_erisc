@@ -6,7 +6,7 @@
 namespace erisc {
 	class Mul :public Command{
 	public:
-		Mul(char* parastring);
+		Mul(const char* parastring);
 		~Mul();
 		void run(vm::VM*vm);
 	};
