@@ -1,7 +1,7 @@
 #include "testmain.h"
-#include "command/lineid.h"
-#include "vm/lineidlist.h"
+#include "command/commands/jal.h"
 #include <iostream>
+#include "command/lineid.h"
 using namespace std;
 using namespace erisc;
 using namespace vm;
@@ -9,9 +9,12 @@ int testMain()
 {
     try 
     {
-        const char* params = "      asdfg, x5";
-        Command* test = new Command(2, params);
-        test = test;
+        VM* vm = new VM(1000);
+        LineId* id = new LineId("hello", 2);
+        vm->getLineIdList()->add(id);
+        Command* jal = new Jal(" hello");
+        jal->run(vm);
+        vm = vm;
     }
     catch (Exception& e)
     {

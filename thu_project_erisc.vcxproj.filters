@@ -90,6 +90,9 @@
     <ClInclude Include="src\vm\lineidlist.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\command\commands\jal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -159,6 +162,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\vm\lineidlist.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\command\commands\jal.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

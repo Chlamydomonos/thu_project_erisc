@@ -60,7 +60,7 @@ namespace vm
 		* @param name 要查找的行标识对应的参数
 		* @return 参数对应的行标识
 		*/
-		erisc::LineId* operator[](erisc::Param* id);
+		erisc::LineId* operator[](erisc::Param& id);
 	private:
 		RBTreeNode* root;
 	};

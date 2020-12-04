@@ -16,8 +16,10 @@ void erisc::Jal::run(vm::VM* vm)
 {
 	try
 	{
+		if (params[0].type != ParamType::LINE_ID)
+			throw Exception("Param type error");
 		LineIdList* p = vm->getLineIdList();
-		LineId* q_id = *p[params[0]];
+		LineId* q_id = (*p)[params[0]];
 		int lineNumber = q_id->getLine();
 		vm->currentRunningLine = lineNumber;
 	}

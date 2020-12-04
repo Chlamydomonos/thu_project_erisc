@@ -32,6 +32,7 @@ namespace
 		for (int i = 0; !NOCHR(str[i]); i++)
 			if (!IS_LINE_ID(str[i]))
 				return false;
+		return true;
 	}
 }
 erisc::Param::Param(ParamType type, int value)
@@ -108,7 +109,7 @@ void erisc::Command::getParamsFromString(const char* str)
 	for (int paramIndex = 0; paramIndex < paramAmount; paramIndex++)
 	{
 		Param& currentParam = params[paramIndex];
-		if (!BLANK(*i))
+		if (!NOCHR(*i))
 			throw Exception("Command format error");
 
 		bool hasComma = false;
