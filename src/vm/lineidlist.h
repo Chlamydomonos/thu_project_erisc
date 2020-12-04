@@ -5,6 +5,8 @@ namespace erisc
 {
 	//为避免头文件互相引用，重新声明LineId
 	class LineId;
+	//为避免头文件互相引用，重新声明Param
+	struct Param;
 }
 
 namespace vm
@@ -47,11 +49,18 @@ namespace vm
 		void add(erisc::LineId* id);
 
 		/**
-		* @brief 重载的[]运算符
+		* @brief 重载的[]运算符，通过名称查找对应的行标识
 		* @param name 要查找的行标识名称
 		* @return 名称对应的行标识
 		*/
 		erisc::LineId* operator[](const char* name);
+
+		/**
+		* @brief 重载的[]运算符，通过命令参数查找对应的行标识
+		* @param name 要查找的行标识对应的参数
+		* @return 参数对应的行标识
+		*/
+		erisc::LineId* operator[](erisc::Param* id);
 	private:
 		RBTreeNode* root;
 	};

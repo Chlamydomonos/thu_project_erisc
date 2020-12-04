@@ -268,3 +268,10 @@ erisc::LineId* vm::LineIdList::operator[](const char* name)
 	}
 	return idNode->value;
 }
+
+erisc::LineId* vm::LineIdList::operator[](erisc::Param* id)
+{
+	if (id->type != erisc::ParamType::LINE_ID)
+		throw Exception("Param is not a line identifier");
+	return operator[](id->id);
+}

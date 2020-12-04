@@ -8,26 +8,48 @@ using vm::VM;
 #define HEX(x) (DIGIT(x) || ((x) >= 'A' && (x) <= 'F') || ((x) >= 'a' && (x) <= 'f'))
 #define HEX_TO_NUM(x) ((x) >= 'a' ? x - 'a' + 10 : ((x) > 'A' ? x - 'A' + 10 : x - '0'))
 #define ALPHA(x) ((x) >= 'a' && (x) <= 'z')
+#define CAPITAL(x) ((x) >= 'A' && (x) <= 'Z')
+#define IS_LINE_ID(x) (ALPHA(x) || CAPITAL(x))
 #define BLANK(x) ((x) == ' ' || (x) == '\t' || (x) == ',')
 #define END(x) ((x) == '\n' || (x) == 0 || (x) == EOF)
 #define NOCHR(x) (BLANK(x) || END(x))
-
-bool matches(const char*& str, const char* format)
+namespace
 {
-	int len = strlen(format);
-	for (int i = 0; i < len; i++)
-		if (str[i] != format[i])
+	bool matches(char*& str, const char* format)
+	{
+		int len = strlen(format);
+		for (int i = 0; i < len; i++)
+			if (str[i] != format[i])
+				return false;
+		if (!NOCHR(str[len]))
 			return false;
-	if (!NOCHR(str[len]))
-		return false;
-	str += len;
-	return true;
-}
+		str += len;
+		return true;
+	}
 
+	bool isLineId(char* str)
+	{
+		for (int i = 0; !NOCHR(str[i]); i++)
+			if (!IS_LINE_ID(str[i]))
+				return false;
+	}
+}
 erisc::Param::Param(ParamType type, int value)
 {
 	this->type = type;
 	this->value = value;
+	id = nullptr;
+}
+
+erisc::Param::Param(const char* id)
+{
+	value = 0;
+	type = ParamType::LINE_ID;
+	int len = strlen(id);
+	this->id = new char[len + 1];
+	for (int i = 0; i < len; i++)
+		this->id[i] = id[i];
+	this->id[len] = 0;
 }
 
 erisc::Param::Param()
@@ -82,7 +104,7 @@ void erisc::Command::getParamsFromString(const char* str)
 	for (int i = 0; i < len; i++)
 		tem[i] = str[i];
 	tem[len] = 0;
-	const char* i = tem;
+	char* i = tem;
 	for (int paramIndex = 0; paramIndex < paramAmount; paramIndex++)
 	{
 		Param& currentParam = params[paramIndex];
@@ -106,12 +128,12 @@ void erisc::Command::getParamsFromString(const char* str)
 		if (!hasComma)
 			throw Exception("Command format error");
 
-		if (*i == 'x')
+		if (*i == 'x' && DIGIT(i[1]))
 		{
 			currentParam.type = ParamType::REGISTER;
 			if(!DIGIT(i[1]) || (!NOCHR(i[2]) && !DIGIT(i[2])) || (DIGIT(i[1]) && DIGIT(i[2]) && !NOCHR(i[3])))
 				throw Exception("Command params format error");
-			if (BLANK(i[2]))
+			if (NOCHR(i[2]))
 			{
 				currentParam.value = i[1] - '0';
 				i += 2;
@@ -192,6 +214,18 @@ void erisc::Command::getParamsFromString(const char* str)
 				currentParam.value = 30;
 			else if (matches(i, "t6"))
 				currentParam.value = 31;
+			else if (isLineId(i))
+			{
+				currentParam.type = ParamType::LINE_ID;
+				int len = 0;
+				for (char* temp = i; !NOCHR(*temp); temp++)
+					len++;
+				currentParam.id = new char[len + 1];
+				for (int j = 0; j <= len; j++)
+					currentParam.id[j] = i[j];
+				i += len;
+				currentParam.id[len] = 0;
+			}
 			else
 				throw Exception("Command format error");
 		}

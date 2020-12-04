@@ -13,7 +13,9 @@ namespace erisc
 		/// 寄存器
 		REGISTER,
 		/// 立即数
-		NUMBER
+		NUMBER,
+		/// 行标识
+		LINE_ID
 	};
 
 	/**
@@ -21,18 +23,27 @@ namespace erisc
 	*/
 	struct Param
 	{
-		/// 类型（寄存器/立即数）
+		/// 类型（寄存器/立即数/行标识）
 		ParamType type;
 
-		/// 值【是立即数时即为数字大小，是寄存器时即为寄存器编号（从0开始）】
+		/// 值【是立即数时即为数字大小，是寄存器时即为寄存器编号（从0开始），是行标识时无意义】
 		int value;
 
+		/// 行标识的名称（是寄存器/立即数时无意义）
+		char* id;
+
 		/**
-		* @brief 构造函数
+		* @brief 构造函数，将参数初始化为寄存器或立即数
 		* @param type 类型（寄存器/立即数）
 		* @param value 值【是立即数时即为数字大小，是寄存器时即为寄存器编号（从0开始）】
 		*/
 		Param(ParamType type, int value);
+
+		/**
+		* @brief 构造函数，将参数初始化为行标识
+		* @param id 行标识的名称
+		*/
+		Param(const char* id);
 
 		/**
 		* @brief 默认构造函数，将参数初始化为数字0
