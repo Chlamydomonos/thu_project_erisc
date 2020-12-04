@@ -38,6 +38,11 @@ vm::ERegister* vm::VM::getRegister(int index)
 	return eRegister + index;
 }
 
+vm::LineIdList* vm::VM::getLineIdList()
+{
+	return this->lineIds;
+}
+
 void vm::VM::initCommands(Command** commands, int commandAmount)
 {
 	if (commandAmount > maxCommandAmount)

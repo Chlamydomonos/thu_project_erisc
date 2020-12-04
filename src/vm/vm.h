@@ -49,6 +49,12 @@ namespace vm
 		ERegister* getRegister(int index);
 
 		/**
+		* @brief 获取行标识列表
+		* @return 虚拟机的行标识列表
+		*/
+		LineIdList* getLineIdList();
+
+		/**
 		* @brief 把虚拟机的指令列表初始化为给定的指令列表
 		* @warning 该函数执行后并不会删除传入的指令列表，请在传入的指令列表使用完毕后手动删除
 		* @param commands 给定的指令列表
