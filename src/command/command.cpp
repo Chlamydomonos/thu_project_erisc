@@ -11,11 +11,12 @@ using vm::VM;
 #define CAPITAL(x) ((x) >= 'A' && (x) <= 'Z')
 #define IS_LINE_ID(x) (ALPHA(x) || CAPITAL(x))
 #define BLANK(x) ((x) == ' ' || (x) == '\t' || (x) == ',')
+#define REAL_BLANK(x) ((x) == ' ' || (x) == '\t')
 #define END(x) ((x) == '\n' || (x) == 0 || (x) == EOF)
 #define NOCHR(x) (BLANK(x) || END(x))
 namespace
 {
-	bool matches(char*& str, const char* format)
+	bool matches(const char*& str, const char* format)
 	{
 		int len = strlen(format);
 		for (int i = 0; i < len; i++)
@@ -27,7 +28,7 @@ namespace
 		return true;
 	}
 
-	bool isLineId(char* str)
+	bool isLineId(const char* str)
 	{
 		for (int i = 0; !NOCHR(str[i]); i++)
 			if (!IS_LINE_ID(str[i]))
@@ -100,17 +101,12 @@ void erisc::Command::run(VM* vm)
 void erisc::Command::getParamsFromString(const char* str)
 {
 	params = new Param[paramAmount];
-	int len = strlen(str);
-	char* tem = new char[len + 1];
-	for (int i = 0; i < len; i++)
-		tem[i] = str[i];
-	tem[len] = 0;
-	char* i = tem;
+	const char* i = str;
 	for (int paramIndex = 0; paramIndex < paramAmount; paramIndex++)
 	{
 		Param& currentParam = params[paramIndex];
 		if (!NOCHR(*i))
-			throw Exception("Command format error");
+			throw Exception("Command params format error");
 
 		bool hasComma = false;
 		if (paramIndex == 0)
@@ -121,13 +117,13 @@ void erisc::Command::getParamsFromString(const char* str)
 			if (*i == ',')
 			{
 				if (paramIndex == 0)
-					throw Exception("Command format error");
+					throw Exception("Command params format error");
 				hasComma = true;
 			}
 			i++;
 		}
 		if (!hasComma)
-			throw Exception("Command format error");
+			throw Exception("Command params format error");
 
 		if (*i == 'x' && DIGIT(i[1]))
 		{
@@ -145,7 +141,7 @@ void erisc::Command::getParamsFromString(const char* str)
 				i += 3;
 			}
 			if (currentParam.value >= 32)
-				throw Exception("Command format error");
+				throw Exception("Command params format error");
 		}
 
 		else if (ALPHA(*i))
@@ -219,7 +215,7 @@ void erisc::Command::getParamsFromString(const char* str)
 			{
 				currentParam.type = ParamType::LINE_ID;
 				int len = 0;
-				for (char* temp = i; !NOCHR(*temp); temp++)
+				for (const char* temp = i; !NOCHR(*temp); temp++)
 					len++;
 				currentParam.id = new char[len + 1];
 				for (int j = 0; j <= len; j++)
@@ -228,7 +224,7 @@ void erisc::Command::getParamsFromString(const char* str)
 				currentParam.id[len] = 0;
 			}
 			else
-				throw Exception("Command format error");
+				throw Exception("Command params format error");
 		}
 
 		else if (*i == '-')
@@ -237,17 +233,17 @@ void erisc::Command::getParamsFromString(const char* str)
 			while (DIGIT(*i))
 			{
 				if (currentParam.value > 214748364)
-					throw Exception("Command format error");
+					throw Exception("Command params format error");
 				if (currentParam.value == 214748364)
 				{
 					if (*i > '8')
 					{
-						throw Exception("Command format error");
+						throw Exception("Command params format error");
 					}
 					else if(*i == '8')
 					{
 						if (!NOCHR(*(i + 1)))
-							throw Exception("Command format error");
+							throw Exception("Command params format error");
 						currentParam.value = -2147483648;
 						goto end;
 					}
@@ -257,7 +253,7 @@ void erisc::Command::getParamsFromString(const char* str)
 				i++;
 			}
 			if (!NOCHR(*i))
-				throw Exception("Command format error");
+				throw Exception("Command params format error");
 			currentParam.value *= -1;
 		end:;
 		}
@@ -269,14 +265,14 @@ void erisc::Command::getParamsFromString(const char* str)
 			while (HEX(*i))
 			{
 				if (temp > 0xfffffff)
-					throw Exception("Command format error");
+					throw Exception("Command params format error");
 				temp *= 16;
 				temp += HEX_TO_NUM(*i);
 				i++;
 			}
 			currentParam.value |= temp;
 			if (!NOCHR(*i))
-				throw Exception("Command format error");
+				throw Exception("Command params format error");
 		}
 		
 		else if (DIGIT(*i))
@@ -284,25 +280,29 @@ void erisc::Command::getParamsFromString(const char* str)
 			while (DIGIT(*i))
 			{
 				if (currentParam.value > 214748364)
-					throw Exception("Command format error");
+					throw Exception("Command params format error");
 				if (currentParam.value == 214748364)
 				{
 					if (*i > '7')
-						throw Exception("Command format error");
+						throw Exception("Command params format error");
 				}
 				currentParam.value *= 10;
 				currentParam.value += *i - '0';
 				i++;
 			}
 			if (!NOCHR(*i))
-				throw Exception("Command format error");
+				throw Exception("Command params format error");
 		}
 
 		else
 		{
-			throw Exception("Command format error");
+			throw Exception("Command params format error");
 		}
 	}
+
+	while (REAL_BLANK(*i))
+		i++;
+
 	if(!END(*i))
-		throw Exception("Command format error");
+		throw Exception("Command params format error");
 }

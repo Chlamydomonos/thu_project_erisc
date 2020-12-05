@@ -1,6 +1,6 @@
 #include "inpututil.h"
 
-Command* input::readCommandsFromFile(char* fileName)
+Command* input::readCommandsFromFile(const char* fileName)
 {
 	return nullptr;
 }

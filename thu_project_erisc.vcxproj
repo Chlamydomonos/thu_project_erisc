@@ -156,6 +156,7 @@
     <ClCompile Include="src\command\lineid.cpp" />
     <ClCompile Include="src\exception\exception.cpp" />
     <ClCompile Include="src\io\inpututil.cpp" />
+    <ClCompile Include="src\io\textreader.cpp" />
     <ClCompile Include="src\testmain.cpp" />
     <ClCompile Include="src\vm\ememory.cpp" />
     <ClCompile Include="src\vm\eregister.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="src\command\lineid.h" />
     <ClInclude Include="src\exception\exception.h" />
     <ClInclude Include="src\io\inpututil.h" />
+    <ClInclude Include="src\io\textreader.h" />
     <ClInclude Include="src\testmain.h" />
     <ClInclude Include="src\vm\ememory.h" />
     <ClInclude Include="src\vm\eregister.h" />
