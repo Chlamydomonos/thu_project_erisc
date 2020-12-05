@@ -142,6 +142,10 @@
     <ClCompile Include="src\command\command.cpp" />
     <ClCompile Include="src\command\commands\add.cpp" />
     <ClCompile Include="src\command\commands\and.cpp" />
+    <ClCompile Include="src\command\commands\beq.cpp" />
+    <ClCompile Include="src\command\commands\bge.cpp" />
+    <ClCompile Include="src\command\commands\blt.cpp" />
+    <ClCompile Include="src\command\commands\bne.cpp" />
     <ClCompile Include="src\command\commands\div.cpp" />
     <ClCompile Include="src\command\commands\jal.cpp" />
     <ClCompile Include="src\command\commands\load.cpp" />
@@ -176,6 +180,10 @@
     <ClInclude Include="src\command\command.h" />
     <ClInclude Include="src\command\commands\add.h" />
     <ClInclude Include="src\command\commands\and.h" />
+    <ClInclude Include="src\command\commands\beq.h" />
+    <ClInclude Include="src\command\commands\bge.h" />
+    <ClInclude Include="src\command\commands\blt.h" />
+    <ClInclude Include="src\command\commands\bne.h" />
     <ClInclude Include="src\command\commands\div.h" />
     <ClInclude Include="src\command\commands\jal.h" />
     <ClInclude Include="src\command\commands\load.h" />

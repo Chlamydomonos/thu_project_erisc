@@ -96,6 +96,18 @@
     <ClInclude Include="src\io\textreader.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\command\commands\beq.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\command\commands\bge.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\command\commands\blt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\command\commands\bne.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -171,6 +183,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\io\textreader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\command\commands\beq.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\command\commands\bge.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\command\commands\blt.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\command\commands\bne.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
