@@ -4,7 +4,7 @@
 using namespace erisc;
 using namespace vm;
 
-erisc::Beq::Beq(const char* paramString) :erisc::Command(3, parastring)
+erisc::Beq::Beq(const char* paramString) :erisc::Command(3, paramString)
 {
 }
 
