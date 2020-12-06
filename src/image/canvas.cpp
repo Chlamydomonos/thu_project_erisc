@@ -172,22 +172,28 @@ int image::Canvas::getHeight()
 
 unsigned char image::Canvas::getR(int x, int y)
 {
-	if (x >= width || y >= height)
-		throw Exception("Canvas out of range");
+	if (x >= width)
+		throw Exception("Canvas x out of range");
+	if (y >= height)
+		throw Exception("Canvas y out of range");
 	return content[getIndex(x, y) + 2];
 }
 
 unsigned char image::Canvas::getG(int x, int y)
 {
-	if (x >= width || y >= height)
-		throw Exception("Canvas out of range");
+	if (x >= width)
+		throw Exception("Canvas x out of range");
+	if (y >= height)
+		throw Exception("Canvas y out of range");
 	return content[getIndex(x, y) + 1];
 }
 
 unsigned char image::Canvas::getB(int x, int y)
 {
-	if (x >= width || y >= height)
-		throw Exception("Canvas out of range");
+	if (x >= width)
+		throw Exception("Canvas x out of range");
+	if (y >= height)
+		throw Exception("Canvas y out of range");
 	return content[getIndex(x, y) + 0];
 }
 
@@ -214,32 +220,35 @@ int image::Canvas::getColor(int x, int y)
 
 void image::Canvas::setColor(int x, int y, unsigned char r, unsigned char g, unsigned char b)
 {
-	if (x >= width || y >= height)
-		throw Exception("Canvas out of range");
+	if (x >= width)
+		throw Exception("Canvas x out of range");
+	if (y >= height)
+		throw Exception("Canvas y out of range");
 	int index = getIndex(x, y);
 	content[index + 0] = b;
 	content[index + 1] = g;
 	content[index + 2] = r;
 }
 
-void image::Canvas::setColor(int xStart, int yStart, int xEnd, int yEnd, unsigned char r, unsigned char g, unsigned char b)
+void image::Canvas::setColor(int x, int y, int width, int height, unsigned char r, unsigned char g, unsigned char b)
 {
-	try
-	{
-		for (int u = xStart; u < xEnd; u++)
-			for (int v = yStart; v < yEnd; v++)
-				setColor(u, v, r, g, b);
-	}
-	catch (Exception& e)
-	{
-		throw e;
-	}
+	if (width + x > this->width)
+		width = this->width - x;
+	if (height + y > this->height)
+		height = this->height - y;
+	width += x;
+	height += y;
+	for (int u = x; u < width; u++)
+		for (int v = y; v < height; v++)
+			setColor(u, v, r, g, b);
 }
 
 void image::Canvas::setColor(int x, int y, int color)
 {
 	try
 	{
+		if (color < 0 || color > 0xffffff)
+			throw Exception("Trying to apply a number that is not a color to canvas");
 		unsigned char b = color & 0xff;
 		color >>= 010;
 		unsigned char g = color & 0xff;
@@ -253,21 +262,16 @@ void image::Canvas::setColor(int x, int y, int color)
 	}
 }
 
-void image::Canvas::setColor(int xStart, int yStart, int xEnd, int yEnd, int color)
+void image::Canvas::setColor(int x, int y, int width, int height, int color)
 {
-	try
-	{
-		unsigned char b = color & 0xff;
-		color >>= 010;
-		unsigned char g = color & 0xff;
-		color >>= 010;
-		unsigned char r = color & 0xff;
-		setColor(xStart, yStart, xEnd, yEnd, r, g, b);
-	}
-	catch (Exception& e)
-	{
-		throw e;
-	}
+	if (color < 0 || color > 0xffffff)
+		throw Exception("Trying to apply a number that is not a color to canvas");
+	unsigned char b = color & 0xff;
+	color >>= 010;
+	unsigned char g = color & 0xff;
+	color >>= 010;
+	unsigned char r = color & 0xff;
+	setColor(x, y, width, height, r, g, b);
 }
 
 void image::Canvas::applyCanvas(int x, int y, Canvas* canvas)
