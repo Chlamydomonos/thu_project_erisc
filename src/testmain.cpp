@@ -1,20 +1,17 @@
 #include "testmain.h"
-#include "command/commands/jal.h"
+#include "image/canvas.h"
 #include <iostream>
-#include "command/lineid.h"
 using namespace std;
-using namespace erisc;
-using namespace vm;
+using namespace image;
 int testMain()
 {
     try 
     {
-        VM* vm = new VM(1000);
-        LineId* id = new LineId("hello", 2);
-        vm->getLineIdList()->add(id);
-        Command* jal = new Jal(" hello");
-        jal->run(vm);
-        vm = vm;
+        Canvas* canvas = new Canvas("D:\\dzy\\test.bmp");
+        Canvas* canvas2 = new Canvas(20, 20);
+        canvas2->setColor(0, 0, 2, 2, 0xffffff);
+        canvas2->applyCanvas(2, 2, canvas);
+        canvas2->writeToFile("D:\\dzy\\test2.bmp");
     }
     catch (Exception& e)
     {

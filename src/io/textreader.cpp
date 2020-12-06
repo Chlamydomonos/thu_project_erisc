@@ -1,22 +1,8 @@
 #include "textreader.h"
 #include <cstring>
 #include "../exception/exception.h"
+#include "../fuckide/fuckide.h"
 using namespace input;
-namespace
-{
-	FILE* fuckIDEfopen(const char* fileName, const char* mode)
-	{
-		FILE* temp = nullptr;
-		#ifdef _MSC_VER
-		if (fopen_s(&temp, fileName, mode) != 0)
-			return nullptr;
-		return temp;
-		#else
-		temp = fopen(fileName, mode);
-		return temp;
-		#endif // _MSC_VER
-	}
-}
 
 input::TextReader::TextReader(const char* fileName)
 {

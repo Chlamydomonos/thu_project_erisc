@@ -159,6 +159,8 @@
     <ClCompile Include="src\command\commands\sub.cpp" />
     <ClCompile Include="src\command\lineid.cpp" />
     <ClCompile Include="src\exception\exception.cpp" />
+    <ClCompile Include="src\fuckide\fuckide.cpp" />
+    <ClCompile Include="src\image\canvas.cpp" />
     <ClCompile Include="src\io\inpututil.cpp" />
     <ClCompile Include="src\io\textreader.cpp" />
     <ClCompile Include="src\testmain.cpp" />
@@ -197,6 +199,8 @@
     <ClInclude Include="src\command\commands\sub.h" />
     <ClInclude Include="src\command\lineid.h" />
     <ClInclude Include="src\exception\exception.h" />
+    <ClInclude Include="src\fuckide\fuckide.h" />
+    <ClInclude Include="src\image\canvas.h" />
     <ClInclude Include="src\io\inpututil.h" />
     <ClInclude Include="src\io\textreader.h" />
     <ClInclude Include="src\testmain.h" />
