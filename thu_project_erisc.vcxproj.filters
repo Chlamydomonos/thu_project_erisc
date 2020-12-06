@@ -19,6 +19,9 @@
     <None Include="任务&amp;进度\完成大作业过程中出现的bug.md" />
     <None Include="任务&amp;进度\一些说明.md" />
     <None Include="任务&amp;进度\使用git的工作流程.md" />
+    <None Include="src\copy_files.bat">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\vm\ememory.h">
@@ -230,6 +233,33 @@
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120110957567.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="src\image\frame.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="src\image\memory_green.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="src\image\memory_white.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="src\image\register_blue.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="src\image\register_purple.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="src\image\register_red.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="src\image\register_white.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="src\image\stack_orange.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="src\image\stack_white.bmp">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

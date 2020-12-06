@@ -78,9 +78,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(SolutionDir)VS_Build\TempFiles\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)vs_build$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(SolutionDir)VS_Build\TempFiles\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)vs_build$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -121,6 +125,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>$(ProjectDir)src\copy_files.bat $(ProjectDir)src\image\*.bmp $(OutDir)images\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -137,6 +144,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>$(ProjectDir)src\copy_files.bat $(ProjectDir)src\image\*.bmp $(OutDir)images\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\command\command.cpp" />
@@ -172,6 +182,7 @@
     <ClCompile Include="src\vm\vm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\copy_files.bat" />
     <None Include="任务&amp;进度\一些说明.md" />
     <None Include="任务&amp;进度\使用git的工作流程.md" />
     <None Include="任务&amp;进度\大作业任务&amp;进度.md" />
@@ -211,6 +222,15 @@
     <ClInclude Include="src\vm\vm.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="src\image\frame.bmp" />
+    <Image Include="src\image\memory_white.bmp" />
+    <Image Include="src\image\register_blue.bmp" />
+    <Image Include="src\image\register_purple.bmp" />
+    <Image Include="src\image\register_red.bmp" />
+    <Image Include="src\image\register_white.bmp" />
+    <Image Include="src\image\memory_green.bmp" />
+    <Image Include="src\image\stack_orange.bmp" />
+    <Image Include="src\image\stack_white.bmp" />
     <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120110234567.png" />
     <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120110637699.png" />
     <Image Include="任务&amp;进度\使用git的工作流程.assets\image-20201120110957567.png" />
