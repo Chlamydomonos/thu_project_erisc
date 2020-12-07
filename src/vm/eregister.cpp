@@ -33,6 +33,11 @@ bool vm::ERegister::getWritten()
 	return hasWritten;
 }
 
+int vm::ERegister::getValue()
+{
+	return value;
+}
+
 void vm::ERegister::clearHistory()
 {
 	hasRead = false;

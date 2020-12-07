@@ -14,6 +14,7 @@
 *.userprefs
 
 # Build results
+[Vv][Ss]_[Bb]uild
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

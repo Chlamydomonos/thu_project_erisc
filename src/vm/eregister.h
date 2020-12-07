@@ -33,6 +33,12 @@ namespace vm
 		bool getWritten();
 
 		/**
+		* @brief 获取寄存器的值（仅限文本输出使用！）
+		* @return 寄存器的值
+		*/
+		int getValue();
+
+		/**
 		* @brief 清空寄存器读写的历史记录
 		*/
 		void clearHistory();
