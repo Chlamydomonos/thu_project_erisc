@@ -32,6 +32,8 @@ namespace vm
 		*/
 		bool getWritten();
 
+		int getValue();
+
 		/**
 		* @brief 清空寄存器读写的历史记录
 		*/

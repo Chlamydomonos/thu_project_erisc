@@ -126,7 +126,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(ProjectDir)src\copy_files.bat $(ProjectDir)src\image\*.bmp $(OutDir)images\</Command>
+      <Command>"$(ProjectDir)src\copy_files.bat" "$(ProjectDir)src\image\*.bmp" "$(OutDir)images\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -173,6 +173,7 @@
     <ClCompile Include="src\image\canvas.cpp" />
     <ClCompile Include="src\io\inpututil.cpp" />
     <ClCompile Include="src\io\textreader.cpp" />
+    <ClCompile Include="src\io\output.cpp" />
     <ClCompile Include="src\testmain.cpp" />
     <ClCompile Include="src\vm\ememory.cpp" />
     <ClCompile Include="src\vm\eregister.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="src\fuckide\fuckide.h" />
     <ClInclude Include="src\image\canvas.h" />
     <ClInclude Include="src\io\inpututil.h" />
+    <ClInclude Include="src\io\output.h" />
     <ClInclude Include="src\io\textreader.h" />
     <ClInclude Include="src\testmain.h" />
     <ClInclude Include="src\vm\ememory.h" />

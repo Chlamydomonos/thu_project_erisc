@@ -33,6 +33,8 @@ namespace vm
 		*/
 		bool getAccessed(int zone);
 
+		int getValue(int address);
+
 		/**
 		* @brief 清空内存访问的历史记录
 		*/

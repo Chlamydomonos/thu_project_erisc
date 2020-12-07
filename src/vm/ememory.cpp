@@ -1,11 +1,15 @@
 #include "ememory.h"
 #include "../exception/exception.h"
 
-void border_judge(int address)
+namespace
 {
-	if ((address + 3 >= MAX_MEMORY) || (address < 0))
-		throw Exception("The address you visited is not in memory");
+	void border_judge(int address)
+	{
+		if ((address + 3 >= MAX_MEMORY) || (address < 0))
+			throw Exception("The address you visited is not in memory");
+	}
 }
+
 
 vm::EMemory::EMemory()
 {
@@ -48,6 +52,11 @@ void vm::EMemory::write(int value, int address)
 bool vm::EMemory::getAccessed(int zone)
 {
 	return hasAccessed[zone];
+}
+
+int vm::EMemory::getValue(int address)
+{
+	return (int) memoryList[address];
 }
 
 void vm::EMemory::clearHistory()
