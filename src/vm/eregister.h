@@ -32,6 +32,8 @@ namespace vm
 		*/
 		bool getWritten();
 
+		int getValue();
+
 		/**
 		* @brief 获取寄存器的值（仅限文本输出使用！）
 		* @return 寄存器的值
