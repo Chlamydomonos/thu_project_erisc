@@ -14,7 +14,6 @@
 *.userprefs
 
 # Build results
-[Vv][Ss]_[Bb]uild
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -339,3 +338,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+#Custom files
+[Vv][Ss]_[Bb]uild
+*.txt
+*.bmp
+!src/image/*.bmp
