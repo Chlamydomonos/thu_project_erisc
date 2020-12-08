@@ -340,7 +340,7 @@ ASALocalRun/
 healthchecksdb
 
 #Custom files
-[Vv][Ss]_[Bb]uild
+[Vv][Ss]_[Bb]uild/
 *.txt
 *.bmp
 !src/image/*.bmp
