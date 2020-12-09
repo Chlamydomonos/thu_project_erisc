@@ -1,7 +1,6 @@
 #include "fuckide.h"
 
 #ifdef _MSC_VER
-
 FILE* fuckIDEfopen(const char* fileName, const char* mode)
 {
 	FILE* temp = nullptr;
