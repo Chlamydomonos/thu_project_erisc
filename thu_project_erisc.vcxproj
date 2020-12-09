@@ -175,6 +175,7 @@
     <ClCompile Include="src\command\commands\or.cpp" />
     <ClCompile Include="src\command\commands\push.cpp" />
     <ClCompile Include="src\command\commands\rem.cpp" />
+    <ClCompile Include="src\command\commands\ret.cpp" />
     <ClCompile Include="src\command\commands\store.cpp" />
     <ClCompile Include="src\command\commands\pop.cpp" />
     <ClCompile Include="src\command\commands\sub.cpp" />
@@ -221,6 +222,7 @@
     <ClInclude Include="src\command\commands\pop.h" />
     <ClInclude Include="src\command\commands\push.h" />
     <ClInclude Include="src\command\commands\rem.h" />
+    <ClInclude Include="src\command\commands\ret.h" />
     <ClInclude Include="src\command\commands\store.h" />
     <ClInclude Include="src\command\commands\sub.h" />
     <ClInclude Include="src\command\lineid.h" />
