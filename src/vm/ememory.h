@@ -33,8 +33,6 @@ namespace vm
 		*/
 		bool getAccessed(int zone);
 
-		int getValue(int address);
-
 		/**
 		*  @brief 获取内存中给定地址处一个字节的值（仅限文本输出使用！）
 		* @param address 需要获取的字节的地址

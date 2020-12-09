@@ -22,6 +22,7 @@
     <None Include="src\copy_files.bat">
       <Filter>源文件</Filter>
     </None>
+    <None Include="src\image\image.imgcfg" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\vm\ememory.h">
@@ -120,6 +121,9 @@
     <ClInclude Include="src\io\output.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\io\imageconfigreader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -216,6 +220,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\io\output.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\io\imageconfigreader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
