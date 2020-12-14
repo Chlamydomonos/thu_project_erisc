@@ -1,21 +1,13 @@
 #include "testmain.h"
-#include "io/output.h"
-#include "vm/vm.h"
+#include "io/imageconfigreader.h"
 #include <iostream>
 using namespace std;
-using namespace output;
-using namespace vm;
+using namespace input;
 int testMain()
 {
-    try 
-    {
-        VM* vm = new VM(100);
-        outputText(vm);
-            delete vm;
-    }
-    catch (Exception& e)
-    {
-        cout << e.what() << endl;
-    }
-    return 0;
+	ImageConfigReader* i = new ImageConfigReader("images/image.imgcfg");
+	printf("%d %d, %d %d, %d %d, %d %d, %d %d", i->getRegisterOffsetX(), i->getRegisterOffsetY(),
+		i->getMemoryOffsetX(), i->getMemoryOffsetY(), i->getStackOffsetX(), i->getStackOffsetY(),
+		i->getRegisterSquareWidth(), i->getRegisterSquareHeight(), i->getMemorySquareWidth(), i->getMemorySquareHeight());
+	return 0;
 }
