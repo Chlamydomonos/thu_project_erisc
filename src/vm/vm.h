@@ -76,6 +76,8 @@ namespace vm
 
 		///目前正在运行的指令的行号
 		int currentRunningLine;
+		///第几次执行draw命令
+		int timesOfDraw;
 
 	private:
 		///虚拟机的内存

@@ -13,6 +13,7 @@ vm::VM::VM(int maxCommands)
 	lineIds = new LineIdList();
 	currentCommandAmount = 0;
 	currentRunningLine = -1;
+	timesOfDraw = 0;
 }
 
 vm::VM::~VM()
