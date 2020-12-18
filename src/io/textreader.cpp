@@ -7,7 +7,7 @@ using namespace input;
 input::TextReader::TextReader(const char* fileName)
 {
 	file = fuckIDEfopen(fileName, "r");
-	root = new ListNode<char*>(nullptr);
+	root = new ListNode<char*>(new char[1]{ 0 }, nullptr);
 	end = root;
 	if (file == nullptr)
 	{
@@ -41,7 +41,12 @@ input::TextReader::~TextReader()
 char* input::TextReader::readLine()
 {
 	if (eof)
-		return new char[1]{ 0 };
+	{
+		char* temp = new char[1]{ 0 };
+		ListNode<char*>* tempNode = new ListNode<char*>(temp, end);
+		end = tempNode;
+		return temp;
+	}
 	int len = 0;
 	ListNode<char>* root = nullptr;
 	ListNode<char>* temp = nullptr;
@@ -69,8 +74,8 @@ char* input::TextReader::readLine()
 	}
 	str[len] = 0;
 	delete root;
-	ListNode<char*>* temp = new ListNode<char*>(end);
-	end = temp;
+	ListNode<char*>* tempNode = new ListNode<char*>(str, end);
+	end = tempNode;
 	return str;
 }
 
