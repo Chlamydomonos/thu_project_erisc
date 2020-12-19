@@ -9,6 +9,7 @@
 #include "commands/bne.h"
 #include "commands/cal.h"
 #include "commands/div.h"
+#include "commands/draw.h"
 #include "commands/end.h"
 #include "commands/jal.h"
 #include "commands/load.h"

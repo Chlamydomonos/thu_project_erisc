@@ -6,7 +6,7 @@ using erisc::Command;
 
 namespace input
 {
-	extern Command* readCommandsFromFile(const char* fileName);
+	extern Command** readCommandsFromFile(const char* fileName);
 }
 
 #endif // !INPUTUTIL_H
