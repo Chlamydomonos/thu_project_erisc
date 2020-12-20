@@ -7,11 +7,12 @@ namespace input
 	/**
 	* @brief 为了实现不定长度输入创建的一个简单的链表
 	*/
+	template<typename T>
 	struct ListNode
 	{
-		char value;
+		T value;
 		ListNode* next;
-		ListNode(char value, ListNode* pre);
+		ListNode(T value, ListNode* pre);
 		~ListNode();
 	};
 
@@ -37,6 +38,8 @@ namespace input
 	private:
 		FILE* file;
 		bool eof;
+		ListNode<char*>* root;
+		ListNode<char*>* end;
 	};
 }
 #endif // !TEXTREADER_H

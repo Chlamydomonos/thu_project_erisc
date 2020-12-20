@@ -7,6 +7,8 @@ using namespace input;
 input::TextReader::TextReader(const char* fileName)
 {
 	file = fuckIDEfopen(fileName, "r");
+	root = new ListNode<char*>(new char[1]{ 0 }, nullptr);
+	end = root;
 	if (file == nullptr)
 	{
 		const char* head = "File \"";
@@ -33,19 +35,25 @@ input::TextReader::TextReader(const char* fileName)
 input::TextReader::~TextReader()
 {
 	fclose(file);
+	delete root;
 }
 
 char* input::TextReader::readLine()
 {
 	if (eof)
-		return new char[1]{ 0 };
+	{
+		char* temp = new char[1]{ 0 };
+		ListNode<char*>* tempNode = new ListNode<char*>(temp, end);
+		end = tempNode;
+		return temp;
+	}
 	int len = 0;
-	ListNode* root = nullptr;
-	ListNode* temp = nullptr;
+	ListNode<char>* root = nullptr;
+	ListNode<char>* temp = nullptr;
 	while (true)
 	{
 		len++;
-		ListNode* temp2 = new ListNode(fgetc(file), temp);
+		ListNode<char>* temp2 = new ListNode<char>(fgetc(file), temp);
 		if (root == nullptr)
 			root = temp2;
 		temp = temp2;
@@ -66,10 +74,13 @@ char* input::TextReader::readLine()
 	}
 	str[len] = 0;
 	delete root;
+	ListNode<char*>* tempNode = new ListNode<char*>(str, end);
+	end = tempNode;
 	return str;
 }
 
-input::ListNode::ListNode(char value, ListNode* pre)
+template<typename T>
+input::ListNode<T>::ListNode(T value, ListNode* pre)
 {
 	this->value = value;
 	next = nullptr;
@@ -77,7 +88,8 @@ input::ListNode::ListNode(char value, ListNode* pre)
 		pre->next = this;
 }
 
-input::ListNode::~ListNode()
+template<typename T>
+input::ListNode<T>::~ListNode()
 {
 	if (next != nullptr)
 		delete next;

@@ -42,6 +42,13 @@ namespace vm
 		int getValue(int address);
 
 		/**
+		*  @brief 获取内存中给定地址处一个字节的值（仅限文本输出使用！）
+		* @param address 需要获取的字节的地址
+		* @return 该字节的值
+		*/
+		int getValue(int address);
+
+		/**
 		* @brief 清空内存访问的历史记录
 		*/
 		void clearHistory();
