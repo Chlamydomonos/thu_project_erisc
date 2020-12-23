@@ -216,6 +216,8 @@
     <ClInclude Include="src\command\commands\bne.h" />
     <ClInclude Include="src\command\commands\cal.h" />
     <ClInclude Include="src\command\commands\div.h" />
+    <ClInclude Include="src\command\commands\draw.h" />
+    <ClInclude Include="src\command\commands\end.h" />
     <ClInclude Include="src\command\commands\jal.h" />
     <ClInclude Include="src\command\commands\load.h" />
     <ClInclude Include="src\command\commands\mov.h" />
