@@ -32,102 +32,102 @@ Command** input::readCommandsFromFile(const char* fileName)
 			commands[i] = c;
 		//	commands[i].
 		}
-		else if (order[0] ==97 && order[1]==110 && order[2]==100) {
+		else if (order[0] =='a' && order[1]=='n' && order[2]=='d') {
 			//and
 			Command* c = new And(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 98 && order[1] == 101 && order[2] == 113) {
+		else if (order[0] == 'b' && order[1] == 'e' && order[2] == 'q') {
 			//beq
 			Command* c = new Beq(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 98 && order[1] == 103 && order[2] == 101) {
+		else if (order[0] == 'b' && order[1] == 'g' && order[2] == 'e') {
 			//bge
 			Command* c = new Bge(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 98 && order[1] == 108 && order[2] == 116) {
+		else if (order[0] == 'b' && order[1] == 'l' && order[2] == 't') {
 			//blt
 			Command* c = new Blt(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 98 && order[1] == 110 && order[2] == 101) {
+		else if (order[0] == 'b' && order[1] == 'n' && order[2] == 'e') {
 			//bne
 			Command* c = new Bne(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 99 && order[1] == 97 && order[2] == 108) {
+		else if (order[0] == 'c' && order[1] == 'a' && order[2] == 'l') {
 			//cal
 			Command* c = new Cal(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 100 && order[1] == 105 && order[2] == 118) {
+		else if (order[0] == 'd' && order[1] == 'i' && order[2] == 'v') {
 			//div
 			Command* c = new Div(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 100 && order[1] == 114 && order[2] == 97 && order[3] == 119) {
+		else if (order[0] == 'd' && order[1] == 'r' && order[2] == 'a' && order[3] == 'w') {
 			//draw
 			Command* c = new Draw();
 			commands[i] = c;
 		}
-		else if (order[0] == 101 && order[1] == 110 && order[2] == 100) {
+		else if (order[0] == 'e' && order[1] == 'n' && order[2] == 'd') {
 			//end
 			Command* c = new End();
 			commands[i] = c;
 		}
-		else if (order[0] == 106 && order[1] == 97 && order[2] == 108) {
+		else if (order[0] == 'j' && order[1] == 'a' && order[2] == 'l') {
 			//jal
 			Command* c = new Jal(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 108 && order[1] == 111 && order[2] == 97 && order[3] == 100) {
+		else if (order[0] == 'l' && order[1] == 'o' && order[2] == 'a' && order[3] == 'd') {
 			//load
 			Command* c = new Load(order + 4);
 			commands[i] = c;
 		}
-		else if (order[0] == 109 && order[1] == 111 && order[2] == 118) {
+		else if (order[0] == 'm' && order[1] == 'o' && order[2] == 'v') {
 			//mov
 			Command* c = new Mov(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 109 && order[1] == 117 && order[2] == 108) {
+		else if (order[0] == 'm' && order[1] == 'u' && order[2] == 'l') {
 			//mul
 			Command* c = new Mul(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 111 && order[1] == 114) {
+		else if (order[0] == 'o' && order[1] == 'r') {
 			//or
 			Command* c = new Or(order + 2);
 			commands[i] = c;
 		}
-		else if (order[0] == 112 && order[1] == 111 && order[2] == 102) {
+		else if (order[0] == 'p' && order[1] == 'o' && order[2] == 'p') {
 			//pop
 			Command* c = new Pop(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 112 && order[1] == 117 && order[2] == 115 && order[3] == 104) {
+		else if (order[0] == 'p' && order[1] == 'u' && order[2] == 's' && order[3] == 'h') {
 			//push
 			Command* c = new Push(order + 4);
 			commands[i] = c;
 		}
-		else if (order[0] == 114 && order[1] == 101 && order[2] == 109) {
+		else if (order[0] == 'r' && order[1] == 'e' && order[2] == 'm') {
 			//rem
 			Command* c = new Rem(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 114 && order[1] == 101 && order[2] == 116) {
+		else if (order[0] == 'r' && order[1] == 'e' && order[2] == 't') {
 			//ret
 			Command* c = new Ret();
 			commands[i] = c;
 		}
-		else if (order[0] == 115 && order[1] == 116 && order[2] == 111 && order[3] == 114 && order[4]==101) {
+		else if (order[0] == 's' && order[1] == 't' && order[2] == 'o' && order[3] == 'r' && order[4]=='e') {
 			//store
 			Command* c = new Store(order + 5);
 			commands[i] = c;
 		}
-		else if (order[0] == 115 && order[1] == 117 && order[2] == 98) {
+		else if (order[0] == 's' && order[1] == 'u' && order[2] == 'b') {
 			//sub
 			Command* c = new Sub(order + 3);
 			commands[i] = c;
