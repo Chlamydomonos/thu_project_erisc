@@ -17,6 +17,7 @@ Command** input::readCommandsFromFile(const char* fileName)
 
 	Command** commands = new Command * [n + 2];
 	commands[n + 1] = nullptr;
+	commands[0] = new Command();
 
 	for(int i=1;i<=n;i++)
 	{

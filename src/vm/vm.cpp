@@ -35,7 +35,7 @@ vm::VM::VM(int maxCommands)
 	eMemory = new EMemory();
 	eRegister = new ERegister[REGISTER_AMOUNT];
 	eStack = new EStack();
-	commands = new Command*[maxCommands];
+	commands = new Command*[maxCommands + 1];
 	lineIds = new LineIdList();
 	currentCommandAmount = 0;
 	currentRunningLine = 1;
@@ -74,7 +74,7 @@ vm::LineIdList* vm::VM::getLineIdList()
 void vm::VM::initCommands(Command** commands)
 {
 	int commandAmount = 0;
-	for (int i = 0;; i++)
+	for (int i = 1;; i++)
 	{
 		commandAmount++;
 		if (commands[i] == nullptr)
