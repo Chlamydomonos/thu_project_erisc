@@ -19,20 +19,35 @@ Command** input::readCommandsFromFile(const char* fileName)
 	commands[n + 1] = nullptr;
 	commands[0] = new Command();
 
-	for(int i=1;i<=n;i++)
+	for (int i = 1; i <= n; i++)
 	{
 		char* order = a->readLine();
 
 		while (*order == ' ')
 			order++;
+		
+		int len = strlen(order);
+
+		for (int k = 0; k < len; k++) {
+			if (order[k] == ':') {
+				char* forder = new char[len];
+				for (int j = 0; j < len; j++) {
+					if (order[j] == ':')
+						break;
+					forder[j] = order[j];
+				}
+				Command* c = new LineId(forder, i);
+				commands[i] = c;
+			}
+		}
 
 		if (order[0] == 'a' && order[1] == 'd' && order[2] == 'd') {
 			//add
 			Command* c = new Add(order + 3);
 			commands[i] = c;
-		//	commands[i].
+			//	commands[i].
 		}
-		else if (order[0] =='a' && order[1]=='n' && order[2]=='d') {
+		else if (order[0] == 'a' && order[1] == 'n' && order[2] == 'd') {
 			//and
 			Command* c = new And(order + 3);
 			commands[i] = c;
@@ -57,9 +72,9 @@ Command** input::readCommandsFromFile(const char* fileName)
 			Command* c = new Bne(order + 3);
 			commands[i] = c;
 		}
-		else if (order[0] == 'c' && order[1] == 'a' && order[2] == 'l') {
+		else if (order[0] == 'c' && order[1] == 'a' && order[2] == 'l'&& order[3] == 'l') {
 			//cal
-			Command* c = new Cal(order + 3);
+			Command* c = new Cal(order + 4);
 			commands[i] = c;
 		}
 		else if (order[0] == 'd' && order[1] == 'i' && order[2] == 'v') {
@@ -122,7 +137,7 @@ Command** input::readCommandsFromFile(const char* fileName)
 			Command* c = new Ret();
 			commands[i] = c;
 		}
-		else if (order[0] == 's' && order[1] == 't' && order[2] == 'o' && order[3] == 'r' && order[4]=='e') {
+		else if (order[0] == 's' && order[1] == 't' && order[2] == 'o' && order[3] == 'r' && order[4] == 'e') {
 			//store
 			Command* c = new Store(order + 5);
 			commands[i] = c;
@@ -131,8 +146,10 @@ Command** input::readCommandsFromFile(const char* fileName)
 			//sub
 			Command* c = new Sub(order + 3);
 			commands[i] = c;
-			//Command *comands1通过new出来这样一个东西对*commands[]进行赋值
-			//还要加上order后面的x5,x6
+		}
+		else {
+		Command* c = new Command();
+		commands[i] = c;
 		}
 	}
 	return commands;
