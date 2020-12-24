@@ -158,6 +158,7 @@ void image::Canvas::writeToFile(const char* fileName)
 	unsigned char* head = generateFileHead(width, height);
 	fwrite(head, 1, BMP_HEAD_SIZE, bmp);
 	fwrite(content, 1, GET_BITMAP_SIZE(width, height), bmp);
+	fclose(bmp);
 }
 
 int image::Canvas::getWidth()
