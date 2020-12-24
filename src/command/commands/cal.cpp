@@ -19,7 +19,7 @@ void erisc::Cal::run(vm::VM* vm)
 	try {
 		if (params[0].type != ParamType::LINE_ID)
 			throw Exception("Param Type error!");
-		int linnum = vm->currentRunningLine + 1;
+		int linnum = vm->currentRunningLine;
 		vm->getStack()->push(linnum);
 		char* linname = params[0].id;
 		LineIdList* list = vm->getLineIdList();

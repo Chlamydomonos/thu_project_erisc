@@ -7,7 +7,7 @@ using namespace input;
 input::TextReader::TextReader(const char* fileName)
 {
 	file = fuckIDEfopen(fileName, "r");
-	root = new ListNode<char*>(new char[1]{ 0 }, nullptr);
+	root = new ListNode<char*>(new char[1]{ 0 }, nullptr, true);
 	end = root;
 	if (file == nullptr)
 	{
@@ -43,7 +43,7 @@ char* input::TextReader::readLine()
 	if (eof)
 	{
 		char* temp = new char[1]{ 0 };
-		ListNode<char*>* tempNode = new ListNode<char*>(temp, end);
+		ListNode<char*>* tempNode = new ListNode<char*>(temp, end, true);
 		end = tempNode;
 		return temp;
 	}
@@ -53,7 +53,7 @@ char* input::TextReader::readLine()
 	while (true)
 	{
 		len++;
-		ListNode<char>* temp2 = new ListNode<char>(fgetc(file), temp);
+		ListNode<char>* temp2 = new ListNode<char>(fgetc(file), temp, false);
 		if (root == nullptr)
 			root = temp2;
 		temp = temp2;
@@ -74,15 +74,16 @@ char* input::TextReader::readLine()
 	}
 	str[len] = 0;
 	delete root;
-	ListNode<char*>* tempNode = new ListNode<char*>(str, end);
+	ListNode<char*>* tempNode = new ListNode<char*>(str, end, true);
 	end = tempNode;
 	return str;
 }
 
 template<typename T>
-input::ListNode<T>::ListNode(T value, ListNode* pre)
+input::ListNode<T>::ListNode(T value, ListNode* pre, bool isArray)
 {
 	this->value = value;
+	this->isArray = isArray;
 	next = nullptr;
 	if (pre != nullptr)
 		pre->next = this;
@@ -91,6 +92,8 @@ input::ListNode<T>::ListNode(T value, ListNode* pre)
 template<typename T>
 input::ListNode<T>::~ListNode()
 {
+	if (isArray)
+		delete[] (char*)value;
 	if (next != nullptr)
 		delete next;
 }

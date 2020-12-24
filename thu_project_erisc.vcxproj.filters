@@ -43,9 +43,6 @@
     <ClInclude Include="src\io\inpututil.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\testmain.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="src\command\allcommands.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -136,11 +133,14 @@
     <ClInclude Include="src\command\commands\end.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\io\vmconfigreader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vs_main\testmain.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\vm\ememory.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -157,9 +157,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\io\inpututil.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\testmain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\command\commands\load.cpp">
@@ -247,6 +244,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\command\commands\end.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\io\vmconfigreader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vs_main\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vs_main\testmain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

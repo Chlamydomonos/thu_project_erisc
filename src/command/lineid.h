@@ -14,7 +14,7 @@ namespace erisc
 		/**
 		* @brief 构造函数
 		* @param name 行标识的名称
-		* @param line 行标识下一行的行号（行号从1开始）
+		* @param line 行标识所在行的行号（行号从1开始）
 		*/
 		LineId(const char* name, int line);
 		~LineId();
@@ -27,7 +27,7 @@ namespace erisc
 
 		/**
 		* @brief 获取行标识代表的行号（行号从1开始）
-		* @return 该行标识下一行的行号
+		* @return 该行标识所在行的行号
 		*/
 		int getLine();
 

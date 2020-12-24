@@ -1,5 +1,5 @@
 #include "testmain.h"
-#include "io/imageconfigreader.h"
+#include "../io/imageconfigreader.h"
 #include <iostream>
 using namespace std;
 using namespace input;

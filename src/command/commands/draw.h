@@ -6,6 +6,7 @@
 
 namespace erisc {
 	class Draw :public Command {
+	public:
 		Draw();
 		~Draw();
 		void run(vm::VM* vm);

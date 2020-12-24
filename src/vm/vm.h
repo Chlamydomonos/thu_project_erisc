@@ -58,15 +58,19 @@ namespace vm
 		* @brief 把虚拟机的指令列表初始化为给定的指令列表
 		* @warning 该函数执行后并不会删除传入的指令列表，请在传入的指令列表使用完毕后手动删除
 		* @param commands 给定的指令列表
-		* @param commandAmount 该指令列表中指令的数量
 		*/
-		void initCommands(erisc::Command** commands, int commandAmount);
+		void initCommands(erisc::Command** commands);
 
 		/**
 		* @brief 执行一条指令
 		* @param line 该指令的行号 (从1开始)
 		*/
 		void runCommand(int line);
+
+		/**
+		* @brief 执行目前应该执行指令
+		*/
+		void runCurrentCommand();
 
 		/**
 		* 向指令列表中添加一条指令
@@ -78,6 +82,8 @@ namespace vm
 		int currentRunningLine;
 		///第几次执行draw命令
 		int timesOfDraw;
+		///虚拟机是否已运行结束
+		bool end;
 
 	private:
 		///虚拟机的内存

@@ -12,7 +12,8 @@ namespace input
 	{
 		T value;
 		ListNode* next;
-		ListNode(T value, ListNode* pre);
+		bool isArray;
+		ListNode(T value, ListNode* pre, bool isArray);
 		~ListNode();
 	};
 

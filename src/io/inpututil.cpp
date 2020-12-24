@@ -15,7 +15,8 @@ Command** input::readCommandsFromFile(const char* fileName)
 	delete a;
 	a = new TextReader(fileName);
 
-	Command** commands = new Command * [n];
+	Command** commands = new Command * [n + 1];
+	commands[n] = nullptr;
 
 	for(int i=0;i<n;i++)
 	{

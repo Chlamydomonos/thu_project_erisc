@@ -189,11 +189,12 @@
     <ClCompile Include="src\io\inpututil.cpp" />
     <ClCompile Include="src\io\textreader.cpp" />
     <ClCompile Include="src\io\output.cpp" />
-    <ClCompile Include="src\testmain.cpp" />
+    <ClCompile Include="src\io\vmconfigreader.cpp" />
+    <ClCompile Include="src\vs_main\testmain.cpp" />
     <ClCompile Include="src\vm\ememory.cpp" />
     <ClCompile Include="src\vm\eregister.cpp" />
     <ClCompile Include="src\vm\estack.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\vs_main\main.cpp" />
     <ClCompile Include="src\vm\lineidlist.cpp" />
     <ClCompile Include="src\vm\vm.cpp" />
   </ItemGroup>
@@ -237,7 +238,8 @@
     <ClInclude Include="src\io\inpututil.h" />
     <ClInclude Include="src\io\output.h" />
     <ClInclude Include="src\io\textreader.h" />
-    <ClInclude Include="src\testmain.h" />
+    <ClInclude Include="src\io\vmconfigreader.h" />
+    <ClInclude Include="src\vs_main\testmain.h" />
     <ClInclude Include="src\vm\ememory.h" />
     <ClInclude Include="src\vm\eregister.h" />
     <ClInclude Include="src\vm\estack.h" />
