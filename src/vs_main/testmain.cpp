@@ -1,13 +1,16 @@
 #include "testmain.h"
-#include "../io/imageconfigreader.h"
+#include "../vm/vm.h"
+#include "../command/allcommands.h"
 #include <iostream>
 using namespace std;
-using namespace input;
+using namespace vm;
+using namespace erisc;
 int testMain()
 {
-	ImageConfigReader* i = new ImageConfigReader("images/image.imgcfg");
-	printf("%d %d, %d %d, %d %d, %d %d, %d %d", i->getRegisterOffsetX(), i->getRegisterOffsetY(),
-		i->getMemoryOffsetX(), i->getMemoryOffsetY(), i->getStackOffsetX(), i->getStackOffsetY(),
-		i->getRegisterSquareWidth(), i->getRegisterSquareHeight(), i->getMemorySquareWidth(), i->getMemorySquareHeight());
+	VM* vm = new VM(1024);
+	Command* draw = new Draw();
+	vm->addCommand(new Command());
+	vm->addCommand(draw);
+	vm->runCommand(1);
 	return 0;
 }
