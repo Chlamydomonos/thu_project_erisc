@@ -135,5 +135,5 @@ Command** input::readCommandsFromFile(const char* fileName)
 			//还要加上order后面的x5,x6
 		}
 	}
-	return nullptr;
+	return commands;
 }
