@@ -99,7 +99,7 @@ void vm::VM::runCommand(int line)
 	}
 	catch (Exception& e)
 	{
-		throw Exception(genExceptionStr(line));
+		throw Exception(genExceptionStr(line), e);
 	}
 }
 
