@@ -38,7 +38,7 @@ vm::VM::VM(int maxCommands)
 	commands = new Command*[maxCommands];
 	lineIds = new LineIdList();
 	currentCommandAmount = 0;
-	currentRunningLine = 0;
+	currentRunningLine = 1;
 	timesOfDraw = 0;
 	end = false;
 }
@@ -90,12 +90,12 @@ void vm::VM::initCommands(Command** commands)
 
 void vm::VM::runCommand(int line)
 {
-	if (line > currentCommandAmount || line < 0)
+	if (line > currentCommandAmount || line < 1)
 		throw Exception("line number out of range");
 
 	try
 	{
-		commands[line - 1]->run(this);
+		commands[line]->run(this);
 	}
 	catch (Exception& e)
 	{
