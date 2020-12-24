@@ -15,10 +15,10 @@ Command** input::readCommandsFromFile(const char* fileName)
 	delete a;
 	a = new TextReader(fileName);
 
-	Command** commands = new Command * [n + 1];
-	commands[n] = nullptr;
+	Command** commands = new Command * [n + 2];
+	commands[n + 1] = nullptr;
 
-	for(int i=0;i<n;i++)
+	for(int i=1;i<=n;i++)
 	{
 		char* order = a->readLine();
 
