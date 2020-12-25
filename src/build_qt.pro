@@ -26,13 +26,91 @@ CONFIG += c++11
 
 SOURCES += \
     qt_main/main.cpp \
-    qt_main/mainwindow.cpp
+    qt_main/mainwindow.cpp \
+    vm/ememory.cpp \
+    vm/eregister.cpp \
+    vm/estack.cpp \
+    vm/lineidlist.cpp \
+    vm/vm.cpp \
+    io/imageconfigreader.cpp \
+    io/inpututil.cpp \
+    io/output.cpp \
+    io/textreader.cpp \
+    io/vmconfigreader.cpp \
+    image/canvas.cpp \
+    fuckide/fuckide.cpp \
+    exception/exception.cpp \
+    command/command.cpp \
+    command/lineid.cpp \
+    command/commands/add.cpp \
+    command/commands/and.cpp \
+    command/commands/beq.cpp \
+    command/commands/bge.cpp \
+    command/commands/blt.cpp \
+    command/commands/bne.cpp \
+    command/commands/call.cpp \
+    command/commands/div.cpp \
+    command/commands/draw.cpp \
+    command/commands/end.cpp \
+    command/commands/jal.cpp \
+    command/commands/load.cpp \
+    command/commands/mov.cpp \
+    command/commands/mul.cpp \
+    command/commands/or.cpp \
+    command/commands/pop.cpp \
+    command/commands/push.cpp \
+    command/commands/rem.cpp \
+    command/commands/ret.cpp \
+    command/commands/store.cpp \
+    command/commands/sub.cpp \
+    qt_main/linenumberwidget.cpp \
+    qt_main/codeedit.cpp
 
 HEADERS += \
-    qt_main/mainwindow.h
+    qt_main/mainwindow.h \
+    vm/ememory.h \
+    vm/eregister.h \
+    vm/estack.h \
+    vm/lineidlist.h \
+    vm/vm.h \
+    io/imageconfigreader.h \
+    io/inpututil.h \
+    io/output.h \
+    io/textreader.h \
+    io/vmconfigreader.h \
+    image/canvas.h \
+    fuckide/fuckide.h \
+    exception/exception.h \
+    command/allcommands.h \
+    command/command.h \
+    command/lineid.h \
+    command/commands/add.h \
+    command/commands/and.h \
+    command/commands/beq.h \
+    command/commands/bge.h \
+    command/commands/blt.h \
+    command/commands/bne.h \
+    command/commands/call.h \
+    command/commands/div.h \
+    command/commands/draw.h \
+    command/commands/end.h \
+    command/commands/jal.h \
+    command/commands/load.h \
+    command/commands/mov.h \
+    command/commands/mul.h \
+    command/commands/or.h \
+    command/commands/pop.h \
+    command/commands/push.h \
+    command/commands/rem.h \
+    command/commands/ret.h \
+    command/commands/store.h \
+    command/commands/sub.h \
+    qt_main/linenumberwidget.h \
+    qt_main/codeedit.h
 
 FORMS += \
-    qt_main/mainwindow.ui
+    qt_main/mainwindow.ui \
+    qt_main/codeedit.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
