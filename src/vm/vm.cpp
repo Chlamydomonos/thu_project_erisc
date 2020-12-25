@@ -121,6 +121,6 @@ void vm::VM::addCommand(Command* command)
 {
 	if (currentCommandAmount == maxCommandAmount)
 		throw Exception("Command amount out of range");
-	commands[currentCommandAmount] = command;
+	commands[currentCommandAmount + 1] = command;
 	currentCommandAmount++;
 }
