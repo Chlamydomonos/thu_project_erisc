@@ -1,0 +1,141 @@
+# Project: thu_project_erisc
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ../devcpp_build/temp_files/main.o ../devcpp_build/temp_files/testmain.o ../devcpp_build/temp_files/ememory.o ../devcpp_build/temp_files/eregister.o ../devcpp_build/temp_files/estack.o ../devcpp_build/temp_files/lineidlist.o ../devcpp_build/temp_files/vm.o ../devcpp_build/temp_files/imageconfigreader.o ../devcpp_build/temp_files/inpututil.o ../devcpp_build/temp_files/output.o ../devcpp_build/temp_files/textreader.o ../devcpp_build/temp_files/vmconfigreader.o ../devcpp_build/temp_files/canvas.o ../devcpp_build/temp_files/fuckide.o ../devcpp_build/temp_files/exception.o ../devcpp_build/temp_files/command.o ../devcpp_build/temp_files/lineid.o ../devcpp_build/temp_files/add.o ../devcpp_build/temp_files/and.o ../devcpp_build/temp_files/beq.o ../devcpp_build/temp_files/bge.o ../devcpp_build/temp_files/blt.o ../devcpp_build/temp_files/bne.o ../devcpp_build/temp_files/call.o ../devcpp_build/temp_files/div.o ../devcpp_build/temp_files/draw.o ../devcpp_build/temp_files/end.o ../devcpp_build/temp_files/jal.o ../devcpp_build/temp_files/load.o ../devcpp_build/temp_files/mov.o ../devcpp_build/temp_files/mul.o ../devcpp_build/temp_files/or.o ../devcpp_build/temp_files/pop.o ../devcpp_build/temp_files/push.o ../devcpp_build/temp_files/rem.o ../devcpp_build/temp_files/ret.o ../devcpp_build/temp_files/store.o ../devcpp_build/temp_files/sub.o
+LINKOBJ  = ../devcpp_build/temp_files/main.o ../devcpp_build/temp_files/testmain.o ../devcpp_build/temp_files/ememory.o ../devcpp_build/temp_files/eregister.o ../devcpp_build/temp_files/estack.o ../devcpp_build/temp_files/lineidlist.o ../devcpp_build/temp_files/vm.o ../devcpp_build/temp_files/imageconfigreader.o ../devcpp_build/temp_files/inpututil.o ../devcpp_build/temp_files/output.o ../devcpp_build/temp_files/textreader.o ../devcpp_build/temp_files/vmconfigreader.o ../devcpp_build/temp_files/canvas.o ../devcpp_build/temp_files/fuckide.o ../devcpp_build/temp_files/exception.o ../devcpp_build/temp_files/command.o ../devcpp_build/temp_files/lineid.o ../devcpp_build/temp_files/add.o ../devcpp_build/temp_files/and.o ../devcpp_build/temp_files/beq.o ../devcpp_build/temp_files/bge.o ../devcpp_build/temp_files/blt.o ../devcpp_build/temp_files/bne.o ../devcpp_build/temp_files/call.o ../devcpp_build/temp_files/div.o ../devcpp_build/temp_files/draw.o ../devcpp_build/temp_files/end.o ../devcpp_build/temp_files/jal.o ../devcpp_build/temp_files/load.o ../devcpp_build/temp_files/mov.o ../devcpp_build/temp_files/mul.o ../devcpp_build/temp_files/or.o ../devcpp_build/temp_files/pop.o ../devcpp_build/temp_files/push.o ../devcpp_build/temp_files/rem.o ../devcpp_build/temp_files/ret.o ../devcpp_build/temp_files/store.o ../devcpp_build/temp_files/sub.o
+LIBS     = -L"D:/devcpp/Dev-Cpp/MinGW64/lib" -L"D:/devcpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/devcpp/Dev-Cpp/MinGW64/include" -I"D:/devcpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/devcpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/devcpp/Dev-Cpp/MinGW64/include" -I"D:/devcpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/devcpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/devcpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = ../devcpp_build/thu_project_erisc.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+include copy_files.mak
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../devcpp_build/temp_files/main.o: vs_main/main.cpp
+	$(CPP) -c vs_main/main.cpp -o ../devcpp_build/temp_files/main.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/testmain.o: vs_main/testmain.cpp
+	$(CPP) -c vs_main/testmain.cpp -o ../devcpp_build/temp_files/testmain.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/ememory.o: vm/ememory.cpp
+	$(CPP) -c vm/ememory.cpp -o ../devcpp_build/temp_files/ememory.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/eregister.o: vm/eregister.cpp
+	$(CPP) -c vm/eregister.cpp -o ../devcpp_build/temp_files/eregister.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/estack.o: vm/estack.cpp
+	$(CPP) -c vm/estack.cpp -o ../devcpp_build/temp_files/estack.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/lineidlist.o: vm/lineidlist.cpp
+	$(CPP) -c vm/lineidlist.cpp -o ../devcpp_build/temp_files/lineidlist.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/vm.o: vm/vm.cpp
+	$(CPP) -c vm/vm.cpp -o ../devcpp_build/temp_files/vm.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/imageconfigreader.o: io/imageconfigreader.cpp
+	$(CPP) -c io/imageconfigreader.cpp -o ../devcpp_build/temp_files/imageconfigreader.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/inpututil.o: io/inpututil.cpp
+	$(CPP) -c io/inpututil.cpp -o ../devcpp_build/temp_files/inpututil.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/output.o: io/output.cpp
+	$(CPP) -c io/output.cpp -o ../devcpp_build/temp_files/output.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/textreader.o: io/textreader.cpp
+	$(CPP) -c io/textreader.cpp -o ../devcpp_build/temp_files/textreader.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/vmconfigreader.o: io/vmconfigreader.cpp
+	$(CPP) -c io/vmconfigreader.cpp -o ../devcpp_build/temp_files/vmconfigreader.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/canvas.o: image/canvas.cpp
+	$(CPP) -c image/canvas.cpp -o ../devcpp_build/temp_files/canvas.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/fuckide.o: fuckide/fuckide.cpp
+	$(CPP) -c fuckide/fuckide.cpp -o ../devcpp_build/temp_files/fuckide.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/exception.o: exception/exception.cpp
+	$(CPP) -c exception/exception.cpp -o ../devcpp_build/temp_files/exception.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/command.o: command/command.cpp
+	$(CPP) -c command/command.cpp -o ../devcpp_build/temp_files/command.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/lineid.o: command/lineid.cpp
+	$(CPP) -c command/lineid.cpp -o ../devcpp_build/temp_files/lineid.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/add.o: command/commands/add.cpp
+	$(CPP) -c command/commands/add.cpp -o ../devcpp_build/temp_files/add.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/and.o: command/commands/and.cpp
+	$(CPP) -c command/commands/and.cpp -o ../devcpp_build/temp_files/and.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/beq.o: command/commands/beq.cpp
+	$(CPP) -c command/commands/beq.cpp -o ../devcpp_build/temp_files/beq.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/bge.o: command/commands/bge.cpp
+	$(CPP) -c command/commands/bge.cpp -o ../devcpp_build/temp_files/bge.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/blt.o: command/commands/blt.cpp
+	$(CPP) -c command/commands/blt.cpp -o ../devcpp_build/temp_files/blt.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/bne.o: command/commands/bne.cpp
+	$(CPP) -c command/commands/bne.cpp -o ../devcpp_build/temp_files/bne.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/call.o: command/commands/call.cpp
+	$(CPP) -c command/commands/call.cpp -o ../devcpp_build/temp_files/call.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/div.o: command/commands/div.cpp
+	$(CPP) -c command/commands/div.cpp -o ../devcpp_build/temp_files/div.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/draw.o: command/commands/draw.cpp
+	$(CPP) -c command/commands/draw.cpp -o ../devcpp_build/temp_files/draw.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/end.o: command/commands/end.cpp
+	$(CPP) -c command/commands/end.cpp -o ../devcpp_build/temp_files/end.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/jal.o: command/commands/jal.cpp
+	$(CPP) -c command/commands/jal.cpp -o ../devcpp_build/temp_files/jal.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/load.o: command/commands/load.cpp
+	$(CPP) -c command/commands/load.cpp -o ../devcpp_build/temp_files/load.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/mov.o: command/commands/mov.cpp
+	$(CPP) -c command/commands/mov.cpp -o ../devcpp_build/temp_files/mov.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/mul.o: command/commands/mul.cpp
+	$(CPP) -c command/commands/mul.cpp -o ../devcpp_build/temp_files/mul.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/or.o: command/commands/or.cpp
+	$(CPP) -c command/commands/or.cpp -o ../devcpp_build/temp_files/or.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/pop.o: command/commands/pop.cpp
+	$(CPP) -c command/commands/pop.cpp -o ../devcpp_build/temp_files/pop.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/push.o: command/commands/push.cpp
+	$(CPP) -c command/commands/push.cpp -o ../devcpp_build/temp_files/push.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/rem.o: command/commands/rem.cpp
+	$(CPP) -c command/commands/rem.cpp -o ../devcpp_build/temp_files/rem.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/ret.o: command/commands/ret.cpp
+	$(CPP) -c command/commands/ret.cpp -o ../devcpp_build/temp_files/ret.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/store.o: command/commands/store.cpp
+	$(CPP) -c command/commands/store.cpp -o ../devcpp_build/temp_files/store.o $(CXXFLAGS)
+
+../devcpp_build/temp_files/sub.o: command/commands/sub.cpp
+	$(CPP) -c command/commands/sub.cpp -o ../devcpp_build/temp_files/sub.o $(CXXFLAGS)

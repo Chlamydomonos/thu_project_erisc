@@ -1,0 +1,16 @@
+all-before:
+	-md "../devcpp_build"
+	-md "../devcpp_build/temp_files"
+	-md "../devcpp_build/images"
+	-copy "./vm.vmcfg" "../devcpp_build"
+	-copy "./image\image.imgcfg" "../devcpp_build/images"
+	-copy "./image\frame.bmp" "../devcpp_build/images"
+	-copy "./image\register_white.bmp" "../devcpp_build/images"
+	-copy "./image\register_red.bmp" "../devcpp_build/images"
+	-copy "./image\register_blue.bmp" "../devcpp_build/images"
+	-copy "./image\register_purple.bmp" "../devcpp_build/images"
+	-copy "./image\memory_white.bmp" "../devcpp_build/images"
+	-copy "./image\memory_green.bmp" "../devcpp_build/images"
+	-copy "./image\stack_white.bmp" "../devcpp_build/images"
+	-copy "./image\stack_orange.bmp" "../devcpp_build/images"
+
