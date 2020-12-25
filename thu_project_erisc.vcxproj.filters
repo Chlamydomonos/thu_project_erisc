@@ -23,6 +23,8 @@
       <Filter>源文件</Filter>
     </None>
     <None Include="src\image\image.imgcfg" />
+    <None Include="input\5.3.risc" />
+    <None Include="input\5.4.risc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\vm\ememory.h">

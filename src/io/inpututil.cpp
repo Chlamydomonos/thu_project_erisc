@@ -106,6 +106,9 @@ Command* input::readSingleCommand(const char* str, vm::VM* vm, int lineNum)
 			}
 		}
 
+		if (str[0] == '/' && str[1] == '/')
+			isEmptyCommand = true;
+
 		if (isEmptyCommand)
 		{
 			Command* temp = new Command();

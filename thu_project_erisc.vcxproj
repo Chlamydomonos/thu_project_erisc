@@ -199,6 +199,8 @@
     <ClCompile Include="src\vm\vm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="input\5.3.risc" />
+    <None Include="input\5.4.risc" />
     <None Include="src\copy_files.bat" />
     <None Include="src\image\image.imgcfg" />
     <None Include="任务&amp;进度\一些说明.md" />
