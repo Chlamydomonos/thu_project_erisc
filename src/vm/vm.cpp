@@ -1,6 +1,7 @@
 #include "vm.h"
 #include "../command/command.h"
 #include "../exception/exception.h"
+#include <cmath>
 
 #define HEAD_LEN 19
 #define BUFFER_LEN 64
@@ -9,19 +10,19 @@ namespace
 {
 	const char* exceptionHead = "Error running line ";
 
-	char buffer[BUFFER_LEN] = { 0 };
-
 	char* genExceptionStr(int line)
 	{
-		if (buffer[0] != 'F')
-			for (int i = 0; i < HEAD_LEN; i++)
-				buffer[i] = exceptionHead[i];
-		char* i = buffer + HEAD_LEN;
+		char* buffer = new char[BUFFER_LEN];
+
+		for (int i = 0; i < HEAD_LEN; i++)
+			buffer[i] = exceptionHead[i];
+		char* i = buffer + HEAD_LEN + (int)floor(log10(line));
+		i[1] = 0;
 		while (line > 0)
 		{
 			*i = line % 10 + '0';
 			line /= 10;
-			i++;
+			i--;
 		}
 		return buffer;
 	}

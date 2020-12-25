@@ -1,4 +1,4 @@
-#include "cal.h"
+#include "call.h"
 #include "../../vm/vm.h"
 #include "../../vm/lineidlist.h"
 #include "../lineid.h"
@@ -6,15 +6,15 @@
 using namespace erisc;
 using namespace vm;
 
-erisc::Cal::Cal(const char* paramstring):Command(1,paramstring)
+erisc::Call::Call(const char* paramstring):Command(1,paramstring)
 {
 }
 
-erisc::Cal::~Cal()
+erisc::Call::~Call()
 {
 }
 
-void erisc::Cal::run(vm::VM* vm)
+void erisc::Call::run(vm::VM* vm)
 {
 	try {
 		if (params[0].type != ParamType::LINE_ID)

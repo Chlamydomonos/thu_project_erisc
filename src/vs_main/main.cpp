@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 			throw Exception("Wrong command line params!");
 		}
 
-		Command** commandList = readCommandsFromFile(fileName);
+		Command** commandList = readCommandsFromFile(fileName, vm);
 		delete fileName;
 		vm->initCommands(commandList);
 		delete[] commandList;

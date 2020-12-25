@@ -121,9 +121,6 @@
     <ClInclude Include="src\io\imageconfigreader.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\command\commands\cal.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="src\command\commands\ret.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -137,6 +134,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\vs_main\testmain.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\command\commands\call.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -234,9 +234,6 @@
     <ClCompile Include="src\io\imageconfigreader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\command\commands\cal.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\command\commands\ret.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -253,6 +250,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\vs_main\testmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\command\commands\call.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

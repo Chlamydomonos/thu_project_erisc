@@ -1,4 +1,5 @@
 #include "lineid.h"
+#include <cmath>
 
 #define HEAD_LEN 40
 #define BUFFER_LEN 66
@@ -21,13 +22,15 @@ namespace
         if (buffer[0] != 'F')
             for (int i = 0; i < HEAD_LEN; i++)
                 buffer[i] = exceptionHead[i];
-        char* i = buffer + HEAD_LEN;
+        char* i = buffer + HEAD_LEN + (int)floor(log10(a));
+        char* temp1 = i;
         while (a > 0)
         {
             *i = a % 10 + '0';
             a /= 10;
-            i++;
+            i--;
         }
+        i = temp1 + 1;
         *i = ' ';
         i++;
         *i = 'a';
@@ -38,12 +41,15 @@ namespace
         i++;
         *i = ' ';
         i++;
+        i += (int)floor(log10(b));
+        char* temp2 = i;
         while (b > 0)
         {
             *i = b % 10 + '0';
             b /= 10;
-            i++;
+            i--;
         }
+        i = temp2 + 1;
         *i = 0;
         return buffer;
     }
