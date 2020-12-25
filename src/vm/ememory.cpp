@@ -45,7 +45,7 @@ void vm::EMemory::write(int value, int address)
 	hasAccessed[address >> 18] = true;
 	hasAccessed[(address + 3) >> 18] = true;
 	for (int i = 0; i < 4; i++) {
-		*(memoryList + address + 3 - i) = (value >> (8 * i)) & 255;
+		memoryList[address + i] = (value >> (8 * i)) & 255;
 	}
 }
 
