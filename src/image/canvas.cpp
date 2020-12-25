@@ -89,7 +89,7 @@ image::Canvas::Canvas(const char* fileName)
 
 	if (bmp == nullptr)
 	{
-		const char* head = "Image ifle \"";
+		const char* head = "Image file \"";
 		int len1 = strlen(head);
 		int len2 = len1 + strlen(fileName);
 		const char* tail = "\" lost";
