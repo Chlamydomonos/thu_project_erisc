@@ -32,7 +32,7 @@ int vm::EMemory::read(int address)
 	border_judge(address);
 	int ret = 0;
 	for (int i = 0; i < 4; i++) {
-			ret = (ret << 8) | (int)*(memoryList + address + i);
+			ret = (ret << 8) | (int)*(memoryList + address + 3 - i);
 	}
 	hasAccessed[address >> 18] = true;
 	hasAccessed[(address + 3) >> 18] = true;

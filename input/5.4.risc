@@ -23,7 +23,9 @@ beq x3,x1,skip
 	add a0,x0,a0
 	mov a2,1000001
 	label:
-		call safeStore
+		load s2,a0
+		and s2,s2,0xFFFFFF00
+		store s2,a0
 		add a0,x0,a0
 	blt a0,a2,label
 skip:
@@ -32,11 +34,7 @@ bne x0,x2,sieve
 draw
 end
 
+
 //安全存入，只改变小端1字节值，不改变其他3字节
-safeStore:
-mov s2,a0
-and s2,s2,0xFFFFFF00
-store s2,a0
-ret
 //重新为内存赋值
 //结束
