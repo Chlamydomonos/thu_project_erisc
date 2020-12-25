@@ -1,0 +1,8 @@
+mov a0,0
+mov a1,1
+mov a2,51
+loop:
+add a0,a1,a0
+add a1,a1,1
+bne a1,a2,loop
+end
