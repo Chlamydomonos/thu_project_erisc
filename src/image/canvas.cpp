@@ -86,8 +86,6 @@ image::Canvas::Canvas(int width, int height)
 image::Canvas::Canvas(const char* fileName)
 {
 	FILE* bmp = fuckIDEfopen(fileName, "rb");
-	char h1 = fgetc(bmp);
-	char h2 = fgetc(bmp);
 
 	if (bmp == nullptr)
 	{
@@ -108,6 +106,9 @@ image::Canvas::Canvas(const char* fileName)
 		delete[] message;
 		throw exception;
 	}
+
+	char h1 = fgetc(bmp);
+	char h2 = fgetc(bmp);
 
 	if (h1 != 'B' || h2 != 'M')
 	{
