@@ -67,5 +67,6 @@ int main(int argc, char **argv)
 	{
 		printf("Error occured when running this program:\n%s", e.what());
 	}
+
 	return 0;
 }

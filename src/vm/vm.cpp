@@ -86,7 +86,7 @@ void vm::VM::initCommands(Command** commands)
 
 		this->commands[i] = commands[i];
 	}
-	currentCommandAmount = commandAmount;
+	currentCommandAmount = commandAmount - 1;
 }
 
 void vm::VM::runCommand(int line)

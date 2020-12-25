@@ -17,7 +17,7 @@ void erisc::Blt::run(vm::VM* vm)
 	try
 	{
 		if ((!(params[0].type == ParamType::REGISTER && params[1].type == ParamType::REGISTER)) && (params[2].type != ParamType::LINE_ID))
-			throw Exception("Param type error!");
+			throw Exception("Param type error");
 		int value1 = params[0].getValue(vm);
 		int	value2 = params[1].getValue(vm);
 		if (value1 < value2) {
