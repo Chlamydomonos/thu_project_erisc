@@ -54,7 +54,15 @@ namespace
 
 Command** input::readCommandsFromFile(const char* fileName, vm::VM* vm)
 {
-	TextReader* text = new TextReader(fileName);
+	TextReader* text;
+	try
+	{
+		text = new TextReader(fileName);
+	}
+	catch (Exception& e)
+	{
+		throw e;
+	}
 
 	int lines = 0;
 	while (text->readLine()[0] != 0)
@@ -70,176 +78,186 @@ Command** input::readCommandsFromFile(const char* fileName, vm::VM* vm)
 
 	for (int i = 1; i <= lines; i++)
 	{
-		try
+		try 
 		{
-			const char* line = text->readLine();
-
-			bool isEmptyCommand = false;
-
-			while (NOCHR(*line))
-			{
-				line++;
-				if (END(*line))
-				{
-					isEmptyCommand = true;
-					break;
-				}
-			}
-
-			if (isEmptyCommand)
-			{
-				Command* temp = new Command();
-				commands[i] = temp;
-			}
-			else if (matches(&line, "add"))
-			{
-				Command* temp = new Add(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "and"))
-			{
-				Command* temp = new And(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "beq"))
-			{
-				Command* temp = new Beq(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "bge"))
-			{
-				Command* temp = new Bge(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "blt"))
-			{
-				Command* temp = new Blt(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "bne"))
-			{
-				Command* temp = new Bne(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "call"))
-			{
-				Command* temp = new Call(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "div"))
-			{
-				Command* temp = new Div(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "draw"))
-			{
-				Command* temp = new Draw();
-				commands[i] = temp;
-			}
-			else if (matches(&line, "end"))
-			{
-				Command* temp = new End();
-				commands[i] = temp;
-			}
-			else if (matches(&line, "jal"))
-			{
-				Command* temp = new Jal(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "load"))
-			{
-				Command* temp = new Load(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "mov"))
-			{
-				Command* temp = new Mov(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "mul"))
-			{
-				Command* temp = new Mul(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "or"))
-			{
-				Command* temp = new Or(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "pop"))
-			{
-				Command* temp = new Pop(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "push"))
-			{
-				Command* temp = new Push(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "rem"))
-			{
-				Command* temp = new Rem(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "ret"))
-			{
-				Command* temp = new Ret();
-				commands[i] = temp;
-			}
-			else if (matches(&line, "store"))
-			{
-				Command* temp = new Store(line);
-				commands[i] = temp;
-			}
-			else if (matches(&line, "sub"))
-			{
-				Command* temp = new Sub(line);
-				commands[i] = temp;
-			}
-			else
-			{
-				int lineLen = strlen(line);
-
-				bool lineIdEnded = false;
-				int lineIdLen;
-
-				for (int j = 0; j < lineLen; j++)
-				{
-					if (!lineIdEnded)
-					{
-						if (IS_LINE_ID(line[j]));
-						else if (line[j] == ':')
-						{
-							lineIdEnded = true;
-							lineIdLen = j;
-						}
-						else
-							throw Exception("This line is not a command");
-					}
-					else
-					{
-						if (!NOCHR(line[j]))
-							throw Exception("Invalid character after lineId");
-					}
-				}
-
-				char* lineIdName = new char[lineIdLen + 1];
-				for (int j = 0; j < lineIdLen; j++)
-					lineIdName[j] = line[j];
-				lineIdName[lineIdLen] = 0;
-
-				LineId* temp = new LineId(lineIdName, i);
-				vm->getLineIdList()->add(temp);
-				commands[i] = (Command*)temp;
-			}
+			commands[i] = readSingleCommand(text->readLine(), vm, i);
 		}
-		catch (Exception& e)
+		catch (Exception e)
 		{
-			char* str = genExceptionStr(i);
-			Exception exception(str, e);
-			delete str;
-			throw exception;
+			throw e;
 		}
 	}
 	return commands;
+}
+
+Command* input::readSingleCommand(const char* str, vm::VM* vm, int lineNum)
+{
+	try
+	{
+		bool isEmptyCommand = false;
+
+		while (NOCHR(*str))
+		{
+			str++;
+			if (END(*str))
+			{
+				isEmptyCommand = true;
+				break;
+			}
+		}
+
+		if (isEmptyCommand)
+		{
+			Command* temp = new Command();
+			return temp;
+		}
+		else if (matches(&str, "add"))
+		{
+			Command* temp = new Add(str);
+			return temp;
+		}
+		else if (matches(&str, "and"))
+		{
+			Command* temp = new And(str);
+			return temp;
+		}
+		else if (matches(&str, "beq"))
+		{
+			Command* temp = new Beq(str);
+			return temp;
+		}
+		else if (matches(&str, "bge"))
+		{
+			Command* temp = new Bge(str);
+			return temp;
+		}
+		else if (matches(&str, "blt"))
+		{
+			Command* temp = new Blt(str);
+			return temp;
+		}
+		else if (matches(&str, "bne"))
+		{
+			Command* temp = new Bne(str);
+			return temp;
+		}
+		else if (matches(&str, "call"))
+		{
+			Command* temp = new Call(str);
+			return temp;
+		}
+		else if (matches(&str, "div"))
+		{
+			Command* temp = new Div(str);
+			return temp;
+		}
+		else if (matches(&str, "draw"))
+		{
+			Command* temp = new Draw();
+			return temp;
+		}
+		else if (matches(&str, "end"))
+		{
+			Command* temp = new End();
+			return temp;
+		}
+		else if (matches(&str, "jal"))
+		{
+			Command* temp = new Jal(str);
+			return temp;
+		}
+		else if (matches(&str, "load"))
+		{
+			Command* temp = new Load(str);
+			return temp;
+		}
+		else if (matches(&str, "mov"))
+		{
+			Command* temp = new Mov(str);
+			return temp;
+		}
+		else if (matches(&str, "mul"))
+		{
+			Command* temp = new Mul(str);
+			return temp;
+		}
+		else if (matches(&str, "or"))
+		{
+			Command* temp = new Or(str);
+			return temp;
+		}
+		else if (matches(&str, "pop"))
+		{
+			Command* temp = new Pop(str);
+			return temp;
+		}
+		else if (matches(&str, "push"))
+		{
+			Command* temp = new Push(str);
+			return temp;
+		}
+		else if (matches(&str, "rem"))
+		{
+			Command* temp = new Rem(str);
+			return temp;
+		}
+		else if (matches(&str, "ret"))
+		{
+			Command* temp = new Ret();
+			return temp;
+		}
+		else if (matches(&str, "store"))
+		{
+			Command* temp = new Store(str);
+			return temp;
+		}
+		else if (matches(&str, "sub"))
+		{
+			Command* temp = new Sub(str);
+			return temp;
+		}
+		else
+		{
+			int lineLen = strlen(str);
+
+			bool lineIdEnded = false;
+			int lineIdLen;
+
+			for (int j = 0; j < lineLen; j++)
+			{
+				if (!lineIdEnded)
+				{
+					if (IS_LINE_ID(str[j]));
+					else if (str[j] == ':')
+					{
+						lineIdEnded = true;
+						lineIdLen = j;
+					}
+					else
+						throw Exception("This line is not a command");
+				}
+				else
+				{
+					if (!NOCHR(str[j]))
+						throw Exception("Invalid character after lineId");
+				}
+			}
+
+			char* lineIdName = new char[lineIdLen + 1];
+			for (int j = 0; j < lineIdLen; j++)
+				lineIdName[j] = str[j];
+			lineIdName[lineIdLen] = 0;
+
+			LineId* temp = new LineId(lineIdName, lineNum);
+			vm->getLineIdList()->add(temp);
+			return (Command*)temp;
+		}
+	}
+	catch (Exception& e)
+	{
+		char* str = genExceptionStr(lineNum);
+		Exception exception(str, e);
+		delete str;
+		throw exception;
+	}
 }
