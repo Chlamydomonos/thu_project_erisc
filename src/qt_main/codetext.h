@@ -2,16 +2,15 @@
 #define CODETEXT_H
 
 #include "linenumberwidget.h"
-#include <QPlainTextEdit>
+#include <QTextEdit>
 #include <QTextBlock>
 
-class CodeText : public QPlainTextEdit
+class CodeText : public QTextEdit
 {
 public:
     CodeText(QWidget* parent = nullptr);
     void setLineNumberWidget(LineNumberWidget* widget);
     void updateLineNumbers();
-
 private:
     LineNumberWidget* lineNumbers;
 };

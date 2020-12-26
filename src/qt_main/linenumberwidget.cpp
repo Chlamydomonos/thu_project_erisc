@@ -1,40 +1,41 @@
 #include "linenumberwidget.h"
 
 #include <QPainter>
+#include <qdebug.h>
 
 LineNumberWidget::LineNumberWidget(QWidget *parent) : QWidget(parent)
 {
 
 }
 
-LineNumberWidget::~LineNumberWidget()
+void LineNumberWidget::setMinLine(int line)
 {
-
+    minLine = line;
 }
 
-void LineNumberWidget::setFirstLineNum(int firstLineNumber)
+void LineNumberWidget::setMaxLine(int line)
 {
-    this->firstLineNumber = firstLineNumber;
+    maxLine = line;
 }
 
-void LineNumberWidget::clearY()
+void LineNumberWidget::setLineHeight(int height)
 {
-    yPositions.clear();
+    lineHeight = height;
 }
 
-void LineNumberWidget::addYPosition(int yPosition)
+void LineNumberWidget::setPaintOffset(int offset)
 {
-    yPositions.append(yPosition);
+    paintOffset = offset;
 }
 
 void LineNumberWidget::paintEvent(QPaintEvent *event)
 {
+    int y0 = paintOffset + fontMetrics().ascent() - lineHeight;
     QPainter painter(this);
-    painter.setPen(Qt::black);
-    int lines = yPositions.size();
-
-    for(int i = 0; i < lines; i++)
+    for(int i = minLine; i <= maxLine; i++)
     {
-        painter.drawText(0, yPositions[i] + fontMetrics().ascent(), QString::number(this->firstLineNumber + i + 1));
+        if(i > 0)
+            painter.drawText(0, y0, QString::number(i));
+        y0 += lineHeight;
     }
 }

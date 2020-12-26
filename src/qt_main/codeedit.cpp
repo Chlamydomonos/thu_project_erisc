@@ -1,13 +1,15 @@
 #include "codeedit.h"
 #include "ui_codeedit.h"
+#include <QScrollBar>
 
 CodeEdit::CodeEdit(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CodeEdit)
 {
     ui->setupUi(this);
-    ui->text->setLineNumberWidget(ui->lineNums);
-    connect(ui->text, SIGNAL(updateRequest(QRect,int)), this, SLOT(updateLineNumbers()));
+    ui->text->setLineNumberWidget(ui->lineNumbers);
+    connect(ui->text, SIGNAL(textChanged()), this, SLOT(updateLineNumbers()));
+    connect(ui->text->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(updateLineNumbers()));
 }
 
 CodeEdit::~CodeEdit()
@@ -18,5 +20,5 @@ CodeEdit::~CodeEdit()
 void CodeEdit::updateLineNumbers()
 {
     ui->text->updateLineNumbers();
-    ui->lineNums->update();
+    ui->lineNumbers->update();
 }

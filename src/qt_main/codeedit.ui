@@ -13,26 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="LineNumberWidget" name="lineNums" native="true">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>30</y>
-     <width>20</width>
-     <height>380</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="CodeText" name="text">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>30</y>
-     <width>440</width>
-     <height>380</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="title">
    <property name="geometry">
     <rect>
@@ -52,6 +32,29 @@
     <string>TextLabel</string>
    </property>
   </widget>
+  <widget class="CodeText" name="text">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>440</width>
+     <height>380</height>
+    </rect>
+   </property>
+   <property name="lineWrapMode">
+    <enum>QTextEdit::NoWrap</enum>
+   </property>
+  </widget>
+  <widget class="LineNumberWidget" name="lineNumbers" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>30</y>
+     <width>20</width>
+     <height>380</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
@@ -62,7 +65,7 @@
   </customwidget>
   <customwidget>
    <class>CodeText</class>
-   <extends>QPlainTextEdit</extends>
+   <extends>QTextEdit</extends>
    <header location="global">qt_main/codetext.h</header>
   </customwidget>
  </customwidgets>
