@@ -13,4 +13,5 @@ all-before:
 	-copy "./image\memory_green.bmp" "../devcpp_build/images"
 	-copy "./image\stack_white.bmp" "../devcpp_build/images"
 	-copy "./image\stack_orange.bmp" "../devcpp_build/images"
-
+all-after:
+	-rename "../devcpp_build\build_devcpp.exe" "thu_project_erisc.exe"

@@ -64,7 +64,8 @@ SOURCES += \
     command/commands/store.cpp \
     command/commands/sub.cpp \
     qt_main/linenumberwidget.cpp \
-    qt_main/codeedit.cpp
+    qt_main/codeedit.cpp \
+    qt_main/codetext.cpp
 
 HEADERS += \
     qt_main/mainwindow.h \
@@ -106,7 +107,8 @@ HEADERS += \
     command/commands/store.h \
     command/commands/sub.h \
     qt_main/linenumberwidget.h \
-    qt_main/codeedit.h
+    qt_main/codeedit.h \
+    qt_main/codetext.h
 
 FORMS += \
     qt_main/mainwindow.ui \

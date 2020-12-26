@@ -9,7 +9,7 @@ LINKOBJ  = ../devcpp_build/temp_files/main.o ../devcpp_build/temp_files/testmain
 LIBS     = -L"D:/devcpp/Dev-Cpp/MinGW64/lib" -L"D:/devcpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"D:/devcpp/Dev-Cpp/MinGW64/include" -I"D:/devcpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/devcpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"D:/devcpp/Dev-Cpp/MinGW64/include" -I"D:/devcpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/devcpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/devcpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = ../devcpp_build/thu_project_erisc.exe
+BIN      = ../devcpp_build/build_devcpp.exe
 CXXFLAGS = $(CXXINCS) -std=c++11
 CFLAGS   = $(INCS) 
 RM       = rm.exe -f

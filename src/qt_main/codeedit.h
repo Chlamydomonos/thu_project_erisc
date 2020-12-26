@@ -15,6 +15,9 @@ public:
     explicit CodeEdit(QWidget *parent = nullptr);
     ~CodeEdit();
 
+private slots:
+    void updateLineNumbers();
+
 private:
     Ui::CodeEdit *ui;
 };
