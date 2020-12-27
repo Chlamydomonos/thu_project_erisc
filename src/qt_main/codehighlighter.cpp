@@ -31,7 +31,8 @@ void CodeHighlighter::highlightBlock(const QString &text)
     errorCommand.setUnderlineColor(Qt::red);
     errorCommand.setFontUnderline(true);
 
-    QRegularExpression commandNames("\\s*(add|and|beq|bge|blt|bne|call|div|draw|end|jal|load|mov|mul|or|pop|push|rem|ret|store|sub)\\s+");
+    QRegularExpression commandNames("\\s*((add|and|beq|bge|blt|bne|call|div|jal|load|mov|mul|or|pop|push|rem|store|sub)\\s+)");
+    QRegularExpression commandsWithoutParams("draw|end|ret");
     QRegularExpressionMatchIterator i0 = commandNames.globalMatch(text);
     if(i0.hasNext())
     {
@@ -126,7 +127,15 @@ void CodeHighlighter::highlightBlock(const QString &text)
             }
             else
             {
-                setFormat(0, text.length(), errorText);
+                QRegularExpressionMatchIterator i3 = commandsWithoutParams.globalMatch(text);
+                if(i3.hasNext())
+                {
+                    QRegularExpressionMatch match3 = i3.next();
+                    setFormat(0, text.length(), errorText);
+                    setFormat(match3.capturedStart(), match3.capturedLength(), commandName);
+                }
+                else
+                    setFormat(0, text.length(), errorText);
             }
         }
     }

@@ -25,6 +25,9 @@
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="console">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -151,7 +154,10 @@
   </action>
   <action name="_open">
    <property name="text">
-    <string>打开</string>
+    <string>打开…</string>
+   </property>
+   <property name="toolTip">
+    <string>打开…</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -167,7 +173,10 @@
   </action>
   <action name="_saveAs">
    <property name="text">
-    <string>另存为</string>
+    <string>另存为…</string>
+   </property>
+   <property name="toolTip">
+    <string>另存为…</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+S</string>
@@ -229,6 +238,9 @@
   <action name="loadCommand">
    <property name="text">
     <string>加载指令</string>
+   </property>
+   <property name="toolTip">
+    <string>把文件中的指令加载进虚拟机但不运行，并启动控制台</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+F5</string>

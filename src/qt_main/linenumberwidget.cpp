@@ -35,6 +35,7 @@ int LineNumberWidget::getRequiredWidth()
 void LineNumberWidget::paintEvent(QPaintEvent *event)
 {
     int y0 = paintOffset - lineHeight;
+    y0 += (lineHeight - fontMetrics().height()) / 2;
     QPainter painter(this);
     for(int i = minLine; i <= maxLine; i++)
     {

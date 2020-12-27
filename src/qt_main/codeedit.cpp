@@ -9,6 +9,7 @@ CodeEdit::CodeEdit(QWidget *parent) :
     ui->setupUi(this);
     ui->text->setLineNumberWidget(ui->lineNumbers);
     connect(ui->text, SIGNAL(textChanged()), this, SLOT(updateLineNumbers()));
+    connect(ui->text, SIGNAL(textChanged()), this, SLOT(emitTextChanged()));
     connect(ui->text->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(updateLineNumbers()));
     highlighter = new CodeHighlighter(ui->text->document());
     connect(ui->text,SIGNAL(textChanged()), this, SLOT(updateLineIdList()));
@@ -22,6 +23,11 @@ CodeEdit::~CodeEdit()
 QString CodeEdit::toPlainText()
 {
     return ui->text->toPlainText();
+}
+
+QString CodeEdit::title()
+{
+    return ui->title->text();
 }
 
 void CodeEdit::updateLineNumbers()
@@ -41,6 +47,11 @@ void CodeEdit::updateLineIdList()
         oldLineAmount = ui->text->document()->lineCount();
         highlighter->rehighlight();
     }
+}
+
+void CodeEdit::emitTextChanged()
+{
+    emit textChanged();
 }
 
 void CodeEdit::cut()
@@ -66,6 +77,11 @@ void CodeEdit::undo()
 void CodeEdit::redo()
 {
     ui->text->redo();
+}
+
+void CodeEdit::clear()
+{
+    ui->text->clear();
 }
 
 void CodeEdit::setPlainText(const QString &text)

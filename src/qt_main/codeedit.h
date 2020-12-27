@@ -11,11 +11,13 @@ class CodeEdit;
 class CodeEdit : public QWidget
 {
     Q_OBJECT
-
+signals:
+    void textChanged();
 public:
     explicit CodeEdit(QWidget *parent = nullptr);
     ~CodeEdit();
     QString toPlainText();
+    QString title();
 
 public slots:
     void cut();
@@ -23,12 +25,14 @@ public slots:
     void paste();
     void undo();
     void redo();
+    void clear();
     void setPlainText(const QString &text);
     void setTitle(const QString &title);
 
 private slots:
     void updateLineNumbers();
     void updateLineIdList();
+    void emitTextChanged();
 
 private:
     Ui::CodeEdit *ui;
