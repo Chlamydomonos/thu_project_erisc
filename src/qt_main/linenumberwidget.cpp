@@ -1,7 +1,6 @@
 #include "linenumberwidget.h"
 
 #include <QPainter>
-#include <qdebug.h>
 
 LineNumberWidget::LineNumberWidget(QWidget *parent) : QWidget(parent)
 {
@@ -28,14 +27,19 @@ void LineNumberWidget::setPaintOffset(int offset)
     paintOffset = offset;
 }
 
+int LineNumberWidget::getRequiredWidth()
+{
+    return fontMetrics().width(QString::number(maxLine)) + 4;
+}
+
 void LineNumberWidget::paintEvent(QPaintEvent *event)
 {
-    int y0 = paintOffset + fontMetrics().ascent() - lineHeight;
+    int y0 = paintOffset - lineHeight;
     QPainter painter(this);
     for(int i = minLine; i <= maxLine; i++)
     {
         if(i > 0)
-            painter.drawText(0, y0, QString::number(i));
+            painter.drawText(2, y0, fontMetrics().width(QString::number(maxLine)), fontMetrics().height(), Qt::AlignRight, QString::number(i));
         y0 += lineHeight;
     }
 }

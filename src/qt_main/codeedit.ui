@@ -35,11 +35,16 @@
   <widget class="CodeText" name="text">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>129</x>
      <y>30</y>
-     <width>440</width>
+     <width>331</width>
      <height>380</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
    </property>
    <property name="lineWrapMode">
     <enum>QTextEdit::NoWrap</enum>
@@ -50,9 +55,14 @@
     <rect>
      <x>0</x>
      <y>30</y>
-     <width>20</width>
+     <width>131</width>
      <height>380</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
    </property>
   </widget>
  </widget>

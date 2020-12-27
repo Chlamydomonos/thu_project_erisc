@@ -13,6 +13,7 @@ public:
     void setMaxLine(int line);
     void setLineHeight(int height);
     void setPaintOffset(int offset);
+    int getRequiredWidth();
 protected:
     void paintEvent(QPaintEvent* event) override;
 private:
