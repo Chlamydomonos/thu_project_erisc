@@ -1,0 +1,51 @@
+QWidget
+{
+    background-color: rgb(255, 0, 255);
+}
+
+QLabel
+{
+    background-color: rgb(0, 255, 0);
+}
+
+QPlainTextEdit, QTextEdit
+{
+    background-color: black;
+    color: white;
+    font-family: 'Courier New';
+}
+
+DrawArea QFrame QLabel
+{
+    background-color: white;
+}
+
+QLabel#text1, QLabel#text2, QLabel#text3
+{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+DrawArea QFrame
+{
+    background-color: cyan;
+}
+
+.DrawArea
+{
+    background-color: white;
+}
+
+QToolBar, QToolButton
+{
+    background-color: blue;
+}
+
+QMenuBar::item:selected
+{
+    background-color: rgb(0, 255, 0);
+}
+
+QMenu::item:selected
+{
+    color: red;
+}

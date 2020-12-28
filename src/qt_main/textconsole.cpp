@@ -6,6 +6,17 @@ TextConsole::TextConsole(QWidget* parent) : QPlainTextEdit (parent)
 
 }
 
+void TextConsole::deleteFirstLine()
+{
+    QTextCursor cursor = textCursor();
+    cursor.movePosition(QTextCursor::Start);
+    cursor.movePosition(QTextCursor::NextBlock);
+    while (cursor.position() > 0)
+    {
+        cursor.deletePreviousChar();
+    }
+}
+
 void TextConsole::keyPressEvent(QKeyEvent *e)
 {
     if(!this->isReadOnly())

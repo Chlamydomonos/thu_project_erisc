@@ -34,7 +34,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="consloleTitle">
+   <widget class="QLabel" name="consoleTitle">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -132,6 +132,9 @@
      <family>Microsoft YaHei UI</family>
      <pointsize>10</pointsize>
     </font>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>

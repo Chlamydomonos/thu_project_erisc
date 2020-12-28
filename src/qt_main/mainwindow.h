@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "../vm/vm.h"
+#include "textformats.h"
 
 namespace Ui {
 class MainWindow;
@@ -15,6 +16,11 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void setApp(QApplication* app);
+    void setSkin(int skin);
+
+public slots:
+    void setFormats(int type);
 
 private slots:
     void newFile();
@@ -27,6 +33,9 @@ private slots:
     void runByLine();
     void loadCommands();
     void handleInput(const QString&);
+    void handleRunningByLine();
+    void openVMConfig();
+    void openSkinConfig();
 
 private:
     Ui::MainWindow *ui;
@@ -35,6 +44,15 @@ private:
     bool isNewFile;
     vm::VM* vm;
     bool handleUnsavedChanges();
+    bool runningByLine;
+    QTimer* timer;
+    void startRunningByLine();
+    void stopRunningByLine();
+    QApplication* app;
+    TextFormats fDefault;
+    TextFormats fHighContrast;
+    TextFormats fChlamydomonos;
+    int skin;
 };
 
 #endif // MAINWINDOW_H

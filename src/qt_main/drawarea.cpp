@@ -1,8 +1,6 @@
 #include "drawarea.h"
 #include "ui_drawarea.h"
 
-#include <QDebug>
-
 DrawArea::DrawArea(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::DrawArea)
@@ -24,39 +22,35 @@ DrawArea::DrawArea(QWidget *parent) :
     for(int i = 0; i < 16; i++)
         memory[i] = _memory[i];
     stack = ui->stack;
+    setAttribute(Qt::WA_StyledBackground);
 }
 
 void DrawArea::draw(vm::VM* vm)
 {
     for(int i = 0; i < 32; i++)
     {
-        QPalette palette;
         bool br = vm->getRegister(i)->getRead();
         bool bw = vm->getRegister(i)->getWritten();
-        qDebug() << br << ' ' << bw;
         if(br && bw)
-            palette.setColor(QPalette::Background, QColor(255, 0, 255));
+            registers[i]->setStyleSheet("background-color: rgb(255, 0, 255);");
         else if(br)
-            palette.setColor(QPalette::Background, QColor(0, 0, 255));
+            registers[i]->setStyleSheet("background-color: rgb(0, 0, 255);");
         else if(bw)
-            palette.setColor(QPalette::Background, QColor(255, 0, 0));
-        registers[i]->setAutoFillBackground(br || bw);
-        registers[i]->setPalette(palette);
-        registers[i]->update();
+            registers[i]->setStyleSheet("background-color: rgb(255, 0, 0);");
+        else
+            registers[i]->setStyleSheet("");
     }
     for(int i = 0; i < 16; i++)
     {
-        QPalette palette;
-        palette.setColor(QPalette::Background, QColor(0, 255, 0));
-        bool b = vm->getMemory()->getAccessed(i);
-        memory[i]->setAutoFillBackground(b);
-        memory[i]->setPalette(palette);
-        memory[i]->update();
+        if(vm->getMemory()->getAccessed(i))
+            memory[i]->setStyleSheet("background-color: rgb(0, 255, 0);");
+        else
+            memory[i]->setStyleSheet("");
     }
-    QPalette palette;
-    palette.setColor(QPalette::Background, QColor(255, 128, 0));
-    stack->setAutoFillBackground(vm->getStack()->getAccessed());
-    stack->update();
+    if(vm->getStack()->getAccessed())
+        stack->setStyleSheet("background-color: rgb(128, 255, 0);");
+    else
+        stack->setStyleSheet("");
 }
 
 DrawArea::~DrawArea()

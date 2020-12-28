@@ -18,6 +18,10 @@ public:
     ~CodeEdit();
     QString toPlainText();
     QString title();
+    void setReadOnly(bool readOnly);
+    QString getLine(int line);
+
+    void setFormats(TextFormats* format);
 
 public slots:
     void cut();

@@ -1,0 +1,11 @@
+QPlainTextEdit
+{
+    background-color: black;
+    color: white;
+    font-family: 'Courier New';
+}
+
+QTextEdit
+{
+    font-family: 'Courier New';
+}

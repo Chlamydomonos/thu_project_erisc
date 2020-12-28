@@ -1,0 +1,219 @@
+QWidget
+{
+    font-family: 'Microsoft Ya Hei UI';
+    background-color: rgb(20, 60, 20);
+    color: rgb(200, 200, 200);
+}
+
+.DrawArea QFrame
+{
+    border-top: 2px solid rgb(0, 20, 0);
+    border-left: 2px solid rgb(0, 20, 0);
+    border-right: 2px solid rgb(0, 80, 0);
+    border-bottom: 0px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0px;
+    background-color: rgb(0, 50, 0);
+}
+
+.DrawArea QFrame QFrame
+{
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+}
+
+.DrawArea QWidget QLabel
+{
+    border-width: 2px;
+    border-style: outset;
+    border-color: rgb(20, 40, 20);
+    border-radius: 4px;
+    background-color: rgb(30, 30, 30);
+    color: rgb(100, 200, 100);
+    font-weight: bold;
+}
+
+QLabel#text1, QLabel#text2, QLabel#text3
+{
+    border-width: 0px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+QLabel#consoleTitle
+{
+    border-style: outset;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-color: rgb(20, 50, 20);
+}
+
+.CodeEdit QLabel#title
+{
+    background-color: rgb(0, 80, 0);
+    border-color: rgb(0, 60, 0);
+    border-style: outset;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+QTextEdit
+{
+    border: 1px solid rgb(20, 40, 20);
+    background-color: rgb(20, 40, 20);
+    border-top-right-radius: 2px;
+    font-family: 'consolas';
+    background-image: url(:/images/chlamydomonos_icon.png);
+    background-attachment: fixed;
+}
+
+QPlainTextEdit
+{
+    background-color: rgb(30, 40, 30);
+    border: 1px solid rgb(0, 30, 0);
+}
+
+LineNumberWidget
+{
+    border: 0px;
+    font-family: 'consolas';
+    color: gray;
+    background-color: rgb(0, 40, 0);
+}
+
+QToolBar
+{
+    border-width: 2px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-style: outset;
+    border-color: rgb(30, 40, 30);
+    background-color: rgb(30, 60, 30);
+}
+
+QToolButton
+{
+    background-color: rgb(30, 60, 30);
+}
+
+QToolButton:hover
+{
+    border-radius: 4px;
+    border: 1px solid rgb(0, 80, 0);
+    background-color: rgb(0, 80, 0);
+}
+
+QToolButton:pressed
+{
+    border-radius: 4px;
+    border: 1px inset rgb(0, 80, 0);
+    background-color: rgb(20, 60, 20);
+    color: gray;
+}
+
+QDialog
+{
+    font-family: 'Microsoft Ya Hei UI';
+    font-size: 10pt;
+}
+
+QPushButton
+{
+    font-family: 'Microsoft Ya Hei UI';
+    font-size: 10pt;
+    border: 2px solid rgb(0, 80, 0);
+    border-radius: 4px;
+    width: 60px;
+}
+
+QPushButton:hover
+{
+    font-family: 'Microsoft Ya Hei UI';
+    font-size: 10pt;
+    border: 2px solid rgb(0, 80, 0);
+    background-color: rgb(0, 120, 0);
+    border-radius: 4px;
+    width: 60px;
+}
+
+QPushButton:pressed
+{
+    font-family: 'Microsoft Ya Hei UI';
+    font-size: 10pt;
+    border: 2px solid rgb(0, 80, 0);
+    background-color: rgb(0, 40, 0);
+    color: gray;
+    border-radius: 4px;
+    width: 60px;
+}
+
+QMenuBar
+{
+    background-color: rgb(0, 60, 0);
+}
+
+QMenuBar::item:selected
+{
+    background-color: rgb(150, 200, 150);
+    border: 1px solid rgb(200, 250, 200);
+    color: gray;
+}
+
+QMenu::item:selected
+{
+    background-color: rgb(0, 80, 0);
+}
+
+QMenu::item:pressed
+{
+    background-color: rgb(0, 40, 0);
+}
+
+.QScrollBar::handle
+{
+    border: 0px;
+    background-color: rgba(255, 255, 255, 20);
+}
+
+.QScrollBar::handle:hover
+{
+    border: 0px;
+    background-color: rgba(255, 255, 255, 40);
+}
+
+.QScrollBar::left-arrow
+{
+    width: 0px;
+}
+
+.QScrollBar::right-arrow
+{
+    width: 0px;
+}
+
+.QScrollBar::add-line
+{
+    height: 0px;
+}
+
+.QScrollBar::sub-line
+{
+    height: 0px;
+}
+
+.QScrollBar::add-page
+{
+    background-color: rgba(255, 255, 255, 5);
+}
+
+.QScrollBar::sub-page
+{
+    background-color: rgba(255, 255, 255, 5);
+}

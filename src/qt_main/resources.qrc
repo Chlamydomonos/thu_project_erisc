@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/style_sheets">
+        <file>chlamydomonos.qss</file>
+        <file>default.qss</file>
+        <file>high_contrast.qss</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>chlamydomonos_icon.png</file>
+        <file>default.png</file>
+        <file>chlamydomonos.png</file>
+        <file>high_contrast.png</file>
+    </qresource>
+</RCC>

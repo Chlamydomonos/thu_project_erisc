@@ -12,6 +12,7 @@ signals:
     void commandInputed(const QString&);
 public:
     TextConsole(QWidget* parent = nullptr);
+    void deleteFirstLine();
 protected:
     void keyPressEvent(QKeyEvent *e) override;
 };

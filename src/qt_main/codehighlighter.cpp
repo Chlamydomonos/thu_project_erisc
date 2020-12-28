@@ -10,27 +10,6 @@ CodeHighlighter::CodeHighlighter(QTextDocument* parent) : QSyntaxHighlighter(par
 
 void CodeHighlighter::highlightBlock(const QString &text)
 {
-    QTextCharFormat commandName;
-    commandName.setForeground(QBrush(Qt::blue));
-    commandName.setFontWeight(QFont::Bold);
-    QTextCharFormat registerText;
-    QTextCharFormat numberText;
-    numberText.setForeground(QBrush(Qt::blue));
-    QTextCharFormat lineIDName;
-    lineIDName.setForeground(QBrush(Qt::darkGreen));
-    lineIDName.setFontItalic(true);
-    QTextCharFormat errorText;
-    errorText.setUnderlineColor(Qt::red);
-    errorText.setFontUnderline(true);
-    errorText.setUnderlineStyle(QTextCharFormat::WaveUnderline);
-    QTextCharFormat commentText;
-    commentText.setForeground(QBrush(Qt::gray));
-    QTextCharFormat errorCommand;
-    errorCommand.setForeground(QBrush(Qt::red));
-    errorCommand.setFontWeight(QFont::Bold);
-    errorCommand.setUnderlineColor(Qt::red);
-    errorCommand.setFontUnderline(true);
-
     QRegularExpression commandNames("\\s*((add|and|beq|bge|blt|bne|call|div|jal|load|mov|mul|or|pop|push|rem|store|sub)\\s+)");
     QRegularExpression commandsWithoutParams("\\s*(draw|end|ret)\\s*");
     QRegularExpressionMatchIterator i0 = commandNames.globalMatch(text);
@@ -80,7 +59,7 @@ void CodeHighlighter::highlightBlock(const QString &text)
                     else if(isNumber(params[i]))
                         setFormat(paramStartPositions[i], params[i].length(), numberText);
                     else if(lineIdList.contains(params[i]))
-                        setFormat(paramStartPositions[i], params[i].length(), lineIDName);
+                        setFormat(paramStartPositions[i], params[i].length(), lineIdName);
                     else
                         setFormat(paramStartPositions[i], params[i].length(), errorText);
                 }
@@ -104,10 +83,10 @@ void CodeHighlighter::highlightBlock(const QString &text)
             QRegularExpression temp("[A-Za-z]+");
             QRegularExpressionMatch tempMatch = temp.globalMatch(text).next();
             if(match1.capturedStart() == 0 && match1.capturedLength() == text.length())
-                setFormat(tempMatch.capturedStart(), tempMatch.capturedLength(), lineIDName);
+                setFormat(tempMatch.capturedStart(), tempMatch.capturedLength(), lineIdName);
             else if(match1.capturedStart() == 0)
             {
-                setFormat(tempMatch.capturedStart(), tempMatch.capturedLength(), lineIDName);
+                setFormat(tempMatch.capturedStart(), tempMatch.capturedLength(), lineIdName);
                 setFormat(tempMatch.capturedEnd() + 1, text.length() - tempMatch.capturedLength(), errorText);
             }
             else
@@ -162,4 +141,15 @@ void CodeHighlighter::updateLineIdList(const QString& allText)
             }
         }
     }
+}
+
+void CodeHighlighter::setFormats(TextFormats *format)
+{
+    commandName = format->commandName;
+    registerText = format->registerText;
+    numberText = format->numberText;
+    lineIdName = format->lineIdName;
+    errorText = format->errorText;
+    commentText = format->commentText;
+    errorCommand = format->errorCommand;
 }

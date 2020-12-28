@@ -71,7 +71,11 @@ SOURCES += \
     qt_main/codehighlighter.cpp \
     qt_main/paramtest.cpp \
     qt_main/drawarea.cpp \
-    qt_main/textconsole.cpp
+    qt_main/textconsole.cpp \
+    qt_main/runbylinedialog.cpp \
+    qt_main/vmsettingdialog.cpp \
+    qt_main/skinconfigdialog.cpp \
+    qt_main/textformats.cpp
 
 HEADERS += \
     qt_main/mainwindow.h \
@@ -118,12 +122,19 @@ HEADERS += \
     qt_main/codehighlighter.h \
     qt_main/paramtest.h \
     qt_main/drawarea.h \
-    qt_main/textconsole.h
+    qt_main/textconsole.h \
+    qt_main/runbylinedialog.h \
+    qt_main/vmsettingdialog.h \
+    qt_main/skinconfigdialog.h \
+    qt_main/textformats.h
 
 FORMS += \
     qt_main/mainwindow.ui \
     qt_main/codeedit.ui \
-    qt_main/drawarea.ui
+    qt_main/drawarea.ui \
+    qt_main/runbylinedialog.ui \
+    qt_main/vmsettingdialog.ui \
+    qt_main/skinconfigdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -131,3 +142,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 QMAKE_POST_LINK += "..\\..\\src\\copy_files_qt.bat ..\\..\\src"
+
+RESOURCES += \
+    qt_main/resources.qrc

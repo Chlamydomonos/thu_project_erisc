@@ -30,6 +30,21 @@ QString CodeEdit::title()
     return ui->title->text();
 }
 
+void CodeEdit::setReadOnly(bool readOnly)
+{
+    ui->text->setReadOnly(readOnly);
+}
+
+QString CodeEdit::getLine(int line)
+{
+    return ui->text->document()->findBlockByLineNumber(line).text();
+}
+
+void CodeEdit::setFormats(TextFormats *format)
+{
+    highlighter->setFormats(format);
+}
+
 void CodeEdit::updateLineNumbers()
 {
     ui->text->updateLineNumbers();
