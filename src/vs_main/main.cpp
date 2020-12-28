@@ -8,7 +8,7 @@ using namespace vm;
 using namespace erisc;
 using namespace input;
 
-#define DEBUG
+//#define DEBUG
 
 void dynamicInput(char** argv);
 

@@ -64,22 +64,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(ProjectDir)..\vs_build</OutDir>
-    <IntDir>$(ProjectDir)..\vs_build</IntDir>
+    <IntDir>$(ProjectDir)..\vs_build\temp_files</IntDir>
     <TargetName>thu_project_erisc</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)..\vs_build</OutDir>
-    <IntDir>$(ProjectDir)..\vs_build</IntDir>
+    <IntDir>$(ProjectDir)..\vs_build\temp_files</IntDir>
     <TargetName>thu_project_erisc</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(ProjectDir)..\vs_build</OutDir>
-    <IntDir>$(ProjectDir)..\vs_build</IntDir>
+    <IntDir>$(ProjectDir)..\vs_build\temp_files</IntDir>
     <TargetName>thu_project_erisc</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(ProjectDir)..\vs_build</OutDir>
-    <IntDir>$(ProjectDir)..\vs_build</IntDir>
+    <IntDir>$(ProjectDir)..\vs_build\temp_files</IntDir>
     <TargetName>thu_project_erisc</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
