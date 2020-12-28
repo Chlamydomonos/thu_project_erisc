@@ -14,8 +14,8 @@ erisc::Or::~Or(){
 void erisc::Or::run(VM* vm) {
 	try {
 		if (!(params[0].type == ParamType::REGISTER && params[1].type == ParamType::REGISTER))
-			throw Exception("Param type error!");
-		int address = params[0].getValue(vm);
+			throw Exception("Param type error");
+		int address = params[0].value;
 		int value1 = params[1].getValue(vm);
 		int value2 = params[2].getValue(vm);
 		int value = value1 | value2;

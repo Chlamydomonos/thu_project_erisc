@@ -1,6 +1,7 @@
 #include "vm.h"
 #include "../command/command.h"
 #include "../exception/exception.h"
+#include <cmath>
 
 #define HEAD_LEN 19
 #define BUFFER_LEN 64
@@ -9,19 +10,19 @@ namespace
 {
 	const char* exceptionHead = "Error running line ";
 
-	char buffer[BUFFER_LEN] = { 0 };
-
 	char* genExceptionStr(int line)
 	{
-		if (buffer[0] != 'F')
-			for (int i = 0; i < HEAD_LEN; i++)
-				buffer[i] = exceptionHead[i];
-		char* i = buffer + HEAD_LEN;
+		char* buffer = new char[BUFFER_LEN];
+
+		for (int i = 0; i < HEAD_LEN; i++)
+			buffer[i] = exceptionHead[i];
+		char* i = buffer + HEAD_LEN + (int)floor(log10(line));
+		i[1] = 0;
 		while (line > 0)
 		{
 			*i = line % 10 + '0';
 			line /= 10;
-			i++;
+			i--;
 		}
 		return buffer;
 	}
@@ -35,7 +36,7 @@ vm::VM::VM(int maxCommands)
 	eMemory = new EMemory();
 	eRegister = new ERegister[REGISTER_AMOUNT];
 	eStack = new EStack();
-	commands = new Command*[maxCommands];
+	commands = new Command*[maxCommands + 1];
 	lineIds = new LineIdList();
 	currentCommandAmount = 0;
 	currentRunningLine = 1;
@@ -74,7 +75,7 @@ vm::LineIdList* vm::VM::getLineIdList()
 void vm::VM::initCommands(Command** commands)
 {
 	int commandAmount = 0;
-	for (int i = 0;; i++)
+	for (int i = 1;; i++)
 	{
 		commandAmount++;
 		if (commands[i] == nullptr)
@@ -85,7 +86,7 @@ void vm::VM::initCommands(Command** commands)
 
 		this->commands[i] = commands[i];
 	}
-	currentCommandAmount = commandAmount;
+	currentCommandAmount = commandAmount - 1;
 }
 
 void vm::VM::runCommand(int line)
@@ -99,7 +100,7 @@ void vm::VM::runCommand(int line)
 	}
 	catch (Exception& e)
 	{
-		throw Exception(genExceptionStr(line));
+		throw Exception(genExceptionStr(line), e);
 	}
 }
 
@@ -120,6 +121,6 @@ void vm::VM::addCommand(Command* command)
 {
 	if (currentCommandAmount == maxCommandAmount)
 		throw Exception("Command amount out of range");
-	commands[currentCommandAmount] = command;
+	commands[currentCommandAmount + 1] = command;
 	currentCommandAmount++;
 }

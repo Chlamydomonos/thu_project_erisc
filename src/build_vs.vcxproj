@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{FB4A5072-4515-42D9-B449-09E59B6FC3F4}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(ProjectDir)..\vs_build</OutDir>
+    <IntDir>$(ProjectDir)..\vs_build</IntDir>
+    <TargetName>thu_project_erisc</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(ProjectDir)..\vs_build</OutDir>
+    <IntDir>$(ProjectDir)..\vs_build</IntDir>
+    <TargetName>thu_project_erisc</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)..\vs_build</OutDir>
+    <IntDir>$(ProjectDir)..\vs_build</IntDir>
+    <TargetName>thu_project_erisc</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)..\vs_build</OutDir>
+    <IntDir>$(ProjectDir)..\vs_build</IntDir>
+    <TargetName>thu_project_erisc</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PostBuildEvent>
+      <Command>$(ProjectDir)copy_files.bat "$(ProjectDir)" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PostBuildEvent>
+      <Command>$(ProjectDir)copy_files.bat "$(ProjectDir)" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PostBuildEvent>
+      <Command>$(ProjectDir)copy_files.bat "$(ProjectDir)" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PostBuildEvent>
+      <Command>$(ProjectDir)copy_files.bat "$(ProjectDir)" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="command\command.cpp" />
+    <ClCompile Include="command\commands\add.cpp" />
+    <ClCompile Include="command\commands\and.cpp" />
+    <ClCompile Include="command\commands\beq.cpp" />
+    <ClCompile Include="command\commands\bge.cpp" />
+    <ClCompile Include="command\commands\blt.cpp" />
+    <ClCompile Include="command\commands\bne.cpp" />
+    <ClCompile Include="command\commands\call.cpp" />
+    <ClCompile Include="command\commands\div.cpp" />
+    <ClCompile Include="command\commands\draw.cpp" />
+    <ClCompile Include="command\commands\end.cpp" />
+    <ClCompile Include="command\commands\jal.cpp" />
+    <ClCompile Include="command\commands\load.cpp" />
+    <ClCompile Include="command\commands\mov.cpp" />
+    <ClCompile Include="command\commands\mul.cpp" />
+    <ClCompile Include="command\commands\or.cpp" />
+    <ClCompile Include="command\commands\pop.cpp" />
+    <ClCompile Include="command\commands\push.cpp" />
+    <ClCompile Include="command\commands\rem.cpp" />
+    <ClCompile Include="command\commands\ret.cpp" />
+    <ClCompile Include="command\commands\store.cpp" />
+    <ClCompile Include="command\commands\sub.cpp" />
+    <ClCompile Include="command\lineid.cpp" />
+    <ClCompile Include="exception\exception.cpp" />
+    <ClCompile Include="fuckide\fuckide.cpp" />
+    <ClCompile Include="image\canvas.cpp" />
+    <ClCompile Include="io\imageconfigreader.cpp" />
+    <ClCompile Include="io\inpututil.cpp" />
+    <ClCompile Include="io\output.cpp" />
+    <ClCompile Include="io\textreader.cpp" />
+    <ClCompile Include="io\vmconfigreader.cpp" />
+    <ClCompile Include="vm\ememory.cpp" />
+    <ClCompile Include="vm\eregister.cpp" />
+    <ClCompile Include="vm\estack.cpp" />
+    <ClCompile Include="vm\lineidlist.cpp" />
+    <ClCompile Include="vm\vm.cpp" />
+    <ClCompile Include="vs_main\main.cpp" />
+    <ClCompile Include="vs_main\testmain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="command\allcommands.h" />
+    <ClInclude Include="command\command.h" />
+    <ClInclude Include="command\commands\add.h" />
+    <ClInclude Include="command\commands\and.h" />
+    <ClInclude Include="command\commands\beq.h" />
+    <ClInclude Include="command\commands\bge.h" />
+    <ClInclude Include="command\commands\blt.h" />
+    <ClInclude Include="command\commands\bne.h" />
+    <ClInclude Include="command\commands\call.h" />
+    <ClInclude Include="command\commands\div.h" />
+    <ClInclude Include="command\commands\draw.h" />
+    <ClInclude Include="command\commands\end.h" />
+    <ClInclude Include="command\commands\jal.h" />
+    <ClInclude Include="command\commands\load.h" />
+    <ClInclude Include="command\commands\mov.h" />
+    <ClInclude Include="command\commands\mul.h" />
+    <ClInclude Include="command\commands\or.h" />
+    <ClInclude Include="command\commands\pop.h" />
+    <ClInclude Include="command\commands\push.h" />
+    <ClInclude Include="command\commands\rem.h" />
+    <ClInclude Include="command\commands\ret.h" />
+    <ClInclude Include="command\commands\store.h" />
+    <ClInclude Include="command\commands\sub.h" />
+    <ClInclude Include="command\lineid.h" />
+    <ClInclude Include="exception\exception.h" />
+    <ClInclude Include="fuckide\fuckide.h" />
+    <ClInclude Include="image\canvas.h" />
+    <ClInclude Include="io\imageconfigreader.h" />
+    <ClInclude Include="io\inpututil.h" />
+    <ClInclude Include="io\output.h" />
+    <ClInclude Include="io\textreader.h" />
+    <ClInclude Include="io\vmconfigreader.h" />
+    <ClInclude Include="vm\ememory.h" />
+    <ClInclude Include="vm\eregister.h" />
+    <ClInclude Include="vm\estack.h" />
+    <ClInclude Include="vm\lineidlist.h" />
+    <ClInclude Include="vm\vm.h" />
+    <ClInclude Include="vs_main\testmain.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

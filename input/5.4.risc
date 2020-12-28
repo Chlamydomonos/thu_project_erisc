@@ -1,0 +1,40 @@
+//x0表示i，x1为写入内存的值，x2为i跳出循环控制变量
+//初始2到1,000,000内存全置1,是素数
+mov x0,2
+mov x1,1
+mov x2,1000001
+initial:
+store x1,x0
+add x0,x0,1
+bne x0,x2,initial
+
+//i从2遍历到1,000(地址从8到4000)注意一次+4
+mov x0,2
+mov x2,1001
+mov x1,0
+sieve:
+//如果内存值为1(非0)，从2i筛到超过1,000,000停止
+//x3接受内存的bool,读入4字节，取余只留最后一位
+load x3,x0
+rem x3,x3,2
+beq x3,x1,skip
+	//a0为循环变量j
+	mov a0,x0
+	add a0,x0,a0
+	mov a2,1000001
+	label:
+		load s2,a0
+		and s2,s2,0xFFFFFF00
+		store s2,a0
+		add a0,x0,a0
+	blt a0,a2,label
+skip:
+add x0,x0,1
+bne x0,x2,sieve
+draw
+end
+
+
+//安全存入，只改变小端1字节值，不改变其他3字节
+//重新为内存赋值
+//结束

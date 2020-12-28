@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CodeEdit</class>
+ <widget class="QWidget" name="CodeEdit">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>460</width>
+    <height>410</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="title">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>460</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Panel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="CodeText" name="text">
+   <property name="geometry">
+    <rect>
+     <x>129</x>
+     <y>30</y>
+     <width>331</width>
+     <height>380</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="lineWrapMode">
+    <enum>QTextEdit::NoWrap</enum>
+   </property>
+  </widget>
+  <widget class="LineNumberWidget" name="lineNumbers" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>30</y>
+     <width>131</width>
+     <height>380</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LineNumberWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">qt_main/linenumberwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CodeText</class>
+   <extends>QTextEdit</extends>
+   <header location="global">qt_main/codetext.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -22,10 +22,11 @@ input::TextReader::TextReader(const char* fileName)
 		for (int i = len1; i < len2; i++)
 			message[i] = fileName[i - len1];
 		for (int i = len2; i < len3; i++)
-			message[i] = fileName[i - len2];
+			message[i] = tail[i - len2];
 		message[len3] = 0;
-		throw Exception(message);
+		Exception exception(message);
 		delete[] message;
+		throw exception;
 	}
 	eof = false;
 	if (feof(file))

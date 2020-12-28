@@ -16,15 +16,15 @@ using vm::VM;
 #define NOCHR(x) (BLANK(x) || END(x))
 namespace
 {
-	bool matches(const char*& str, const char* format)
+	bool matches(const char** str, const char* format)
 	{
 		int len = strlen(format);
 		for (int i = 0; i < len; i++)
-			if (str[i] != format[i])
+			if ((*str)[i] != format[i])
 				return false;
-		if (!NOCHR(str[len]))
+		if (!NOCHR((*str)[len]))
 			return false;
-		str += len;
+		*str += len;
 		return true;
 	}
 
@@ -147,69 +147,69 @@ void erisc::Command::getParamsFromString(const char* str)
 		else if (ALPHA(*i))
 		{
 			currentParam.type = ParamType::REGISTER;
-			if (matches(i, "zero"))
+			if (matches(&i, "zero"))
 				currentParam.value = 0;
-			else if (matches(i, "ra"))
+			else if (matches(&i, "ra"))
 				currentParam.value = 1;
-			else if (matches(i, "sp"))
+			else if (matches(&i, "sp"))
 				currentParam.value = 2;
-			else if (matches(i, "gp"))
+			else if (matches(&i, "gp"))
 				currentParam.value = 3;
-			else if (matches(i, "tp"))
+			else if (matches(&i, "tp"))
 				currentParam.value = 4;
-			else if (matches(i, "t0"))
+			else if (matches(&i, "t0"))
 				currentParam.value = 5;
-			else if (matches(i, "t1"))
+			else if (matches(&i, "t1"))
 				currentParam.value = 6;
-			else if (matches(i, "t2"))
+			else if (matches(&i, "t2"))
 				currentParam.value = 7;
-			else if (matches(i, "fp"))
+			else if (matches(&i, "fp"))
 				currentParam.value = 8;
-			else if (matches(i, "s1"))
+			else if (matches(&i, "s1"))
 				currentParam.value = 9;
-			else if (matches(i, "a0"))
+			else if (matches(&i, "a0"))
 				currentParam.value = 10;
-			else if (matches(i, "a1"))
+			else if (matches(&i, "a1"))
 				currentParam.value = 11;
-			else if (matches(i, "a2"))
+			else if (matches(&i, "a2"))
 				currentParam.value = 12;
-			else if (matches(i, "a3"))
+			else if (matches(&i, "a3"))
 				currentParam.value = 13;
-			else if (matches(i, "a4"))
+			else if (matches(&i, "a4"))
 				currentParam.value = 14;
-			else if (matches(i, "a5"))
+			else if (matches(&i, "a5"))
 				currentParam.value = 15;
-			else if (matches(i, "a6"))
+			else if (matches(&i, "a6"))
 				currentParam.value = 16;
-			else if (matches(i, "a7"))
+			else if (matches(&i, "a7"))
 				currentParam.value = 17;
-			else if (matches(i, "s2"))
+			else if (matches(&i, "s2"))
 				currentParam.value = 18;
-			else if (matches(i, "s3"))
+			else if (matches(&i, "s3"))
 				currentParam.value = 19;
-			else if (matches(i, "s4"))
+			else if (matches(&i, "s4"))
 				currentParam.value = 20;
-			else if (matches(i, "s5"))
+			else if (matches(&i, "s5"))
 				currentParam.value = 21;
-			else if (matches(i, "s6"))
+			else if (matches(&i, "s6"))
 				currentParam.value = 22;
-			else if (matches(i, "s7"))
+			else if (matches(&i, "s7"))
 				currentParam.value = 23;
-			else if (matches(i, "s8"))
+			else if (matches(&i, "s8"))
 				currentParam.value = 24;
-			else if (matches(i, "s9"))
+			else if (matches(&i, "s9"))
 				currentParam.value = 25;
-			else if (matches(i, "s10"))
+			else if (matches(&i, "s10"))
 				currentParam.value = 26;
-			else if (matches(i, "s11"))
+			else if (matches(&i, "s11"))
 				currentParam.value = 27;
-			else if (matches(i, "t3"))
+			else if (matches(&i, "t3"))
 				currentParam.value = 28;
-			else if (matches(i, "t4"))
+			else if (matches(&i, "t4"))
 				currentParam.value = 29;
-			else if (matches(i, "t5"))
+			else if (matches(&i, "t5"))
 				currentParam.value = 30;
-			else if (matches(i, "t6"))
+			else if (matches(&i, "t6"))
 				currentParam.value = 31;
 			else if (isLineId(i))
 			{

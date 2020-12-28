@@ -7,7 +7,7 @@
 #include "commands/bge.h"
 #include "commands/blt.h"
 #include "commands/bne.h"
-#include "commands/cal.h"
+#include "commands/call.h"
 #include "commands/div.h"
 #include "commands/draw.h"
 #include "commands/end.h"
