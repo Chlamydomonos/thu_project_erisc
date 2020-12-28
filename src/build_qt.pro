@@ -22,6 +22,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+DEFINES += QT_IN_PROJECT=\\\"yes\\\"
+
 CONFIG += c++11
 
 SOURCES += \
@@ -67,7 +69,9 @@ SOURCES += \
     qt_main/codeedit.cpp \
     qt_main/codetext.cpp \
     qt_main/codehighlighter.cpp \
-    qt_main/paramtest.cpp
+    qt_main/paramtest.cpp \
+    qt_main/drawarea.cpp \
+    qt_main/textconsole.cpp
 
 HEADERS += \
     qt_main/mainwindow.h \
@@ -112,13 +116,18 @@ HEADERS += \
     qt_main/codeedit.h \
     qt_main/codetext.h \
     qt_main/codehighlighter.h \
-    qt_main/paramtest.h
+    qt_main/paramtest.h \
+    qt_main/drawarea.h \
+    qt_main/textconsole.h
 
 FORMS += \
     qt_main/mainwindow.ui \
-    qt_main/codeedit.ui
+    qt_main/codeedit.ui \
+    qt_main/drawarea.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+QMAKE_POST_LINK += "..\\..\\src\\copy_files_qt.bat ..\\..\\src"

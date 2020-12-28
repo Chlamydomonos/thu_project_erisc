@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "../vm/vm.h"
 
 namespace Ui {
 class MainWindow;
@@ -21,12 +22,19 @@ private slots:
     void saveFile();
     void saveAs();
     void updateText();
+    void run();
+    void updateDrawArea();
+    void runByLine();
+    void loadCommands();
+    void handleInput(const QString&);
 
 private:
     Ui::MainWindow *ui;
     QString currentFileName;
     bool fileChanged;
     bool isNewFile;
+    vm::VM* vm;
+    bool handleUnsavedChanges();
 };
 
 #endif // MAINWINDOW_H

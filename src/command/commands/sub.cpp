@@ -22,6 +22,6 @@ void erisc::Sub::run(VM* vm) {
 		vm->getRegister(address)->write(value);
 	}
 	catch (Exception& e) {
-		throw("Failed to run command\"sub\"", e);
+        throw Exception("Failed to run command\"sub\"", e);
 	}
 }

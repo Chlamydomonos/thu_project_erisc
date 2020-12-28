@@ -6,6 +6,10 @@
 #include "estack.h"
 #include "lineidlist.h"
 
+#ifdef QT_IN_PROJECT
+#include <QObject>
+#endif
+
 #define REGISTER_AMOUNT 32
 
 namespace erisc
@@ -19,17 +23,32 @@ namespace vm
 	/**
 	* @brief 虚拟机。拥有一个4MB内存，32个寄存器与一个4MB栈
 	*/
-	class VM
-	{
-	public:
-		/**
-		* @brief 构造函数
-		* @param maxCommands 虚拟机能储存的最大指令数量
-		*/
-		VM(int maxCommands);
-		~VM();
+#ifndef QT_IN_PROJECT
+        class VM
+        {
+        public:
+            /**
+            * @brief 构造函数
+            * @param maxCommands 虚拟机能储存的最大指令数量
+            */
+            VM(int maxCommands);
+            ~VM();
+#else
+        class VM : public QObject
+        {
+            Q_OBJECT
 
-		/*
+        signals:
+            void draw();
+
+        public slots:
+            void emitDraw();
+        public:
+            explicit VM(int maxCommands, QObject* parent = nullptr);
+            ~VM() override;
+#endif
+
+        /**
 		* @brief 获取虚拟机的内存
 		* @return 虚拟机的内存
 		*/
@@ -77,6 +96,8 @@ namespace vm
 		* @param command 要添加的指令
 		*/
 		void addCommand(erisc::Command* command);
+
+        int getCurrentCommandAmount();
 
 		///目前正在运行的指令的行号
 		int currentRunningLine;

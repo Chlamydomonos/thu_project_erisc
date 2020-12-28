@@ -3,6 +3,12 @@
 
 #include "../vm/vm.h"
 
+#ifdef QT_IN_PROJECT
+
+#include <QObject>
+
+#endif
+
 namespace erisc
 {
 	/**
@@ -57,12 +63,20 @@ namespace erisc
 		*/
 		int getValue(vm::VM *vm);
 	};
-
+#ifndef QT_IN_PROJECT
 	/*
 	* @brief 命令的基类，其它命令需要继承它
 	*/
 	class Command
+#else
+    class Command : public QObject
+#endif
 	{
+#ifdef QT_IN_PROJECT
+        Q_OBJECT
+    signals:
+        void draw();
+#endif
 	public:
 		/**
 		* @brief 创建参数数量为0的命令

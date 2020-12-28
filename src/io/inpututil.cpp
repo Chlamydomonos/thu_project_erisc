@@ -157,6 +157,9 @@ Command* input::readSingleCommand(const char* str, vm::VM* vm, int lineNum)
 		else if (matches(&str, "draw"))
 		{
 			Command* temp = new Draw();
+#ifdef QT_IN_PROJECT
+            vm->connect(temp, SIGNAL(draw()), vm, SLOT(emitDraw()));
+#endif
 			return temp;
 		}
 		else if (matches(&str, "end"))

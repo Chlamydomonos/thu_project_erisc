@@ -22,6 +22,6 @@ void erisc::Add::run(VM* vm) {
 		vm->getRegister(address)->write(value);
 	}
 	catch (Exception& e) {
-		throw("Failed to run command\"add\"", e);
+        throw Exception("Failed to run command\"add\"", e);
 	}
 }

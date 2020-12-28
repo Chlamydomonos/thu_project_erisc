@@ -115,6 +115,9 @@ void erisc::Draw::run(vm::VM* vm)
 		delete register_blue;
 		delete register_red;
 		delete register_purple;
+#ifdef QT_IN_PROJECT
+        emit draw();
+#endif
 		vm->getStack()->clearHistory();
 		vm->getMemory()->clearHistory();
 		for (int i = 0; i < 32; i++)

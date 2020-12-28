@@ -22,7 +22,7 @@ void erisc::Rem::run(VM* vm) {
 		vm->getRegister(address)->write(value);
 	}
 	catch (Exception& e) {
-		throw("Failed to run command\"rem\"", e);
+        throw Exception("Failed to run command\"rem\"", e);
 	}
 }
 

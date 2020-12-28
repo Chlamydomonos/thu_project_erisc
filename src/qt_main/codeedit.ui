@@ -22,6 +22,11 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI</family>
+    </font>
+   </property>
    <property name="frameShape">
     <enum>QFrame::Panel</enum>
    </property>

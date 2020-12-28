@@ -32,7 +32,7 @@ void CodeHighlighter::highlightBlock(const QString &text)
     errorCommand.setFontUnderline(true);
 
     QRegularExpression commandNames("\\s*((add|and|beq|bge|blt|bne|call|div|jal|load|mov|mul|or|pop|push|rem|store|sub)\\s+)");
-    QRegularExpression commandsWithoutParams("draw|end|ret");
+    QRegularExpression commandsWithoutParams("\\s*(draw|end|ret)\\s*");
     QRegularExpressionMatchIterator i0 = commandNames.globalMatch(text);
     if(i0.hasNext())
     {

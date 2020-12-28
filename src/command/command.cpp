@@ -76,8 +76,11 @@ int erisc::Param::getValue(VM* vm)
 		}
 	}
 }
-
+#ifndef QT_IN_PROJECT
 erisc::Command::Command()
+#else
+erisc::Command::Command() : QObject ()
+#endif
 {
 	paramAmount = 0;
 	params = nullptr;

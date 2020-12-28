@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
+    <width>870</width>
     <height>667</height>
    </rect>
   </property>
@@ -24,28 +24,12 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="console">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>440</y>
-      <width>850</width>
-      <height>140</height>
-     </rect>
-    </property>
-    <property name="lineWrapMode">
-     <enum>QPlainTextEdit::NoWrap</enum>
-    </property>
-   </widget>
-   <widget class="QWidget" name="drawArea" native="true">
+   <widget class="DrawArea" name="drawArea" native="true">
     <property name="geometry">
      <rect>
       <x>460</x>
       <y>0</y>
-      <width>390</width>
+      <width>410</width>
       <height>410</height>
      </rect>
     </property>
@@ -55,9 +39,15 @@
      <rect>
       <x>0</x>
       <y>410</y>
-      <width>850</width>
+      <width>870</width>
       <height>30</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Microsoft YaHei UI</family>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="frameShape">
      <enum>QFrame::WinPanel</enum>
@@ -69,13 +59,23 @@
      <string> 控制台</string>
     </property>
    </widget>
+   <widget class="TextConsole" name="console">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>440</y>
+      <width>870</width>
+      <height>130</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>850</width>
+     <width>870</width>
      <height>29</height>
     </rect>
    </property>
@@ -279,6 +279,17 @@
     <slot>undo()</slot>
     <slot>redo()</slot>
    </slots>
+  </customwidget>
+  <customwidget>
+   <class>DrawArea</class>
+   <extends>QWidget</extends>
+   <header location="global">qt_main/drawarea.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TextConsole</class>
+   <extends>QPlainTextEdit</extends>
+   <header location="global">qt_main/textconsole.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

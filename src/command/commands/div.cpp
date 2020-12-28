@@ -22,6 +22,6 @@ void erisc::Div::run(VM* vm) {
 		vm->getRegister(address)->write(value);
 	}
 	catch (Exception& e) {
-		throw("Failed to run command\"div\"", e);
+        throw Exception("Failed to run command\"div\"", e);
 	}
 }

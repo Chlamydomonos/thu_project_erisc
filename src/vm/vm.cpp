@@ -29,9 +29,18 @@ namespace
 }
 
 using erisc::Command;
-
+#ifndef QT_IN_PROJECT
 vm::VM::VM(int maxCommands)
+#else
+void vm::VM::emitDraw()
 {
+    emit draw();
+}
+
+vm::VM::VM(int maxCommands, QObject* parent) : QObject (parent)
+#endif
+{
+
 	maxCommandAmount = maxCommands;
 	eMemory = new EMemory();
 	eRegister = new ERegister[REGISTER_AMOUNT];
@@ -122,5 +131,10 @@ void vm::VM::addCommand(Command* command)
 	if (currentCommandAmount == maxCommandAmount)
 		throw Exception("Command amount out of range");
 	commands[currentCommandAmount + 1] = command;
-	currentCommandAmount++;
+    currentCommandAmount++;
+}
+
+int vm::VM::getCurrentCommandAmount()
+{
+    return currentCommandAmount;
 }
