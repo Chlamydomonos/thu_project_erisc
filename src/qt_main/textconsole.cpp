@@ -3,7 +3,7 @@
 
 TextConsole::TextConsole(QWidget* parent) : QPlainTextEdit (parent)
 {
-
+    setTabStopWidth(fontMetrics().width("a") * 4);
 }
 
 void TextConsole::deleteFirstLine()
@@ -35,6 +35,11 @@ void TextConsole::keyPressEvent(QKeyEvent *e)
         else if(k == Qt::Key_Backspace)
         {
             if(!(cursor.block().blockNumber() < this->blockCount() - 1 || cursor.positionInBlock() < 3))
+                QPlainTextEdit::keyPressEvent(e);
+        }
+        else if(k == Qt::Key_Delete)
+        {
+            if(!(cursor.block().blockNumber() < this->blockCount() - 1 || cursor.positionInBlock() < 2))
                 QPlainTextEdit::keyPressEvent(e);
         }
         else if(k == Qt::Key_Return)

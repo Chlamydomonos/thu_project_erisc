@@ -38,6 +38,7 @@ DrawArea QFrame
 QToolBar, QToolButton
 {
     background-color: blue;
+    color: yellow;
 }
 
 QMenuBar::item:selected

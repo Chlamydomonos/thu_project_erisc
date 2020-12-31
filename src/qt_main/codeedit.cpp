@@ -13,6 +13,7 @@ CodeEdit::CodeEdit(QWidget *parent) :
     connect(ui->text->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(updateLineNumbers()));
     highlighter = new CodeHighlighter(ui->text->document());
     connect(ui->text,SIGNAL(textChanged()), this, SLOT(updateLineIdList()));
+    ui->text->setTabStopWidth(4 * fontMetrics().width("a"));
 }
 
 CodeEdit::~CodeEdit()

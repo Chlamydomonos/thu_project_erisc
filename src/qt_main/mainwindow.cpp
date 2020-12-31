@@ -196,7 +196,7 @@ void MainWindow::run()
             delete vm;
             vm = nullptr;
         }
-        ui->console->setPlainText("Error occurred running file \"" + currentFileName + "\"" + e.what());
+        ui->console->setPlainText("Error occurred running file \"" + currentFileName + "\":\n" + e.what());
     }
 }
 
@@ -245,7 +245,7 @@ void MainWindow::loadCommands()
             delete vm;
             vm = nullptr;
         }
-        ui->console->setPlainText("Error occurred running file \"" + currentFileName + "\"" + e.what());
+        ui->console->setPlainText("Error occurred running file \"" + currentFileName + "\":\n" + e.what());
         ui->run->setEnabled(true);
         ui->loadCommand->setEnabled(true);
         ui->runByLine->setEnabled(true);

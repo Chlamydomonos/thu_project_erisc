@@ -40,9 +40,9 @@
   <widget class="CodeText" name="text">
    <property name="geometry">
     <rect>
-     <x>129</x>
+     <x>-1</x>
      <y>30</y>
-     <width>331</width>
+     <width>461</width>
      <height>380</height>
     </rect>
    </property>
@@ -70,6 +70,9 @@
     </font>
    </property>
   </widget>
+  <zorder>lineNumbers</zorder>
+  <zorder>title</zorder>
+  <zorder>text</zorder>
  </widget>
  <customwidgets>
   <customwidget>
