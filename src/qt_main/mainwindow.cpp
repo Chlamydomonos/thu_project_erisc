@@ -236,7 +236,7 @@ void MainWindow::loadCommands()
         ui->loadCommand->setEnabled(false);
         ui->runByLine->setEnabled(false);
         connect(ui->console, SIGNAL(commandInputed(const QString&)), this, SLOT(handleInput(const QString&)));
-        ui->console->setPlainText("Console started, iinput \"end\" to stop\n> ");
+        ui->console->setPlainText("Console started, input \"end\" to stop\n> ");
     }
     catch(Exception& e)
     {
@@ -254,36 +254,39 @@ void MainWindow::loadCommands()
 
 void MainWindow::handleInput(const QString & str)
 {
-    try
+    if(vm != nullptr)
     {
-        ui->console->appendPlainText("\n> ");
-        erisc::Command* command = input::readSingleCommand(str.toLatin1(), vm, vm->getCurrentCommandAmount() + 1);
-        vm->addCommand(command);
-        while(vm->currentRunningLine <= vm->getCurrentCommandAmount() && !vm->end)
-            vm->runCurrentCommand();
-        if(vm->end)
+        try
         {
+            ui->console->appendPlainText("\n> ");
+            erisc::Command* command = input::readSingleCommand(str.toLatin1(), vm, vm->getCurrentCommandAmount() + 1);
+            vm->addCommand(command);
+            while(vm->currentRunningLine <= vm->getCurrentCommandAmount() && !vm->end)
+                vm->runCurrentCommand();
+            if(vm->end)
+            {
+                ui->console->setReadOnly(true);
+                ui->run->setEnabled(true);
+                ui->loadCommand->setEnabled(true);
+                ui->runByLine->setEnabled(true);
+                delete vm;
+                vm = nullptr;
+                ui->console->setPlainText("VM has ended successfully");
+            }
+        }
+        catch(Exception& e)
+        {
+            if(vm != nullptr)
+            {
+                delete vm;
+                vm = nullptr;
+            }
             ui->console->setReadOnly(true);
+            ui->console->setPlainText(QString(e.what()));
             ui->run->setEnabled(true);
             ui->loadCommand->setEnabled(true);
             ui->runByLine->setEnabled(true);
-            delete vm;
-            vm = nullptr;
-            ui->console->setPlainText("VM has ended successfully");
         }
-    }
-    catch(Exception& e)
-    {
-        if(vm != nullptr)
-        {
-            delete vm;
-            vm = nullptr;
-        }
-        ui->console->setReadOnly(true);
-        ui->console->setPlainText(QString(e.what()));
-        ui->run->setEnabled(true);
-        ui->loadCommand->setEnabled(true);
-        ui->runByLine->setEnabled(true);
     }
 }
 
@@ -292,14 +295,17 @@ void MainWindow::handleRunningByLine()
     try
     {
         if(vm->end)
+        {
             stopRunningByLine();
+            return;
+        }
         int lineNum = vm->currentRunningLine;
 
         ui->console->appendPlainText(ui->codeEdit->getLine(lineNum));
 
         vm->runCurrentCommand();
 
-        while(ui->console->blockCount() > 3)
+        while(ui->console->blockCount() > 1000)
             ui->console->deleteFirstLine();
     }
     catch(Exception& e)

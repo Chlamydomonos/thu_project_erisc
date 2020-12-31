@@ -5,7 +5,7 @@
 
 namespace
 {
-    QString _registerParam("x([1-2]?[0-9]|30|31)|zero|ra|sp|gp|tp|t[0-6]|fp|s[1-9]|s10|s11|a[0-7]");
+    QString _registerParam("x30|x31|x[1-2]?[0-9]|zero|ra|sp|gp|tp|t[0-6]|fp|s10|s11|s[1-9]|a[0-7]");
     QString _bigIntParam("-2147483648|(-)?(214748364[0-7]|21474836[0-3][0-9]|2147483[0-5][0-9]{2}|214748[0-2][0-9]{3}|21474[0-7][0-9]{4}|2147[0-3][0-9]{5}|214[0-6][0-9]{6}|21[0-3][0-9]{7}|20[0-9]{8}|1[0-9]{9})");
     QString _numberParam = "0x0*[0-9A-Fa-f]{0,8}+|" + _bigIntParam + "|(-)?[1-9][0-9]{0,8}|0";
     QRegularExpression registerParam(_registerParam);

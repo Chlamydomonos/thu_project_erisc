@@ -10,4 +10,7 @@
         <file>chlamydomonos.png</file>
         <file>high_contrast.png</file>
     </qresource>
+    <qresource prefix="/icon">
+        <file>icon.ico</file>
+    </qresource>
 </RCC>

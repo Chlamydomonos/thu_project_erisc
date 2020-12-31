@@ -9,6 +9,8 @@ int main(int argc, char *argv[])
     w.setFixedSize(w.size());
     w.show();
     w.setApp(&a);
+    w.setWindowTitle("THU Project ERISC");
+    w.setWindowIcon(QIcon(":/icon/icon.ico"));
 
     QFile configFile("skin.cfg");
     configFile.open(QIODevice::ReadOnly);

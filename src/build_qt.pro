@@ -26,6 +26,8 @@ DEFINES += QT_IN_PROJECT=\\\"yes\\\"
 
 CONFIG += c++11
 
+RC_ICONS = qt_main/icon.ico
+
 SOURCES += \
     qt_main/main.cpp \
     qt_main/mainwindow.cpp \

@@ -48,7 +48,7 @@ void DrawArea::draw(vm::VM* vm)
             memory[i]->setStyleSheet("");
     }
     if(vm->getStack()->getAccessed())
-        stack->setStyleSheet("background-color: rgb(128, 255, 0);");
+        stack->setStyleSheet("background-color: rgb(255, 128, 0);");
     else
         stack->setStyleSheet("");
 }
